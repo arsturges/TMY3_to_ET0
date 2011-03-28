@@ -1,0 +1,46 @@
+Category,Crop Name,FAO_Category,FAO_Crop
+hay,alfalfa hay,Forages,Alfalfa Hay
+legumes,austrian winter peas,Legumes,Beans (dry)
+grain,barley,Cereals,Barley/Oats/Wheat
+grain,buckwheat,Cereals,Barley/Oats/Wheat
+oilseed,canola,Oil Crops,Safflower
+grain,corn,Cereals,Maize (grain)
+silage,corn for silage,Forages,Maize (grain)
+fiber,cotton,Fibre Crops,Cotton
+legumes,dry edible beans,Legumes,Beans (dry)
+legumes,dry edible peas,Legumes,Peas (dry)
+legumes,dry lima beans,Legumes,Beans (dry)
+legumes,dry southern peas,Legumes,Peas (dry)
+grain,durum wheat,Cereals,Barley/Oats/Wheat
+grain,emmer and spelt,Cereals,Grains (small)
+oilseed,flaxseed,Oil Crops,Safflower
+silage,haylage from alfalfa,Forages,Alfalfa Hay
+silage,haylage other,Forages,Alfalfa Hay
+legumes,lentils,Legumes,Lentil
+seed,mustard seed,Oil Crops,Safflower
+grain,oats,Cereals,Barley/Oats/Wheat
+silage,other haylage,Forages,Alfalfa Hay
+grain,other spring wheat,Cereals,Barley/Oats/Wheat
+hay,other tame hay,Forages,Alfalfa Hay
+oilseed,peanuts,Legumes,Peanuts
+grain,popcorn shelled,Cereals,Maize (grain)
+grain,proso millet,Cereals,Millet
+oilseed,rapeseed,Oil Crops,Safflower
+grain,rice,Cereals,Rice
+grain,rye,Cereals,Barley/Oats/Wheat
+oilseed,safflower,Oil Crops,Safflower
+hay,small grain hay,Forages,Alfalfa Hay
+grain,sorghum,Cereals,Sorghum
+silage,sorghum for silage,Forages,Alfalfa Hay
+legumes,soybeans,Legumes,Soybeans
+sugar,sugarbeets,Roots and Tubers,Sugarbeet
+sugar,sugarcane,Sugar Cane,Sugar Cane
+oilseed,sunflower,Oil Crops,Sunflower
+oilseed,sunflower seed all,Oil Crops,Sunflower
+tobacco,tobacco,Fibre Crops,Cotton
+grain,triticale,Cereals,Barley/Oats/Wheat
+grain,wheat durum,Cereals,Barley/Oats/Wheat
+grain,wheat other spring,Cereals,Barley/Oats/Wheat
+hay,wild hay,Forages,Alfalfa Hay
+grain,wild rice,Cereals,Rice
+grain,winter wheat,Cereals,Winter Wheat

@@ -1,0 +1,672 @@
+Category,Units,Crop,State,Subregion,Acres07,IrrAcr07,Qty07,Acres02,IrrAcr02,Qty02
+fiber,bales,cotton,Alabama,none,382566,22484,407598,523123,32654,567569
+legumes,bushels,dry southern peas,Alabama,none,,,,233,14,3253
+grain,bushels,oats,Alabama,none,16111,320,905087,13531,57,591232
+silage,tons green,other haylage,Alabama,none,25363,252,48364,10025,,38498
+hay,tons dry,other tame hay,Alabama,none,728982,8915,1388325,713951,8025,1686960
+oilseed,pounds,peanuts,Alabama,none,158424,11044,396914610,176395,12534,373313101
+grain,bushels,rye,Alabama,none,4034,18,74976,5985,,103691
+hay,tons dry,small grain hay,Alabama,none,46537,1077,93747,33935,397,69645
+hay,tons dry,alfalfa hay,Arizona,none,257407,257263,1968043,232579,232579,1844626
+grain,bushels,barley,Arizona,none,31129,31129,3396006,39199,39199,4269681
+fiber,bales,cotton,Arizona,none,171300,171300,513758,222722,222722,626649
+legumes,bushels,dry southern peas,Arizona,none,1452,1452,20550,,,
+grain,bushels,durum wheat,Arizona,none,81523,81523,8362197,93592,93592,9043827
+silage,tons green,haylage from alfalfa,Arizona,none,46007,46007,167265,39558,39558,157367
+silage,tons,sorghum for silage,Arizona,none,20969,20967,396620,8327,8327,173833
+hay,tons dry,wild hay,Arizona,none,48697,48697,194156,41212,41212,166316
+fiber,bales,cotton,Arkansas,none,854410,687334,1902073,921316,711970,1655956
+hay,tons dry,other tame hay,Arkansas,none,1156999,17172,2615529,1166323,12752,2732559
+grain,cwt,rice,Arkansas,none,1326377,1326377,96033069,1506615,1506615,97254798
+grain,bushels,sorghum,Arkansas,none,216432,76032,20761820,203527,54537,15738086
+legumes,bushels,soybeans,Arkansas,none,2819478,1843833,98903025,2888018,1673319,96257992
+grain,bushels,winter wheat,Arkansas,none,696681,65896,27859060,770551,43179,34967687
+hay,tons dry,alfalfa hay,California,none,986982,963086,7057014,1176021,1151351,7966902
+grain,bushels,barley,California,none,44125,23999,2872476,74721,46381,5266774
+silage,tons,corn for silage,California,none,460614,460514,12019578,393694,391300,10117296
+fiber,bales,cotton,California,none,471378,471378,1418751,694653,694653,2056964
+legumes,cwt,dry edible beans,California,none,34002,30134,709841,58420,57843,1234989
+legumes,cwt,dry lima beans,California,none,28786,28213,673392,44546,42281,1039088
+silage,tons green,haylage from alfalfa,California,none,82812,78944,544721,95891,91742,633052
+grain,bushels,oats,California,none,25993,18141,2595144,34319,17196,2798145
+silage,tons green,other haylage,California,none,223004,192990,3080551,174196,143132,2091820
+hay,tons dry,other tame hay,California,none,248401,214774,1078499,251058,212243,963675
+grain,cwt,rice,California,none,531075,531075,43018947,531314,531314,43581796
+oilseed,pounds,safflower,California,none,47550,29892,112031287,97440,49434,208919130
+hay,tons dry,small grain hay,California,none,252097,181178,652287,315166,159852,863751
+silage,tons,sorghum for silage,California,none,30085,29457,536162,6020,4833,94009
+sugar,tons,sugarbeets,California,none,42984,42984,1539394,55692,55680,2063080
+oilseed,pounds,sunflower seed all,California,none,27913,23937,29776645,18129,15366,21455613
+grain,bushels,triticale,California,none,3960,2594,374765,551,,13516
+hay,tons dry,wild hay,California,none,305816,271934,3625272,270087,234874,2724872
+grain,cwt,wild rice,California,none,20873,20873,322694,13871,13871,178187
+grain,bushels,winter wheat,California,none,249704,196420,20157552,313495,243950,23935058
+hay,tons dry,alfalfa hay,Colorado,none,861053,707234,2887865,770432,654024,2105340
+grain,bushels,barley,Colorado,none,59667,54440,7179416,82147,78013,8704401
+grain,bushels,corn,Colorado,none,1054844,635630,140523805,708197,634015,102653083
+silage,tons,corn for silage,Colorado,none,111116,91488,2327377,142853,119992,2369058
+legumes,cwt,dry edible beans,Colorado,none,46629,30790,785848,82721,81548,1778029
+silage,tons green,haylage from alfalfa,Colorado,none,22484,20479,117509,14412,11963,83146
+silage,tons green,other haylage,Colorado,none,36001,18324,141754,12256,7319,50576
+hay,tons dry,other tame hay,Colorado,none,421719,268397,758985,298765,175009,363839
+grain,bushels,proso millet,Colorado,none,258592,3942,8476657,113684,2073,1209096
+oilseed,pounds,safflower,Colorado,none,2017,,1948170,1907,,1078840
+hay,tons dry,small grain hay,Colorado,none,126159,56516,267737,70838,35087,124120
+grain,bushels,sorghum,Colorado,none,153196,10818,5750890,89568,8542,1879280
+silage,tons,sorghum for silage,Colorado,none,13128,8374,167647,17628,6855,118784
+sugar,tons,sugarbeets,Colorado,none,29235,29235,764791,39350,39350,798695
+oilseed,pounds,sunflower seed all,Colorado,none,112991,15064,124244896,69306,13372,49517380
+grain,bushels,triticale,Colorado,none,4453,1022,169135,649,337,14404
+hay,tons dry,wild hay,Colorado,none,58485,38803,259263,26668,19282,133722
+grain,bushels,winter wheat,Colorado,none,2343606,148489,86598055,1647856,127263,36056384
+legumes,bushels,dry southern peas,Florida,north,2546,191,30798,6503,261,52046
+silage,tons green,other haylage,Florida,north,38252,,215426,32187,6135,217758
+hay,tons dry,other tame hay,Florida,north,284169,28641,917175,240911,24445,687039
+oilseed,pounds,peanuts,Florida,north,118637,27044,341137148,76459,20312,210036443
+grain,bushels,rye,Florida,north,3887,472,50549,4905,212,58354
+silage,tons,sorghum for silage,Florida,north,4290,2814,48495,3524,1927,35053
+sugar,tons,sugarcane,Florida,north,378587,378587,14127121,440768,433043,16174145
+hay,tons dry,wild hay,Florida,north,39262,9559,222603,33578,6920,224732
+legumes,bushels,dry southern peas,Florida,south,2546,191,30798,6503,261,52046
+silage,tons green,other haylage,Florida,south,38252,,215426,32187,6135,217758
+hay,tons dry,other tame hay,Florida,south,284169,28641,917175,240911,24445,687039
+oilseed,pounds,peanuts,Florida,south,118637,27044,341137148,76459,20312,210036443
+grain,bushels,rye,Florida,south,3887,472,50549,4905,212,58354
+silage,tons,sorghum for silage,Florida,south,4290,2814,48495,3524,1927,35053
+sugar,tons,sugarcane,Florida,south,378587,378587,14127121,440768,433043,16174145
+hay,tons dry,wild hay,Florida,south,39262,9559,222603,33578,6920,224732
+silage,tons,corn for silage,Georgia,none,38657,22519,676293,30847,18096,541116
+fiber,bales,cotton,Georgia,none,996427,309442,1628260,1267150,327866,1564995
+legumes,bushels,dry southern peas,Georgia,none,652,501,12290,,,
+grain,bushels,oats,Georgia,none,28770,4106,1535663,23056,2237,1287164
+silage,tons green,other haylage,Georgia,none,24784,6220,120642,16149,2947,105497
+hay,tons dry,other tame hay,Georgia,none,558825,30609,1169839,542983,17403,1295545
+oilseed,pounds,peanuts,Georgia,none,518719,182332,1634837229,467712,168729,1173877160
+grain,bushels,rye,Georgia,none,39633,1672,766569,34713,1828,557091
+hay,tons dry,small grain hay,Georgia,none,52877,5716,96475,36166,1451,71398
+silage,tons,sorghum for silage,Georgia,none,9982,4214,119277,12541,2169,151413
+tobacco,pounds,tobacco,Georgia,none,17989,9006,39810076,25060,16288,49998195
+hay,tons dry,alfalfa hay,Idaho,none,1037520,861092,4254543,1033827,840262,3981882
+legumes,cwt,austrian winter peas,Idaho,none,4806,,61837,7885,,137349
+grain,bushels,barley,Idaho,none,547928,352080,42464856,634476,388930,47865297
+oilseed,pounds,canola,Idaho,none,18391,,23247016,19909,1250,29637407
+silage,tons,corn for silage,Idaho,none,211748,211748,5695090,134133,,3490255
+legumes,cwt,dry edible beans,Idaho,none,88987,49435,1646970,79791,68617,1665528
+legumes,cwt,dry edible peas,Idaho,none,23819,4156,412377,36709,3284,680842
+legumes,cwt,dry lima beans,Idaho,none,643,643,14382,638,637,14241
+grain,bushels,durum wheat,Idaho,none,14485,,1166722,8434,,620629
+silage,tons green,haylage from alfalfa,Idaho,none,73411,70145,843557,54839,52557,666255
+legumes,cwt,lentils,Idaho,none,36739,,418991,58981,,751896
+seed,pounds,mustard seed,Idaho,none,1572,455,1356887,14465,,13894930
+grain,bushels,oats,Idaho,none,19629,6876,1178663,18179,6854,1244462
+grain,bushels,other spring wheat,Idaho,none,446897,265911,30456106,518218,258865,30244525
+oilseed,pounds,rapeseed,Idaho,none,,,,848,,923062
+oilseed,pounds,safflower,Idaho,none,10428,,5252340,10300,,6741401
+hay,tons dry,small grain hay,Idaho,none,62066,42946,180692,75101,51544,174915
+sugar,tons,sugarbeets,Idaho,none,163598,163598,5631170,202932,202932,4934966
+grain,bushels,triticale,Idaho,none,3369,2536,187457,650,,35931
+hay,tons dry,wild hay,Idaho,none,86749,81103,930849,72470,67518,837529
+grain,bushels,winter wheat,Idaho,none,729704,,52991573,675290,,47642293
+hay,tons dry,alfalfa hay,Illinois,none,322339,906,1138512,416997,1118,1461589
+grain,bushels,corn,Illinois,none,13096231,330642,2248664947,10742787,211167,1418566127
+silage,tons,corn for silage,Illinois,none,75247,265,1351823,109847,792,1638995
+silage,tons green,haylage from alfalfa,Illinois,none,34341,,241910,49643,,354116
+grain,bushels,oats,Illinois,none,24265,,1500658,39258,20,2839874
+silage,tons green,other haylage,Illinois,none,18252,,76891,11764,,69465
+grain,pounds,popcorn shelled,Illinois,none,24272,18394,114902563,28861,16734,98302767
+grain,bushels,rye,Illinois,none,2928,58,80079,3937,43,125295
+grain,bushels,sorghum,Illinois,none,76601,156,5960150,56921,95,4510917
+legumes,bushels,soybeans,Illinois,none,8293711,70513,353741105,10505989,116542,438990297
+hay,tons dry,wild hay,Illinois,none,52593,178,318801,61407,,423581
+grain,bushels,winter wheat,Illinois,none,891399,8119,47282936,581084,2754,27923042
+hay,tons dry,alfalfa hay,Indiana,none,241129,2185,665767,320210,2241,945169
+grain,bushels,corn,Indiana,none,6362576,268435,959947232,5123291,180305,606156476
+silage,tons,corn for silage,Indiana,none,105937,6569,1956429,116939,5222,1747847
+silage,tons green,haylage from alfalfa,Indiana,none,35116,2535,226847,27298,,170526
+hay,tons dry,other tame hay,Indiana,none,235803,297,439532,250976,93,503494
+grain,pounds,popcorn shelled,Indiana,none,55768,8369,220971578,69207,9791,219836706
+legumes,bushels,soybeans,Indiana,none,4783821,82454,211074079,5761363,84571,235450361
+hay,tons dry,wild hay,Indiana,none,48066,2633,272368,34869,826,216037
+grain,bushels,winter wheat,Indiana,none,362571,6960,19693426,299873,2862,15345210
+hay,tons dry,alfalfa hay,Iowa,none,830440,1198,3054729,1168668,1214,4183945
+grain,bushels,corn,Iowa,none,13842282,126232,2292163101,11761392,86261,1851276224
+silage,tons,corn for silage,Iowa,none,220646,1889,4138151,247269,514,4726816
+silage,tons green,haylage from alfalfa,Iowa,none,89720,267,668898,96148,,688470
+grain,bushels,oats,Iowa,none,66651,,4481462,143513,,10761952
+silage,tons green,other haylage,Iowa,none,15950,,57864,12653,,91368
+grain,pounds,popcorn shelled,Iowa,none,8856,801,35240391,14168,982,45994514
+hay,tons dry,small grain hay,Iowa,none,42744,,106481,62606,,145901
+legumes,bushels,soybeans,Iowa,none,8612810,50481,430739578,10418621,46977,487380897
+hay,tons dry,wild hay,Iowa,none,105670,267,726762,108801,,779838
+hay,tons dry,alfalfa hay,Kansas,east,793140,207455,2986134,938209,233791,3021997
+grain,bushels,corn,Kansas,east,3680278,1509702,500560815,2494179,1346807,289681829
+silage,tons,corn for silage,Kansas,east,166018,69075,2988294,307303,108872,3213232
+silage,tons green,haylage from alfalfa,Kansas,east,50718,20536,284203,36721,21639,207725
+grain,bushels,oats,Kansas,east,29761,2478,1363381,53765,731,2403129
+silage,tons green,other haylage,Kansas,east,107471,10109,528850,64277,12390,320445
+hay,tons dry,other tame hay,Kansas,east,1074207,28626,2188582,1253852,33498,2113386
+grain,bushels,rye,Kansas,east,9319,864,309317,15017,1104,432931
+hay,tons dry,small grain hay,Kansas,east,172396,18857,384572,126676,10243,185093
+grain,bushels,sorghum,Kansas,east,2625920,141668,201048807,2863487,159859,126371170
+silage,tons,sorghum for silage,Kansas,east,131125,17120,1505041,113963,15310,924207
+legumes,bushels,soybeans,Kansas,east,2591428,261588,82719224,2534974,312149,57946285
+oilseed,pounds,sunflower seed all,Kansas,east,156378,27853,220194520,119127,19714,105943758
+grain,bushels,triticale,Kansas,east,6106,815,307168,6588,1064,291269
+hay,tons dry,wild hay,Kansas,east,158189,30645,813053,100998,34029,528170
+grain,bushels,winter wheat,Kansas,east,8527780,517995,270115386,8080854,423549,262980052
+hay,tons dry,alfalfa hay,Kansas,west,793140,207455,2986134,938209,233791,3021997
+grain,bushels,corn,Kansas,west,3680278,1509702,500560815,2494179,1346807,289681829
+silage,tons,corn for silage,Kansas,west,166018,69075,2988294,307303,108872,3213232
+silage,tons green,haylage from alfalfa,Kansas,west,50718,20536,284203,36721,21639,207725
+grain,bushels,oats,Kansas,west,29761,2478,1363381,53765,731,2403129
+silage,tons green,other haylage,Kansas,west,107471,10109,528850,64277,12390,320445
+hay,tons dry,other tame hay,Kansas,west,1074207,28626,2188582,1253852,33498,2113386
+grain,bushels,rye,Kansas,west,9319,864,309317,15017,1104,432931
+hay,tons dry,small grain hay,Kansas,west,172396,18857,384572,126676,10243,185093
+grain,bushels,sorghum,Kansas,west,2625920,141668,201048807,2863487,159859,126371170
+silage,tons,sorghum for silage,Kansas,west,131125,17120,1505041,113963,15310,924207
+legumes,bushels,soybeans,Kansas,west,2591428,261588,82719224,2534974,312149,57946285
+oilseed,pounds,sunflower seed all,Kansas,west,156378,27853,220194520,119127,19714,105943758
+grain,bushels,triticale,Kansas,west,6106,815,307168,6588,1064,291269
+hay,tons dry,wild hay,Kansas,west,158189,30645,813053,100998,34029,528170
+grain,bushels,winter wheat,Kansas,west,8527780,517995,270115386,8080854,423549,262980052
+hay,tons dry,alfalfa hay,Kentucky,none,269610,1210,524565,310874,347,892378
+grain,bushels,corn,Kentucky,none,1313320,22483,166687678,1043990,8195,108721040
+silage,tons,corn for silage,Kentucky,none,86542,986,1189499,82820,,1287831
+silage,tons green,other haylage,Kentucky,none,31714,150,105292,24719,,128173
+hay,tons dry,other tame hay,Kentucky,none,1968657,1379,3135975,1842974,55,3745125
+grain,pounds,popcorn shelled,Kentucky,none,5615,,18946770,11058,,25430995
+hay,tons dry,small grain hay,Kentucky,none,82276,404,164754,84571,,208494
+legumes,bushels,soybeans,Kentucky,none,1087037,10147,29582097,1343039,5550,43939662
+tobacco,pounds,tobacco,Kentucky,none,87641,13999,196259377,110734,15026,219978920
+hay,tons dry,wild hay,Kentucky,none,48080,287,149562,39590,,192759
+grain,bushels,corn,Louisiana,none,722387,300979,114674506,461782,130968,54944774
+fiber,bales,cotton,Louisiana,none,333804,87442,698557,474784,151671,737641
+legumes,bushels,dry southern peas,Louisiana,none,44,5,1287,122,7,1844
+silage,tons green,other haylage,Louisiana,none,21532,225,86875,7747,414,26145
+hay,tons dry,other tame hay,Louisiana,none,345370,6747,923361,305925,3859,813362
+grain,cwt,rice,Louisiana,none,377115,377115,23122031,538518,538518,29612936
+grain,bushels,sorghum,Louisiana,none,245384,19684,22397992,120732,6559,9356983
+sugar,tons,sugarcane,Louisiana,none,405433,,14086448,471628,2167,15367635
+grain,bushels,oats,Maine,none,27206,,1937569,24919,,2113706
+silage,tons green,other haylage,Maine,none,44679,,236114,43612,,264143
+hay,tons dry,wild hay,Maine,none,54715,,309160,55166,,338317
+grain,bushels,barley,Maryland,none,34288,1779,2733463,36241,1189,2907723
+silage,tons,corn for silage,Maryland,none,63979,1652,791447,72988,2543,869484
+silage,tons green,other haylage,Maryland,none,17128,856,86520,14489,735,79704
+grain,bushels,rye,Maryland,none,2934,,115483,2835,,100041
+hay,tons dry,wild hay,Maryland,none,35214,1196,208589,38102,1196,231862
+hay,tons dry,alfalfa hay,Michigan,none,698595,8080,1707036,806713,7580,2355909
+grain,bushels,buckwheat,Michigan,none,637,,12956,421,,5573
+grain,bushels,corn,Michigan,none,2350668,241060,288066336,2007021,180261,234709542
+silage,tons,corn for silage,Michigan,none,297381,13381,4350145,233601,9918,3447251
+legumes,cwt,dry edible beans,Michigan,none,195419,8182,3207689,259026,13183,4862193
+grain,bushels,emmer and spelt,Michigan,none,3532,,250086,3324,,165040
+silage,tons green,haylage from alfalfa,Michigan,none,238142,10493,1659013,238399,9073,1620171
+grain,bushels,oats,Michigan,none,55046,93,2972519,63485,519,3994940
+silage,tons green,other haylage,Michigan,none,22275,90,76338,24260,248,116214
+grain,bushels,rye,Michigan,none,11272,229,316647,15345,103,505726
+legumes,bushels,soybeans,Michigan,none,1715427,66556,67515728,2055424,84180,78197248
+sugar,tons,sugarbeets,Michigan,none,150054,3018,3532941,180054,,3324568
+hay,tons dry,wild hay,Michigan,none,260417,10583,1735351,262659,9321,1736385
+grain,bushels,winter wheat,Michigan,none,520601,6420,33481512,430193,5396,28080725
+hay,tons dry,alfalfa hay,Minnesota,none,944775,15603,2671173,1264403,20266,3780181
+grain,bushels,barley,Minnesota,none,108268,1784,5800659,139739,1745,5661303
+grain,bushels,buckwheat,Minnesota,none,2262,,40702,4749,,92990
+oilseed,pounds,canola,Minnesota,none,29125,305,36701922,55429,,49482235
+grain,bushels,corn,Minnesota,none,7801001,250683,1138660229,6556082,178457,989887877
+silage,tons,corn for silage,Minnesota,none,433506,13028,5791485,367455,8344,6230527
+legumes,cwt,dry edible beans,Minnesota,none,145422,26692,2638507,156707,33293,2683985
+oilseed,bushels,flaxseed,Minnesota,none,3823,,68179,4211,,69880
+silage,tons green,haylage from alfalfa,Minnesota,none,232275,9516,1455578,231828,7320,1630710
+grain,bushels,oats,Minnesota,none,180942,2249,10494120,231859,1419,12958117
+silage,tons green,other haylage,Minnesota,none,29107,1312,105511,31067,376,163849
+grain,bushels,other spring wheat,Minnesota,none,1646309,,79279840,1887131,,63465505
+hay,tons dry,other tame hay,Minnesota,none,363145,3888,561312,395492,2810,644597
+grain,bushels,rye,Minnesota,none,17672,248,472295,13980,,409891
+hay,tons dry,small grain hay,Minnesota,none,56928,865,119519,80535,728,152701
+legumes,bushels,soybeans,Minnesota,none,6273919,92688,259891979,7068452,97865,303069928
+sugar,tons,sugarbeets,Minnesota,none,485650,5211,11432253,476617,4647,8793583
+oilseed,pounds,sunflower seed all,Minnesota,none,126552,392,190298028,65514,,84268425
+grain,bushels,triticale,Minnesota,none,730,,19836,,,
+hay,tons dry,wild hay,Minnesota,none,261382,10828,1561089,262895,7696,1794559
+grain,cwt,wild rice,Minnesota,none,35221,26083,320696,23488,23488,106521
+grain,bushels,corn,Mississippi,none,873618,346506,127841765,496219,123232,58487848
+fiber,bales,cotton,Mississippi,none,656051,295396,1289270,1157432,401320,1944513
+legumes,bushels,dry southern peas,Mississippi,none,,,,8,,132
+silage,tons green,other haylage,Mississippi,none,26494,,75404,9781,207,31017
+hay,tons dry,other tame hay,Mississippi,none,504994,4238,1252879,520573,7245,1297755
+oilseed,pounds,peanuts,Mississippi,none,17781,,58481805,3831,,8821233
+grain,cwt,rice,Mississippi,none,185076,185076,13313823,233447,233447,14526578
+grain,bushels,sorghum,Mississippi,none,116901,23194,9815654,70932,6881,5418279
+silage,tons,sorghum for silage,Mississippi,none,4739,,76923,455,,5441
+legumes,bushels,soybeans,Mississippi,none,1431085,483004,54316854,1371014,385940,43077995
+grain,bushels,winter wheat,Mississippi,none,331767,10698,18175120,151317,7389,5980347
+hay,tons dry,alfalfa hay,Missouri,none,295021,1823,782847,399647,3225,1063201
+grain,bushels,corn,Missouri,none,3256195,388210,439417160,2677491,246315,268224535
+silage,tons,corn for silage,Missouri,none,69353,1869,1041591,71185,1722,942789
+fiber,bales,cotton,Missouri,none,377960,198446,723043,395880,205812,608280
+legumes,bushels,dry southern peas,Missouri,none,4606,,42395,2076,896,24755
+grain,bushels,emmer and spelt,Missouri,none,205,,9077,84,,4960
+silage,tons green,haylage from alfalfa,Missouri,none,33008,448,127152,29885,,149413
+silage,tons green,other haylage,Missouri,none,71663,267,205029,45404,,216605
+hay,tons dry,other tame hay,Missouri,none,3242548,6401,5752532,3460190,3795,6430926
+grain,pounds,popcorn shelled,Missouri,none,4219,1989,17828110,9414,2504,23596607
+grain,cwt,rice,Missouri,none,179300,179300,12266645,167716,167716,9965432
+hay,tons dry,small grain hay,Missouri,none,99796,274,194111,79683,1133,168295
+grain,bushels,sorghum,Missouri,none,105483,3293,9922598,204007,9478,16603961
+silage,tons,sorghum for silage,Missouri,none,6533,,79962,4993,126,47636
+legumes,bushels,soybeans,Missouri,none,4672738,365094,165947323,5001858,348286,165048253
+hay,tons dry,wild hay,Missouri,none,104671,715,332181,75289,292,366018
+grain,bushels,winter wheat,Missouri,none,881227,40715,36293751,811586,37472,34888755
+hay,tons dry,alfalfa hay,Montana,none,1868756,703960,3936445,1529867,715481,3030279
+legumes,cwt,austrian winter peas,Montana,none,3631,141,33101,3392,360,24605
+grain,bushels,barley,Montana,none,718551,175420,29670161,902163,214377,36076190
+silage,tons,corn for silage,Montana,none,45172,41122,974410,50094,48572,1087841
+legumes,cwt,dry edible beans,Montana,none,17151,9224,290498,22770,18709,376832
+legumes,cwt,dry edible peas,Montana,none,222415,3020,3988953,26291,1576,221742
+grain,bushels,durum wheat,Montana,none,471705,3392,11634753,564640,8316,13032110
+grain,bushels,emmer and spelt,Montana,none,975,,45950,,,
+oilseed,bushels,flaxseed,Montana,none,20236,,174531,14822,,176237
+silage,tons green,haylage from alfalfa,Montana,none,28008,18726,157076,19692,14239,95071
+legumes,cwt,lentils,Montana,none,87797,,1012784,21822,,164086
+seed,pounds,mustard seed,Montana,none,14192,,6223513,25835,,12525341
+grain,bushels,oats,Montana,none,34633,8227,1673538,45515,11557,1998128
+silage,tons green,other haylage,Montana,none,20387,9226,100143,11019,5746,58520
+grain,bushels,other spring wheat,Montana,none,2393672,117866,54347900,3527128,89915,78413869
+hay,tons dry,other tame hay,Montana,none,378192,125354,563007,476709,131965,612346
+oilseed,pounds,safflower,Montana,none,37188,,31489359,36327,332,27264351
+hay,tons dry,small grain hay,Montana,none,232048,52130,412842,309830,75478,429733
+sugar,tons,sugarbeets,Montana,none,47533,47533,1174370,56027,56027,1123844
+grain,bushels,triticale,Montana,none,677,249,24919,683,,11544
+hay,tons dry,wild hay,Montana,none,48395,27952,257219,30711,19985,153591
+grain,bushels,winter wheat,Montana,none,2194539,40439,81551235,784931,13259,21003608
+hay,tons dry,alfalfa hay,Nebraska,east,1085921,389516,3955881,1341230,450344,4002492
+grain,bushels,corn,Nebraska,east,9192656,5839067,1426459812,7344715,4505579,908360246
+silage,tons,corn for silage,Nebraska,east,185584,101256,3171470,409447,155646,4476086
+legumes,cwt,dry edible beans,Nebraska,east,107583,104748,2453158,164924,160614,3404542
+silage,tons green,haylage from alfalfa,Nebraska,east,35845,14883,249074,37921,16997,239110
+grain,bushels,oats,Nebraska,east,35108,3052,2108923,53946,3891,2367835
+silage,tons green,other haylage,Nebraska,east,26517,6945,120078,16347,5001,70553
+hay,tons dry,other tame hay,Nebraska,east,278810,42600,555048,244072,39129,351474
+grain,pounds,popcorn shelled,Nebraska,east,59728,57095,294541958,88717,80017,346856579
+grain,bushels,proso millet,Nebraska,east,129891,5930,4253359,96658,5659,1101093
+grain,bushels,rye,Nebraska,east,15354,1952,443793,12376,1352,319263
+hay,tons dry,small grain hay,Nebraska,east,104301,28872,222395,115073,20576,162310
+grain,bushels,sorghum,Nebraska,east,236607,19445,22177229,331074,16587,16898323
+silage,tons,sorghum for silage,Nebraska,east,20376,6300,235551,22198,4508,164404
+legumes,bushels,soybeans,Nebraska,east,3834855,1570110,189547373,4571558,1923066,173029716
+sugar,tons,sugarbeets,Nebraska,east,44938,44938,1064504,41285,41285,762822
+oilseed,pounds,sunflower seed all,Nebraska,east,47575,15362,61133340,33400,4602,22405407
+grain,bushels,triticale,Nebraska,east,1122,,43840,1563,432,36395
+hay,tons dry,wild hay,Nebraska,east,62362,21828,369152,54268,22000,309663
+grain,bushels,winter wheat,Nebraska,east,1955736,253681,81449590,1526025,,50291179
+hay,tons dry,alfalfa hay,Nebraska,west,1085921,389516,3955881,1341230,450344,4002492
+grain,bushels,corn,Nebraska,west,9192656,5839067,1426459812,7344715,4505579,908360246
+silage,tons,corn for silage,Nebraska,west,185584,101256,3171470,409447,155646,4476086
+legumes,cwt,dry edible beans,Nebraska,west,107583,104748,2453158,164924,160614,3404542
+silage,tons green,haylage from alfalfa,Nebraska,west,35845,14883,249074,37921,16997,239110
+grain,bushels,oats,Nebraska,west,35108,3052,2108923,53946,3891,2367835
+silage,tons green,other haylage,Nebraska,west,26517,6945,120078,16347,5001,70553
+hay,tons dry,other tame hay,Nebraska,west,278810,42600,555048,244072,39129,351474
+grain,pounds,popcorn shelled,Nebraska,west,59728,57095,294541958,88717,80017,346856579
+grain,bushels,proso millet,Nebraska,west,129891,5930,4253359,96658,5659,1101093
+grain,bushels,rye,Nebraska,west,15354,1952,443793,12376,1352,319263
+hay,tons dry,small grain hay,Nebraska,west,104301,28872,222395,115073,20576,162310
+grain,bushels,sorghum,Nebraska,west,236607,19445,22177229,331074,16587,16898323
+silage,tons,sorghum for silage,Nebraska,west,20376,6300,235551,22198,4508,164404
+legumes,bushels,soybeans,Nebraska,west,3834855,1570110,189547373,4571558,1923066,173029716
+sugar,tons,sugarbeets,Nebraska,west,44938,44938,1064504,41285,41285,762822
+oilseed,pounds,sunflower seed all,Nebraska,west,47575,15362,61133340,33400,4602,22405407
+grain,bushels,triticale,Nebraska,west,1122,,43840,1563,432,36395
+hay,tons dry,wild hay,Nebraska,west,62362,21828,369152,54268,22000,309663
+grain,bushels,winter wheat,Nebraska,west,1955736,253681,81449590,1526025,,50291179
+hay,tons dry,alfalfa hay,Nevada,none,274004,274004,1217586,304033,302901,1236920
+hay,tons dry,alfalfa hay,New Mexico,none,236103,222018,1176242,188273,174271,909983
+silage,tons,corn for silage,New Mexico,none,79141,78398,1937769,93381,92644,2200352
+legumes,bushels,dry southern peas,New Mexico,none,,,,75,,2113
+silage,tons green,other haylage,New Mexico,none,17913,13887,172793,28461,26040,240184
+hay,tons dry,small grain hay,New Mexico,none,63535,45995,165141,40655,31351,84566
+grain,bushels,sorghum,New Mexico,none,73048,12329,2806719,67226,18943,2131743
+silage,tons,sorghum for silage,New Mexico,none,18833,12566,297382,13842,10861,233241
+grain,bushels,winter wheat,New Mexico,none,300539,60149,8098467,161341,70373,4212138
+hay,tons dry,alfalfa hay,New York,none,450144,901,1119421,657019,,1598411
+grain,bushels,buckwheat,New York,none,2142,,47811,2950,59,53381
+silage,tons,corn for silage,New York,none,507568,412,8640006,543579,3190,7454405
+legumes,cwt,dry edible beans,New York,none,16218,,247762,32520,396,444691
+grain,bushels,emmer and spelt,New York,none,1732,,101778,2050,10,132104
+silage,tons green,haylage from alfalfa,New York,none,450887,743,3095530,445774,,3093103
+grain,bushels,oats,New York,none,60999,,3556221,67032,287,4138239
+silage,tons green,other haylage,New York,none,250304,131,1335229,263192,,1415627
+hay,tons dry,other tame hay,New York,none,707600,1040,1322963,829621,,1549980
+grain,bushels,rye,New York,none,6879,,225103,10668,217,334678
+hay,tons dry,small grain hay,New York,none,47721,,102178,45958,,86971
+silage,tons,sorghum for silage,New York,none,3192,,22571,4189,99,36879
+grain,bushels,triticale,New York,none,2407,,115853,744,,25191
+hay,tons dry,wild hay,New York,none,701191,874,4430759,708966,,4508730
+grain,bushels,corn,North Carolina,none,965426,28481,98245673,700045,23716,58918039
+silage,tons,corn for silage,North Carolina,none,56886,1138,631752,73309,3529,873097
+fiber,bales,cotton,North Carolina,none,526060,10756,785557,924097,23674,802472
+legumes,bushels,dry southern peas,North Carolina,none,12,,137,474,16,5469
+grain,bushels,oats,North Carolina,none,14337,185,787753,22293,333,1196859
+silage,tons green,other haylage,North Carolina,none,13620,,53044,12488,641,63440
+hay,tons dry,other tame hay,North Carolina,none,581914,51472,974415,582863,55830,1091480
+oilseed,pounds,peanuts,North Carolina,none,89029,8587,250970518,100650,7986,219305939
+grain,bushels,rye,North Carolina,none,13391,209,238195,13094,195,318059
+hay,tons dry,small grain hay,North Carolina,none,66122,6993,118240,77019,7342,154292
+silage,tons,sorghum for silage,North Carolina,none,2748,,28856,4407,55,30493
+legumes,bushels,soybeans,North Carolina,none,1380792,13830,29142115,1314672,16353,31026968
+tobacco,pounds,tobacco,North Carolina,none,170083,31212,365958031,167677,40437,353125841
+grain,bushels,winter wheat,North Carolina,none,511713,6560,19917842,446438,8311,18926777
+hay,tons dry,alfalfa hay,North Dakota,east,1457604,21773,3072682,1388395,22400,1829771
+grain,bushels,barley,North Dakota,east,1384689,10848,75444593,1303723,3529,56810477
+grain,bushels,buckwheat,North Dakota,east,11011,,213795,22599,,438020
+oilseed,pounds,canola,North Dakota,east,1067764,336,1310076253,1082894,848,1315271274
+grain,bushels,corn,North Dakota,east,2348171,99184,275329681,991390,54445,111380248
+silage,tons,corn for silage,North Dakota,east,180634,6761,1965111,171810,10304,1291392
+legumes,cwt,dry edible beans,North Dakota,east,664389,13023,10745281,661379,17693,10104405
+legumes,cwt,dry edible peas,North Dakota,east,499470,940,10856233,124263,,2064231
+grain,bushels,durum wheat,North Dakota,east,1462666,5168,42689608,1945910,10878,48877517
+oilseed,bushels,flaxseed,North Dakota,east,315807,,5387903,616205,,10413597
+silage,tons green,haylage from alfalfa,North Dakota,east,25803,,99136,9592,,29948
+legumes,cwt,lentils,North Dakota,east,106730,,1453617,36195,,369650
+seed,pounds,mustard seed,North Dakota,east,34848,,21456103,88422,,56357927
+grain,bushels,oats,North Dakota,east,257021,990,14862093,302455,442,12456205
+silage,tons green,other haylage,North Dakota,east,26796,,71926,18371,,45389
+grain,bushels,other spring wheat,North Dakota,east,6519681,10354,229438870,5897249,8308,164622247
+hay,tons dry,other tame hay,North Dakota,east,403014,1945,623812,403867,2519,509891
+grain,bushels,rye,North Dakota,east,9788,,395742,5912,,179592
+oilseed,pounds,safflower,North Dakota,east,39531,,37212729,14548,,10552777
+hay,tons dry,small grain hay,North Dakota,east,260025,1252,483032,539029,3942,560076
+legumes,bushels,soybeans,North Dakota,east,3073981,12513,106556290,2629364,16387,87793840
+sugar,tons,sugarbeets,North Dakota,east,245735,14068,5695862,260235,15789,4811685
+oilseed,pounds,sunflower seed all,North Dakota,east,1054584,1065,1496184686,1128498,511,1409006958
+grain,bushels,triticale,North Dakota,east,814,,32277,,,
+hay,tons dry,wild hay,North Dakota,east,52599,1471,171062,27963,444,75337
+grain,bushels,winter wheat,North Dakota,east,446115,456,21336301,65965,,2155698
+hay,tons dry,alfalfa hay,North Dakota,west,1457604,21773,3072682,1388395,22400,1829771
+grain,bushels,barley,North Dakota,west,1384689,10848,75444593,1303723,3529,56810477
+grain,bushels,buckwheat,North Dakota,west,11011,,213795,22599,,438020
+oilseed,pounds,canola,North Dakota,west,1067764,336,1310076253,1082894,848,1315271274
+grain,bushels,corn,North Dakota,west,2348171,99184,275329681,991390,54445,111380248
+silage,tons,corn for silage,North Dakota,west,180634,6761,1965111,171810,10304,1291392
+legumes,cwt,dry edible beans,North Dakota,west,664389,13023,10745281,661379,17693,10104405
+legumes,cwt,dry edible peas,North Dakota,west,499470,940,10856233,124263,,2064231
+grain,bushels,durum wheat,North Dakota,west,1462666,5168,42689608,1945910,10878,48877517
+oilseed,bushels,flaxseed,North Dakota,west,315807,,5387903,616205,,10413597
+silage,tons green,haylage from alfalfa,North Dakota,west,25803,,99136,9592,,29948
+legumes,cwt,lentils,North Dakota,west,106730,,1453617,36195,,369650
+seed,pounds,mustard seed,North Dakota,west,34848,,21456103,88422,,56357927
+grain,bushels,oats,North Dakota,west,257021,990,14862093,302455,442,12456205
+silage,tons green,other haylage,North Dakota,west,26796,,71926,18371,,45389
+grain,bushels,other spring wheat,North Dakota,west,6519681,10354,229438870,5897249,8308,164622247
+hay,tons dry,other tame hay,North Dakota,west,403014,1945,623812,403867,2519,509891
+grain,bushels,rye,North Dakota,west,9788,,395742,5912,,179592
+oilseed,pounds,safflower,North Dakota,west,39531,,37212729,14548,,10552777
+hay,tons dry,small grain hay,North Dakota,west,260025,1252,483032,539029,3942,560076
+legumes,bushels,soybeans,North Dakota,west,3073981,12513,106556290,2629364,16387,87793840
+sugar,tons,sugarbeets,North Dakota,west,245735,14068,5695862,260235,15789,4811685
+oilseed,pounds,sunflower seed all,North Dakota,west,1054584,1065,1496184686,1128498,511,1409006958
+grain,bushels,triticale,North Dakota,west,814,,32277,,,
+hay,tons dry,wild hay,North Dakota,west,52599,1471,171062,27963,444,75337
+grain,bushels,winter wheat,North Dakota,west,446115,456,21336301,65965,,2155698
+hay,tons dry,alfalfa hay,Ohio,none,437658,536,1256174,614615,377,1641270
+grain,bushels,corn,Ohio,none,3606246,7375,526601789,2869951,3387,254817899
+silage,tons,corn for silage,Ohio,none,182935,480,3191893,255359,548,2617895
+grain,bushels,emmer and spelt,Ohio,none,3785,,244064,4125,,288125
+silage,tons green,haylage from alfalfa,Ohio,none,111868,,704179,104937,,603980
+grain,bushels,oats,Ohio,none,46348,,2883967,55151,,3254377
+silage,tons green,other haylage,Ohio,none,36210,,151570,25390,,119468
+hay,tons dry,other tame hay,Ohio,none,521562,,967672,482531,,944717
+grain,pounds,popcorn shelled,Ohio,none,31803,,109921351,67378,,128293432
+hay,tons dry,small grain hay,Ohio,none,31734,,64028,33759,,60748
+silage,tons,sorghum for silage,Ohio,none,2718,,33003,1861,,15564
+legumes,bushels,soybeans,Ohio,none,4236337,1056,191559567,4718690,1478,149809069
+hay,tons dry,wild hay,Ohio,none,148078,,855749,130327,,723448
+grain,bushels,winter wheat,Ohio,none,732106,,42997358,796085,,46929358
+hay,tons dry,alfalfa hay,Oklahoma,east,334990,33000,1131938,349028,33585,1112624
+fiber,bales,cotton,Oklahoma,east,164273,67687,279871,172228,66596,210027
+legumes,bushels,dry southern peas,Oklahoma,east,2019,,29742,3631,1419,40473
+grain,bushels,oats,Oklahoma,east,14816,1327,462865,16326,199,608263
+silage,tons green,other haylage,Oklahoma,east,57295,2234,184089,28263,5692,141781
+hay,tons dry,other tame hay,Oklahoma,east,1803936,33164,3613517,1685475,33672,3099416
+oilseed,pounds,peanuts,Oklahoma,east,16319,11821,55039635,53390,39457,144450348
+grain,bushels,rye,Oklahoma,east,59311,1304,1092638,61150,1995,1226323
+hay,tons dry,small grain hay,Oklahoma,east,472577,17371,903993,510012,12062,786086
+grain,bushels,sorghum,Oklahoma,east,219883,21043,11682402,262032,28137,11166761
+silage,tons,sorghum for silage,Oklahoma,east,13661,1256,68537,13345,3003,135882
+grain,bushels,triticale,Oklahoma,east,1583,,24475,858,,20486
+hay,tons dry,wild hay,Oklahoma,east,65233,3010,225068,32666,6278,163369
+grain,bushels,winter wheat,Oklahoma,east,3421098,134620,89968524,3592828,92003,102044001
+hay,tons dry,alfalfa hay,Oklahoma,west,334990,33000,1131938,349028,33585,1112624
+fiber,bales,cotton,Oklahoma,west,164273,67687,279871,172228,66596,210027
+legumes,bushels,dry southern peas,Oklahoma,west,2019,,29742,3631,1419,40473
+grain,bushels,oats,Oklahoma,west,14816,1327,462865,16326,199,608263
+silage,tons green,other haylage,Oklahoma,west,57295,2234,184089,28263,5692,141781
+hay,tons dry,other tame hay,Oklahoma,west,1803936,33164,3613517,1685475,33672,3099416
+oilseed,pounds,peanuts,Oklahoma,west,16319,11821,55039635,53390,39457,144450348
+grain,bushels,rye,Oklahoma,west,59311,1304,1092638,61150,1995,1226323
+hay,tons dry,small grain hay,Oklahoma,west,472577,17371,903993,510012,12062,786086
+grain,bushels,sorghum,Oklahoma,west,219883,21043,11682402,262032,28137,11166761
+silage,tons,sorghum for silage,Oklahoma,west,13661,1256,68537,13345,3003,135882
+grain,bushels,triticale,Oklahoma,west,1583,,24475,858,,20486
+hay,tons dry,wild hay,Oklahoma,west,65233,3010,225068,32666,6278,163369
+grain,bushels,winter wheat,Oklahoma,west,3421098,134620,89968524,3592828,92003,102044001
+hay,tons dry,alfalfa hay,Oregon,east,428812,380679,1777894,487661,440229,1994354
+legumes,cwt,austrian winter peas,Oregon,east,1031,212,17887,,,
+grain,bushels,barley,Oregon,east,53216,15057,2798280,63116,21311,3408683
+seed,pounds,mustard seed,Oregon,east,930,201,735920,1456,285,743741
+grain,bushels,oats,Oregon,east,17958,5023,1417220,29968,8939,2495654
+silage,tons green,other haylage,Oregon,east,42559,25707,280897,26834,11183,201836
+hay,tons dry,other tame hay,Oregon,east,308644,157624,697363,343958,196605,729919
+hay,tons dry,small grain hay,Oregon,east,65210,39366,169233,75440,47483,183709
+grain,bushels,triticale,Oregon,east,1712,1130,133900,1869,1180,140062
+hay,tons dry,wild hay,Oregon,east,57644,38660,411779,37983,20033,286415
+grain,bushels,winter wheat,Oregon,east,736558,,38177598,711909,68492,29537602
+hay,tons dry,alfalfa hay,Oregon,west,428812,380679,1777894,487661,440229,1994354
+legumes,cwt,austrian winter peas,Oregon,west,1031,212,17887,,,
+grain,bushels,barley,Oregon,west,53216,15057,2798280,63116,21311,3408683
+seed,pounds,mustard seed,Oregon,west,930,201,735920,1456,285,743741
+grain,bushels,oats,Oregon,west,17958,5023,1417220,29968,8939,2495654
+silage,tons green,other haylage,Oregon,west,42559,25707,280897,26834,11183,201836
+hay,tons dry,other tame hay,Oregon,west,308644,157624,697363,343958,196605,729919
+hay,tons dry,small grain hay,Oregon,west,65210,39366,169233,75440,47483,183709
+grain,bushels,triticale,Oregon,west,1712,1130,133900,1869,1180,140062
+hay,tons dry,wild hay,Oregon,west,57644,38660,411779,37983,20033,286415
+grain,bushels,winter wheat,Oregon,west,736558,,38177598,711909,68492,29537602
+hay,tons dry,alfalfa hay,Pennsylvania,none,475873,462,1357225,669130,1034,1632745
+grain,bushels,barley,Pennsylvania,none,41986,18,3053989,54292,43,3774180
+grain,bushels,buckwheat,Pennsylvania,none,1779,,41275,2473,,42346
+grain,bushels,corn,Pennsylvania,none,980753,2660,118964770,790111,3277,52645120
+silage,tons,corn for silage,Pennsylvania,none,429139,1605,7057789,536615,2521,5770515
+grain,bushels,emmer and spelt,Pennsylvania,none,2983,,189538,3675,12,238876
+silage,tons green,haylage from alfalfa,Pennsylvania,none,296527,413,1963407,310060,1096,1882908
+grain,bushels,oats,Pennsylvania,none,79943,,4237273,117653,111,6768130
+silage,tons green,other haylage,Pennsylvania,none,133558,220,601423,128787,538,601057
+hay,tons dry,other tame hay,Pennsylvania,none,783849,952,1538844,864544,1095,1466673
+grain,bushels,rye,Pennsylvania,none,9281,,334039,17173,120,620310
+hay,tons dry,small grain hay,Pennsylvania,none,62011,45,145079,47331,201,88251
+silage,tons,sorghum for silage,Pennsylvania,none,4471,,40767,6211,70,51523
+tobacco,pounds,tobacco,Pennsylvania,none,7886,132,18811546,5470,245,9677757
+hay,tons dry,wild hay,Pennsylvania,none,430085,633,2564830,438847,1634,2483965
+fiber,bales,cotton,South Carolina,none,158296,14259,159213,208420,14861,134886
+legumes,bushels,dry southern peas,South Carolina,none,117,3,685,211,,1186
+grain,bushels,oats,South Carolina,none,13279,238,559906,21202,409,975883
+hay,tons dry,other tame hay,South Carolina,none,276588,5688,484490,277030,4019,534679
+oilseed,pounds,peanuts,South Carolina,none,56332,8265,178352360,10344,,24466790
+grain,bushels,rye,South Carolina,none,7312,9,107587,9774,92,197225
+hay,tons dry,small grain hay,South Carolina,none,34141,684,56262,37739,533,74308
+tobacco,pounds,tobacco,South Carolina,none,20084,688,44660005,30241,1080,57551827
+hay,tons dry,alfalfa hay,South Dakota,east,1996599,75913,4414338,2393123,132779,3903003
+grain,bushels,barley,South Dakota,east,28761,144,1218568,35639,,1123574
+grain,bushels,buckwheat,South Dakota,east,708,,20492,485,,13696
+grain,bushels,corn,South Dakota,east,4455368,192582,518552101,3165190,123229,295166830
+silage,tons,corn for silage,South Dakota,east,383599,9708,4358190,644006,13697,4217187
+legumes,cwt,dry edible peas,South Dakota,east,17470,,404677,2068,,25976
+oilseed,bushels,flaxseed,South Dakota,east,6837,,83268,3871,,31464
+silage,tons green,haylage from alfalfa,South Dakota,east,58425,2483,258442,35456,3038,164405
+grain,bushels,oats,South Dakota,east,124743,1666,8758284,130225,1402,5717330
+silage,tons green,other haylage,South Dakota,east,35340,1127,132105,21837,254,88696
+grain,bushels,other spring wheat,South Dakota,east,1339007,1861,50902643,943382,3545,23495817
+hay,tons dry,other tame hay,South Dakota,east,467278,3616,773202,395273,3603,443527
+grain,pounds,popcorn shelled,South Dakota,east,2534,1951,8102058,4235,,13467224
+grain,bushels,proso millet,South Dakota,east,129695,356,3949588,50089,,1028947
+grain,bushels,rye,South Dakota,east,5162,,218133,6152,,178206
+oilseed,pounds,safflower,South Dakota,east,9641,,5465738,7489,,3144186
+hay,tons dry,small grain hay,South Dakota,east,206003,5034,378034,388382,5657,436942
+grain,bushels,sorghum,South Dakota,east,129413,,7732205,67712,266,2319260
+silage,tons,sorghum for silage,South Dakota,east,17983,,178535,29676,425,178180
+legumes,bushels,soybeans,South Dakota,east,3222872,52661,130377538,4087380,89353,126607265
+oilseed,pounds,sunflower seed all,South Dakota,east,400181,831,613668505,348788,804,303203319
+grain,bushels,triticale,South Dakota,east,1587,,40644,,,
+hay,tons dry,wild hay,South Dakota,east,93765,3610,390547,57293,3292,253101
+grain,bushels,winter wheat,South Dakota,east,1995368,6533,89916077,646340,2073,18789968
+hay,tons dry,alfalfa hay,South Dakota,west,1996599,75913,4414338,2393123,132779,3903003
+grain,bushels,barley,South Dakota,west,28761,144,1218568,35639,,1123574
+grain,bushels,buckwheat,South Dakota,west,708,,20492,485,,13696
+grain,bushels,corn,South Dakota,west,4455368,192582,518552101,3165190,123229,295166830
+silage,tons,corn for silage,South Dakota,west,383599,9708,4358190,644006,13697,4217187
+legumes,cwt,dry edible peas,South Dakota,west,17470,,404677,2068,,25976
+oilseed,bushels,flaxseed,South Dakota,west,6837,,83268,3871,,31464
+silage,tons green,haylage from alfalfa,South Dakota,west,58425,2483,258442,35456,3038,164405
+grain,bushels,oats,South Dakota,west,124743,1666,8758284,130225,1402,5717330
+silage,tons green,other haylage,South Dakota,west,35340,1127,132105,21837,254,88696
+grain,bushels,other spring wheat,South Dakota,west,1339007,1861,50902643,943382,3545,23495817
+hay,tons dry,other tame hay,South Dakota,west,467278,3616,773202,395273,3603,443527
+grain,pounds,popcorn shelled,South Dakota,west,2534,1951,8102058,4235,,13467224
+grain,bushels,proso millet,South Dakota,west,129695,356,3949588,50089,,1028947
+grain,bushels,rye,South Dakota,west,5162,,218133,6152,,178206
+oilseed,pounds,safflower,South Dakota,west,9641,,5465738,7489,,3144186
+hay,tons dry,small grain hay,South Dakota,west,206003,5034,378034,388382,5657,436942
+grain,bushels,sorghum,South Dakota,west,129413,,7732205,67712,266,2319260
+silage,tons,sorghum for silage,South Dakota,west,17983,,178535,29676,425,178180
+legumes,bushels,soybeans,South Dakota,west,3222872,52661,130377538,4087380,89353,126607265
+oilseed,pounds,sunflower seed all,South Dakota,west,400181,831,613668505,348788,804,303203319
+grain,bushels,triticale,South Dakota,west,1587,,40644,,,
+hay,tons dry,wild hay,South Dakota,west,93765,3610,390547,57293,3292,253101
+grain,bushels,winter wheat,South Dakota,west,1995368,6533,89916077,646340,2073,18789968
+grain,bushels,corn,Tennessee,none,780608,20272,83636352,593564,7286,64081209
+silage,tons,corn for silage,Tennessee,none,52565,1772,577940,66010,1120,928810
+fiber,bales,cotton,Tennessee,none,504057,11386,581236,533755,9548,813853
+silage,tons green,other haylage,Tennessee,none,20972,,63026,18684,,112616
+hay,tons dry,other tame hay,Tennessee,none,1564507,3849,2333408,1728197,1261,3503754
+grain,pounds,popcorn shelled,Tennessee,none,2217,,5152020,1682,,4196681
+hay,tons dry,small grain hay,Tennessee,none,97834,333,199607,99578,42,245560
+legumes,bushels,soybeans,Tennessee,none,976011,4077,18552793,1088889,9435,33646638
+tobacco,pounds,tobacco,Tennessee,none,20109,3217,38652986,35960,3410,73563865
+grain,bushels,winter wheat,Tennessee,none,254944,875,10445442,279978,1539,13061055
+legumes,cwt,austrian winter peas,Texas,east,532,,8600,,,
+grain,bushels,corn,Texas,east,1963640,846750,286386341,1815560,658177,197109321
+silage,tons,corn for silage,Texas,east,151091,102392,3417965,141431,80995,2680497
+fiber,bales,cotton,Texas,east,4674229,1626181,8147970,4657029,1851321,5060144
+legumes,bushels,dry southern peas,Texas,east,5322,2414,55810,8276,3825,102680
+silage,tons green,haylage from alfalfa,Texas,east,22832,8794,143210,17997,4585,97746
+grain,bushels,oats,Texas,east,92653,5461,3663002,127900,10334,5334886
+silage,tons green,other haylage,Texas,east,174274,39981,1190508,138899,24687,802657
+hay,tons dry,other tame hay,Texas,east,3888394,171513,10747031,3717107,198868,8617675
+oilseed,pounds,peanuts,Texas,east,192291,156066,699723146,259419,192772,807510593
+grain,cwt,rice,Texas,east,145006,145006,9472871,204069,204069,14590204
+grain,bushels,rye,Texas,east,19119,2793,464330,13143,2065,316759
+hay,tons dry,small grain hay,Texas,east,655601,100841,1502698,633127,94624,1096137
+grain,bushels,sorghum,Texas,east,2427580,480510,153531033,2297102,373249,114127221
+silage,tons,sorghum for silage,Texas,east,121393,64263,1705391,105277,35650,1195133
+oilseed,pounds,sunflower seed all,Texas,east,35309,12806,45693688,25447,12759,20808808
+grain,bushels,triticale,Texas,east,7264,3878,400810,2032,1482,103779
+hay,tons dry,wild hay,Texas,east,197106,48775,1333718,156896,29272,900403
+grain,bushels,winter wheat,Texas,east,3825581,592648,134070553,2663505,,75101434
+legumes,cwt,austrian winter peas,Texas,west,532,,8600,,,
+grain,bushels,corn,Texas,west,1963640,846750,286386341,1815560,658177,197109321
+silage,tons,corn for silage,Texas,west,151091,102392,3417965,141431,80995,2680497
+fiber,bales,cotton,Texas,west,4674229,1626181,8147970,4657029,1851321,5060144
+legumes,bushels,dry southern peas,Texas,west,5322,2414,55810,8276,3825,102680
+silage,tons green,haylage from alfalfa,Texas,west,22832,8794,143210,17997,4585,97746
+grain,bushels,oats,Texas,west,92653,5461,3663002,127900,10334,5334886
+silage,tons green,other haylage,Texas,west,174274,39981,1190508,138899,24687,802657
+hay,tons dry,other tame hay,Texas,west,3888394,171513,10747031,3717107,198868,8617675
+oilseed,pounds,peanuts,Texas,west,192291,156066,699723146,259419,192772,807510593
+grain,cwt,rice,Texas,west,145006,145006,9472871,204069,204069,14590204
+grain,bushels,rye,Texas,west,19119,2793,464330,13143,2065,316759
+hay,tons dry,small grain hay,Texas,west,655601,100841,1502698,633127,94624,1096137
+grain,bushels,sorghum,Texas,west,2427580,480510,153531033,2297102,373249,114127221
+silage,tons,sorghum for silage,Texas,west,121393,64263,1705391,105277,35650,1195133
+oilseed,pounds,sunflower seed all,Texas,west,35309,12806,45693688,25447,12759,20808808
+grain,bushels,triticale,Texas,west,7264,3878,400810,2032,1482,103779
+hay,tons dry,wild hay,Texas,west,197106,48775,1333718,156896,29272,900403
+grain,bushels,winter wheat,Texas,west,3825581,592648,134070553,2663505,,75101434
+hay,tons dry,alfalfa hay,Utah,none,548570,507798,2172218,562326,505163,1995259
+silage,tons,corn for silage,Utah,none,45375,45375,969548,46442,46442,958300
+oilseed,pounds,safflower,Utah,none,17278,7280,10022918,12615,856,9546886
+hay,tons dry,small grain hay,Utah,none,36741,31362,110507,39886,35982,98931
+hay,tons dry,wild hay,Utah,none,30254,29340,206372,45013,39525,331829
+silage,tons,corn for silage,Vermont,none,87403,,1658746,91312,5,1486802
+silage,tons green,haylage from alfalfa,Vermont,none,67504,,482007,75035,,514847
+silage,tons green,other haylage,Vermont,none,101444,,657523,115681,,732626
+hay,tons dry,wild hay,Vermont,none,168948,,1139530,190716,,1247473
+silage,tons,corn for silage,Virginia,none,126295,3671,1717974,139420,5010,1637114
+silage,tons green,other haylage,Virginia,none,53140,695,184653,32110,984,173052
+hay,tons dry,other tame hay,Virginia,none,995412,6335,1806008,1048104,13955,1816350
+oilseed,pounds,peanuts,Virginia,none,21631,1193,52797144,57373,2403,125121968
+grain,bushels,rye,Virginia,none,5380,4,128968,5445,,142571
+hay,tons dry,small grain hay,Virginia,none,71646,555,153340,61956,539,124747
+tobacco,pounds,tobacco,Virginia,none,20881,10006,43338678,30308,14499,64751252
+hay,tons dry,wild hay,Virginia,none,70908,1522,265836,51741,2092,284457
+hay,tons dry,alfalfa hay,Washington,east,448588,334005,2192001,535694,379524,2523068
+legumes,cwt,austrian winter peas,Washington,east,,,,1607,,
+grain,bushels,barley,Washington,east,223598,3641,13928713,337483,5442,18934918
+grain,bushels,buckwheat,Washington,east,5245,4969,308729,6016,5911,253751
+silage,tons,corn for silage,Washington,east,83353,57381,2129010,63303,37308,1633993
+legumes,cwt,dry edible beans,Washington,east,61055,22017,1049750,49429,37880,936604
+legumes,cwt,dry edible peas,Washington,east,65243,2910,1228583,81820,4745,1651620
+legumes,cwt,dry lima beans,Washington,east,877,,13895,645,565,16390
+silage,tons green,haylage from alfalfa,Washington,east,21145,14822,182548,23349,15520,226202
+legumes,cwt,lentils,Washington,east,67474,,809400,81769,,1159950
+seed,pounds,mustard seed,Washington,east,5112,601,4332970,12946,917,10202230
+silage,tons green,other haylage,Washington,east,73658,31483,670989,71137,26422,788483
+grain,bushels,other spring wheat,Washington,east,441596,,20014978,546907,,23571897
+hay,tons dry,other tame hay,Washington,east,226539,114398,793608,203476,83596,578942
+hay,tons dry,small grain hay,Washington,east,46899,10250,87307,43481,12644,81366
+grain,bushels,triticale,Washington,east,9427,1454,481099,2288,1169,122442
+hay,tons dry,wild hay,Washington,east,94803,46305,853537,94486,41942,1014685
+grain,bushels,winter wheat,Washington,east,1652961,112393,100463766,1802614,153767,104532829
+hay,tons dry,alfalfa hay,Washington,west,448588,334005,2192001,535694,379524,2523068
+legumes,cwt,austrian winter peas,Washington,west,,,,1607,,
+grain,bushels,barley,Washington,west,223598,3641,13928713,337483,5442,18934918
+grain,bushels,buckwheat,Washington,west,5245,4969,308729,6016,5911,253751
+silage,tons,corn for silage,Washington,west,83353,57381,2129010,63303,37308,1633993
+legumes,cwt,dry edible beans,Washington,west,61055,22017,1049750,49429,37880,936604
+legumes,cwt,dry edible peas,Washington,west,65243,2910,1228583,81820,4745,1651620
+legumes,cwt,dry lima beans,Washington,west,877,,13895,645,565,16390
+silage,tons green,haylage from alfalfa,Washington,west,21145,14822,182548,23349,15520,226202
+legumes,cwt,lentils,Washington,west,67474,,809400,81769,,1159950
+seed,pounds,mustard seed,Washington,west,5112,601,4332970,12946,917,10202230
+silage,tons green,other haylage,Washington,west,73658,31483,670989,71137,26422,788483
+grain,bushels,other spring wheat,Washington,west,441596,,20014978,546907,,23571897
+hay,tons dry,other tame hay,Washington,west,226539,114398,793608,203476,83596,578942
+hay,tons dry,small grain hay,Washington,west,46899,10250,87307,43481,12644,81366
+grain,bushels,triticale,Washington,west,9427,1454,481099,2288,1169,122442
+hay,tons dry,wild hay,Washington,west,94803,46305,853537,94486,41942,1014685
+grain,bushels,winter wheat,Washington,west,1652961,112393,100463766,1802614,153767,104532829
+silage,tons green,other haylage,West Virginia,none,27961,,84125,18422,,69575
+hay,tons dry,other tame hay,West Virginia,none,453574,116,718576,401719,130,658975
+hay,tons dry,wild hay,West Virginia,none,36695,,115660,25930,,108979
+hay,tons dry,alfalfa hay,Wisconsin,none,1517522,8809,3673619,1657958,7166,4637344
+grain,bushels,corn,Wisconsin,none,3250847,113312,437174706,2862031,83602,385057040
+silage,tons,corn for silage,Wisconsin,none,732636,8900,11645140,704513,5221,11233740
+grain,bushels,emmer and spelt,Wisconsin,none,163,,11082,102,,7028
+silage,tons green,haylage from alfalfa,Wisconsin,none,1183257,11496,7931573,1367743,10371,8800679
+grain,bushels,oats,Wisconsin,none,166794,1779,11122339,245695,2751,14600211
+silage,tons green,other haylage,Wisconsin,none,107965,527,514796,162348,369,790463
+hay,tons dry,other tame hay,Wisconsin,none,302686,,466678,301953,731,580179
+grain,bushels,rye,Wisconsin,none,12455,280,431045,10570,1018,353108
+hay,tons dry,small grain hay,Wisconsin,none,61821,,124784,58018,292,109144
+legumes,bushels,soybeans,Wisconsin,none,1363124,24855,54701222,1520471,34857,67060605
+grain,bushels,triticale,Wisconsin,none,904,,16767,180,,4510
+hay,tons dry,wild hay,Wisconsin,none,1291222,12023,8446369,1530091,10740,9591142
+grain,bushels,winter wheat,Wisconsin,none,272964,,18539559,188363,508,11485097
+hay,tons dry,alfalfa hay,Wyoming,none,674284,471126,1696438,489825,401880,1086534
+grain,bushels,barley,Wyoming,none,52457,43513,4485775,62834,57734,4568059
+legumes,cwt,dry edible beans,Wyoming,none,24197,24197,566459,30151,30151,612503
+hay,tons dry,other tame hay,Wyoming,none,202425,148027,300590,189346,147893,188997
+hay,tons dry,small grain hay,Wyoming,none,47566,21214,84887,51446,29069,76954
+sugar,tons,sugarbeets,Wyoming,none,30782,30782,675601,36105,36105,683010
+grain,bushels,triticale,Wyoming,none,923,,,,,

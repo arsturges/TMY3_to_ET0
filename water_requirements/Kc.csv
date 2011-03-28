@@ -1,0 +1,26 @@
+FAO_Category,FAO_Crop,Kc_init,Kc_dev,Kc_mid,Kc_late
+Forages,Alfalfa Hay,0.4,0.55,0.95,0.9
+Forages,Alfalfa Hay,0.4,0.8,1.2,1.15
+Cereals,Barley/Oats/Wheat,0.3,0.85,1.15,0.4
+Legumes,Beans (dry),0.4,0.75,1.15,0.35
+Forages,Clover hay,0.4,0.5,0.9,0.85
+Fibre Crops,Cotton,0.5,0.7,1.2,0.7
+Cereals,Grains (small),0.4,0.5,0.9,0.2
+Legumes,Lentil,0.5,0.6,1.1,0.3
+Cereals,Maize (grain),0.35,0.85,1.2,0.6
+Cereals,Maize (sweet),0.15,1,1.15,1.05
+Cereals,Millet,0.3,0.7,1,0.3
+Legumes,Peanuts,0.2,0.95,1.15,0.6
+Legumes,Peas (dry),0.2,0.95,1.15,0.3
+Legumes,Peas (fresh),0.2,0.95,1.15,1.1
+Cereals,Rice,1.05,0.15,1.2,0.9
+Forages,Rye Grass hay,0.95,0.1,1.05,1
+Oil Crops,Safflower,0.2,0.95,1.15,0.25
+Cereals,Sorghum,0.3,0.8,1.1,0.55
+Legumes,Soybeans,0.4,0.75,1.15,0.5
+Forages,Sudan Grass hay (annual),0.5,0.4,0.9,0.85
+Roots and Tubers,Sugarbeet,0.35,0.85,1.2,0.71
+Sugar Cane,Sugarcane,0.4,0.85,1.25,0.75
+Oil Crops,Sunflower,0.4,0.75,1.15,0.35
+Cereals,Winter Wheat,0.3,0.85,1.15,0.4
+Legumes,Peanuts,0.45,0.8,1.15,0.6
