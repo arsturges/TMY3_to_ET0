@@ -1,1 +1,12 @@
 This project contains files related to the LBL LDRD biofuels modeling project.
+
+--A brief outline of the model--
+
+
+The file tmy3_ruby1.9.rb parses TMY3 data files and produces the et0_output.csv.
+et0_output.csv contains monthly weather data for 48 U.S. states. 
+This file then becomes the input for the Excel file et0_calculations.xlsx.
+The Excel file takes the monthly weather data for each state and calculates a monthly ET0 value for each state.
+Those ET0 values then become the file /water_requirements/et0.csv.
+The file /water_requirements/water_requirements_by_region.rb takes data from all of the files in /water_requirements (most of which hold data about crops) and outputs the file water_requirements_by_region.csv.
+This file constitutes the major output of the model; it contains monthly irrigation requirements for various crops by month in 48 states.
