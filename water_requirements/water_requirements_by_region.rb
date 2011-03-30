@@ -128,7 +128,7 @@ def perform_water_calculation
 end
 
 def write_to_csv_file
-	CSV.open("water_requirements_by_region.csv", "w+") do |write_new_row|
+	CSV.open("water_requirements_by_region.csv", "w") do |write_new_row|
 		write_new_row << %w(Crop State Subregion 1 2 3 4 5 6 7 8 9 10 11 12)
 	  	@water_requirement.keys.each do |crop|
 			@water_requirement[crop].keys.sort.each do |state|
