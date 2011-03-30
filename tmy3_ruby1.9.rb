@@ -21,36 +21,36 @@ def set_state_values
     @states[@state] = {} unless @states[@state]
     if @subregion
       @states[@state][@subregion] = {} unless @states[@state][@subregion]
-      if @altitude_category
-        @states[@state][@subregion][@altitude_category] ||= { :avg_monthly_highs => {}, 
+      if @elevation_category
+        @states[@state][@subregion][@elevation_category] ||= { :avg_monthly_highs => {}, 
                                                   :avg_monthly_lows => {}, 
                                                   :dews => {}, 
                                                   :winds => {}, 
-                                                  :altitudes => [], 
+                                                  :elevations => [], 
                                                   :latitudes => [], 
                                                   :longitudes => [], 
                                                   :sunshines => {}, 
                                                   :monthly_accumulated_precipitations => {} }
         (1..12).to_a.each do |month|
           #Set up the arrays...
-          @states[@state][@subregion][@altitude_category][:avg_monthly_highs][month] ||= []
-          @states[@state][@subregion][@altitude_category][:avg_monthly_lows][month] ||= []
-          @states[@state][@subregion][@altitude_category][:dews][month] ||= []
-          @states[@state][@subregion][@altitude_category][:winds][month] ||= []
-          @states[@state][@subregion][@altitude_category][:sunshines][month] ||= []
-          @states[@state][@subregion][@altitude_category][:monthly_accumulated_precipitations][month] ||= [] #algorith wants total accumulated rainfall in a given month
+          @states[@state][@subregion][@elevation_category][:avg_monthly_highs][month] ||= []
+          @states[@state][@subregion][@elevation_category][:avg_monthly_lows][month] ||= []
+          @states[@state][@subregion][@elevation_category][:dews][month] ||= []
+          @states[@state][@subregion][@elevation_category][:winds][month] ||= []
+          @states[@state][@subregion][@elevation_category][:sunshines][month] ||= []
+          @states[@state][@subregion][@elevation_category][:monthly_accumulated_precipitations][month] ||= [] #algorith wants total accumulated rainfall in a given month
 
           #...and add the weather averages into each array. Each new file from the tmy3 folder appends one element to its state's array.
-          @states[@state][@subregion][@altitude_category][:avg_monthly_highs][month] << @weather_averages_by_month[month][:avg_monthly_high]
-          @states[@state][@subregion][@altitude_category][:avg_monthly_lows][month] << @weather_averages_by_month[month][:avg_monthly_low]
-          @states[@state][@subregion][@altitude_category][:dews][month] << @weather_averages_by_month[month][:dew]
-          @states[@state][@subregion][@altitude_category][:winds][month] << @weather_averages_by_month[month][:wind]
-          @states[@state][@subregion][@altitude_category][:sunshines][month] << @weather_averages_by_month[month][:sunshine]
-          @states[@state][@subregion][@altitude_category][:monthly_accumulated_precipitations][month] << @weather_averages_by_month[month][:monthly_precipitation_accumulation]
+          @states[@state][@subregion][@elevation_category][:avg_monthly_highs][month] << @weather_averages_by_month[month][:avg_monthly_high]
+          @states[@state][@subregion][@elevation_category][:avg_monthly_lows][month] << @weather_averages_by_month[month][:avg_monthly_low]
+          @states[@state][@subregion][@elevation_category][:dews][month] << @weather_averages_by_month[month][:dew]
+          @states[@state][@subregion][@elevation_category][:winds][month] << @weather_averages_by_month[month][:wind]
+          @states[@state][@subregion][@elevation_category][:sunshines][month] << @weather_averages_by_month[month][:sunshine]
+          @states[@state][@subregion][@elevation_category][:monthly_accumulated_precipitations][month] << @weather_averages_by_month[month][:monthly_precipitation_accumulation]
         end
-        @states[@state][@subregion][@altitude_category][:latitudes] << @latitude
-        @states[@state][@subregion][@altitude_category][:longitudes] << @longitude
-        @states[@state][@subregion][@altitude_category][:altitudes] << @altitude.to_i
+        @states[@state][@subregion][@elevation_category][:latitudes] << @latitude
+        @states[@state][@subregion][@elevation_category][:longitudes] << @longitude
+        @states[@state][@subregion][@elevation_category][:elevations] << @elevation.to_i
       end
     end
   end
@@ -106,7 +106,7 @@ def collect_station_characteristics
   @subregion = nil
   @latitude =  header1[4].to_f.abs
   @longitude = header1[5].to_f.abs
-  @altitude = header1[6].to_i
+  @elevation = header1[6].to_i
 
   case @state
     when "OR" then @subregion = (@longitude > 120 ? "west"  : "east")
@@ -121,13 +121,13 @@ def collect_station_characteristics
     else @subregion = "none"
   end
    
-  #categorize it by altitude  
-  if @altitude < 500 
-    @altitude_category = 1
-  elsif @altitude >= 500 and @altitude < 1000
-    @altitude_category = 2
+  #categorize it by elevation  
+  if @elevation < 500 
+    @elevation_category = 1
+  elsif @elevation >= 500 and @elevation < 1000
+    @elevation_category = 2
   else
-    @altitude_category = 3
+    @elevation_category = 3
   end
 end
 
@@ -156,7 +156,7 @@ def write_to_the_csv_file
                       wind_speed_(m/s) 
                       latitude 
                       longitude 
-                      altitude_(m) 
+                      elevation_(m) 
                       sunshine 
                       accumulated_liquid_precipitation_(mm) 
                       category 
@@ -166,19 +166,19 @@ def write_to_the_csv_file
     state_keys.each do |state|
       subregion_keys = @states[state].keys.sort
       subregion_keys.each do |subregion|
-        altitude_keys = @states[state][subregion].keys.sort
-        altitude_keys.each do |altitude_category|
+        elevation_keys = @states[state][subregion].keys.sort
+        elevation_keys.each do |elevation_category|
           (1..12).to_a.each do |month|
-              number_of_stations =        @states[state][subregion][altitude_category][:avg_monthly_highs][month].size 
-              latitude =              sum(@states[state][subregion][altitude_category][:latitudes]) / number_of_stations
-              longitude =             sum(@states[state][subregion][altitude_category][:longitudes]) / number_of_stations
-              altitude =              sum(@states[state][subregion][altitude_category][:altitudes]) / number_of_stations
-              state_daily_highs =     sum(@states[state][subregion][altitude_category][:avg_monthly_highs][month]).to_f/ number_of_stations
-              state_overnight_lows =  sum(@states[state][subregion][altitude_category][:avg_monthly_lows][month]).to_f/ number_of_stations
-              state_dew =             sum(@states[state][subregion][altitude_category][:dews][month]).to_f/ number_of_stations
-              state_wind =            sum(@states[state][subregion][altitude_category][:winds][month]).to_f/ number_of_stations
-              state_sunshine =        sum(@states[state][subregion][altitude_category][:sunshines][month]).to_f/ number_of_stations
-              state_precipitation =   sum(@states[state][subregion][altitude_category][:monthly_accumulated_precipitations][month]).to_f/ number_of_stations
+              number_of_stations =        @states[state][subregion][elevation_category][:avg_monthly_highs][month].size 
+              latitude =              sum(@states[state][subregion][elevation_category][:latitudes]) / number_of_stations
+              longitude =             sum(@states[state][subregion][elevation_category][:longitudes]) / number_of_stations
+              elevation =              sum(@states[state][subregion][elevation_category][:elevations]) / number_of_stations
+              state_daily_highs =     sum(@states[state][subregion][elevation_category][:avg_monthly_highs][month]).to_f/ number_of_stations
+              state_overnight_lows =  sum(@states[state][subregion][elevation_category][:avg_monthly_lows][month]).to_f/ number_of_stations
+              state_dew =             sum(@states[state][subregion][elevation_category][:dews][month]).to_f/ number_of_stations
+              state_wind =            sum(@states[state][subregion][elevation_category][:winds][month]).to_f/ number_of_stations
+              state_sunshine =        sum(@states[state][subregion][elevation_category][:sunshines][month]).to_f/ number_of_stations
+              state_precipitation =   sum(@states[state][subregion][elevation_category][:monthly_accumulated_precipitations][month]).to_f/ number_of_stations
               writer << [
                         state,
                         subregion,
@@ -189,10 +189,10 @@ def write_to_the_csv_file
                         state_wind,
                         latitude,
                         longitude,
-                        altitude,
+                        elevation,
                         state_sunshine,
                         state_precipitation,
-                        altitude_category,
+                        elevation_category,
                         number_of_stations
                         ]
           end
