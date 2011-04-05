@@ -136,8 +136,8 @@ def initialize_arrays_and_variables
   reset_daily_weather_variables
 end
 
-def write_to_the_csv_file
-  CSV.open("test.csv", "w") do |writer|
+def write_to_the_csv_file(filename)
+  CSV.open(filename, "w") do |writer|
     writer.add_row(%w(state
                       subregion
                       month 
@@ -193,42 +193,51 @@ def write_to_the_csv_file
   end
 end
 
-def open_files_and_read_everything
-  filenames =Dir.glob('tmy3/*')
-  filenames.sort.each do |filename|
-    @current_tmy3_file = CSV.read(filename)
-    collect_station_characteristics 
-    puts filename
-    initialize_arrays_and_variables
-    @current_tmy3_file.each do |row| #Loop through each row. Each row is one hour; 24 rows per day.
+def collect_station_weather_data
+  @current_tmy3_file.each do |row| #Loop through each row. Each row is one hour; 24 rows per day.
 
-      current_row_date = Date.strptime(row[0], '%m/%d/%Y') 
-      @current_row_month = current_row_date.month
-      @current_row_day = current_row_date.day
+    current_row_date = Date.strptime(row[0], '%m/%d/%Y') 
+    @current_row_month = current_row_date.month
+    @current_row_day = current_row_date.day
       
-      # If month changes, we've looped through all hours for that month and 
-      # stored all day-level information. Now store it:
-      set_monthly_averages unless @month == @current_row_month 
-      set_daily_values unless @day == @current_row_day
+    # If month changes, we've looped through all hours for that month and 
+    # stored all day-level information. Now store it:
+    set_monthly_averages unless @month == @current_row_month 
+    set_daily_values unless @day == @current_row_day
 
-      #we want the daily high temp and the overnight low temp
-      @max_temp = row[31].to_f if row[31].to_f > @max_temp #which was initialized to -999 in "reset_values" method
-      @min_temp = row[31].to_f if row[31].to_f < @min_temp #which was initizlized to 999
-      
-      @dew += row[34].to_f
-      @wind += row[46].to_f
-      @precipitation += row[64].to_f unless row[64].to_i == -9900
-      @sunshine = @sunshine + 1 if row[7].to_i > 120
-      # we want (hours of sunshine)/day, which is defined as 
-      # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
-    end
-    # The file ends without triggering final day and month writes. We call them explicitly:
-    set_daily_values
-    set_monthly_averages
-    set_state_values
+    #we want the daily high temp and the overnight low temp
+    @max_temp = row[31].to_f if row[31].to_f > @max_temp #which was initialized to -999 in "reset_values" method
+    @min_temp = row[31].to_f if row[31].to_f < @min_temp #which was initizlized to 999
+     
+    @dew += row[34].to_f
+    @wind += row[46].to_f
+    @precipitation += row[64].to_f unless row[64].to_i == -9900
+    @sunshine = @sunshine + 1 if row[7].to_i > 120
+    # we want (hours of sunshine)/day, which is defined as 
+    # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
   end
+  # The file ends without triggering final day and month writes. We call them explicitly:
+  set_daily_values
+  set_monthly_averages
+  set_state_values
+end
+
+def valid?
+  elevation = ( @elevation <= 1000 )
+  state = ( @state != ("AK" or "HI" or "CA" ))
+  #how do we make all the lines above necessary? Will it just return true based on the last statement?
+  return true if elevation and state
 end
 
 @states = Hash.new
-open_files_and_read_everything
-write_to_the_csv_file
+
+filenames = Dir.glob('tmy3_test_files/*')
+filenames.sort.each do |filename|
+  @current_tmy3_file = CSV.read(filename)
+  collect_station_characteristics 
+  puts filename #progress indicator
+  initialize_arrays_and_variables
+  collect_station_weather_data if valid?
+end
+
+write_to_the_csv_file("test.csv")
