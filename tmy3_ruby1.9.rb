@@ -120,15 +120,6 @@ def collect_station_characteristics
     when "TX" then @subregion = (@longitude > 98 ? "west"  : "east")
     else @subregion = "none"
   end
-   
-  #categorize it by elevation  
-  if @elevation < 500 
-    @elevation_category = 1
-  elsif @elevation >= 500 and @elevation < 1000
-    @elevation_category = 2
-  else
-    @elevation_category = 3
-  end
 end
 
 def initialize_arrays_and_variables
