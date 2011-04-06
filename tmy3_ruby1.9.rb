@@ -1,4 +1,3 @@
-require 'rubygems' #think this is uncessary. when program works, delete this line.
 require 'csv'
 
 def sum(values)
