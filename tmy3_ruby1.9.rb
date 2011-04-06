@@ -63,7 +63,7 @@ def set_monthly_averages
   sunshine_sum = sum(@days_sunshine.values)
   total_monthly_precipitation = sum(@daily_precips.values)
 
-  days_in_month = @daily_highs.size #this appears to be returning n-1
+  days_in_month = days_in_month(@current_row_datetime.year, @current_row_datetime.month)
   @weather_averages_by_month[@month] = {                                    #@weather_averages_by_month[1] ...
     :avg_monthly_high => daily_highs_sum.to_f / days_in_month,              #this is that month's average overnight low
     :avg_monthly_low => overnight_lows_sum.to_f / days_in_month,            #this is that month's average daily high
@@ -80,7 +80,7 @@ def set_monthly_averages
   @days_wind = {}
   @days_sunshine = {}
   @daily_precips
-  @month = @current_row_month
+  @month = @current_row_datetime.month
   @day = 1
   reset_daily_weather_variables
 end
@@ -92,7 +92,7 @@ def set_daily_values
   @days_wind[@day] = @wind / 24
   @days_sunshine[@day] = @sunshine #total accumulated hours of sunshine
   @daily_precips[@day] = @precipitation #total accumulated mm of precip
-  @day = @current_row_day
+  @day = @current_row_datetime.day
   reset_daily_weather_variables
 end
 
@@ -211,21 +211,12 @@ def collect_station_weather_data
     # we want (hours of sunshine)/day, which is defined as 
     # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
 
-    current_row_date = Date.strptime(row[0], '%m/%d/%Y') 
-    current_row_time = Time.parse(row[1])
     @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M')
-    @current_row_year = current_row_date.year
-    @current_row_month = current_row_date.month
-    @current_row_day = current_row_date.day
 
     set_daily_values if last_hour_of_day?
     set_monthly_averages if last_day_of_month? 
 
   end
-  # The file ends without triggering final day and month writes. We call them explicitly:
-  set_daily_values
-  set_monthly_averages
-  set_state_values
 end
 
 def valid?
@@ -247,6 +238,7 @@ filenames.sort.each do |filename|
   puts filename #progress indicator
   initialize_arrays_and_variables
   collect_station_weather_data if valid?
+  set_state_values if valid?
 end
 
 write_to_the_csv_file("test.csv")
