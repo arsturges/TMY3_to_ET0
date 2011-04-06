@@ -218,8 +218,12 @@ end
 
 def valid?
   elevation = ( @elevation <= 1000 )
-  state = ( @state != "AK")
-  return false unless elevation and state
+  state = ( @state != ("AK" or "HI"))
+  if elevation and state
+    return true
+  else
+    return false
+  end
 end
 
 @states = Hash.new
@@ -229,8 +233,9 @@ filenames.sort.each do |filename|
   @current_tmy3_file = CSV.read(filename)
   collect_station_characteristics 
   puts filename #progress indicator
+  puts valid?
   initialize_arrays_and_variables
-  collect_station_weather_data #if valid?
+  collect_station_weather_data if valid?
 end
 
 write_to_the_csv_file("test.csv")
