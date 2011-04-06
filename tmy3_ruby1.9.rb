@@ -216,7 +216,7 @@ end
 
 def valid?
   elevation = ( @elevation <= 1000 )
-  state = ( @state != ("AK" or "HI"))
+  state = ( @state != ("AK" or "HI" or  "GU" or "PR" or "VI"))
   if elevation and state
     return true
   else
