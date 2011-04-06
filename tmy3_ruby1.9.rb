@@ -1,6 +1,4 @@
 require 'csv'
-require 'Time'
-require 'Date'
 
 def sum(values)
   total = 0
@@ -64,7 +62,7 @@ def set_monthly_averages
   total_monthly_precipitation = sum(@daily_precips.values)
 
   days_in_month = days_in_month(@current_row_datetime.year, @current_row_datetime.month)
-  @weather_averages_by_month[@month] = {                                    #@weather_averages_by_month[1] ...
+  @weather_averages_by_month[@current_row_datetime.month] = {                                    #@weather_averages_by_month[1] ...
     :avg_monthly_high => daily_highs_sum.to_f / days_in_month,              #this is that month's average overnight low
     :avg_monthly_low => overnight_lows_sum.to_f / days_in_month,            #this is that month's average daily high
     :dew => dew_sum.to_f / days_in_month,
@@ -80,19 +78,16 @@ def set_monthly_averages
   @days_wind = {}
   @days_sunshine = {}
   @daily_precips
-  @month = @current_row_datetime.month
-  @day = 1
   reset_daily_weather_variables
 end
 
 def set_daily_values
-  @daily_highs[@day] = @max_temp
-  @overnight_lows[@day] = @min_temp
-  @days_dew[@day] = @dew / 24
-  @days_wind[@day] = @wind / 24
-  @days_sunshine[@day] = @sunshine #total accumulated hours of sunshine
-  @daily_precips[@day] = @precipitation #total accumulated mm of precip
-  @day = @current_row_datetime.day
+  @daily_highs[@current_row_datetime.day] = @max_temp
+  @overnight_lows[@current_row_datetime.day] = @min_temp
+  @days_dew[@current_row_datetime.day] = @dew / 24
+  @days_wind[@current_row_datetime.day] = @wind / 24
+  @days_sunshine[@current_row_datetime.day] = @sunshine #total accumulated hours of sunshine
+  @daily_precips[@current_row_datetime.day] = @precipitation #total accumulated mm of precip
   reset_daily_weather_variables
 end
 
@@ -129,8 +124,6 @@ def initialize_arrays_and_variables
   @days_wind = {}
   @days_sunshine = {}
   @daily_precips = {}
-  @month = 1
-  @day = 1
   reset_daily_weather_variables
 end
 
@@ -212,10 +205,8 @@ def collect_station_weather_data
     # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
 
     @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M')
-
     set_daily_values if last_hour_of_day?
-    set_monthly_averages if last_day_of_month? 
-
+    set_monthly_averages if (last_hour_of_day? and last_day_of_month?)
   end
 end
 
@@ -236,7 +227,7 @@ filenames.sort.each do |filename|
   @current_tmy3_file = CSV.read(filename)
   collect_station_characteristics 
   puts filename #progress indicator
-  initialize_arrays_and_variables
+  initialize_arrays_and_variables #if valid?
   collect_station_weather_data if valid?
   set_state_values if valid?
 end
