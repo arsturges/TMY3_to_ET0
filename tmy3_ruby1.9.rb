@@ -1,4 +1,6 @@
 require 'csv'
+require 'Time'
+require 'Date'
 
 def sum(values)
   total = 0
@@ -118,7 +120,6 @@ def collect_station_characteristics
     else @subregion = "none"
   end
 end
-
 def initialize_arrays_and_variables
   #initialize arrays to hold data from this particular weather station
   @weather_averages_by_month = {}
@@ -185,28 +186,41 @@ def write_to_the_csv_file(filename)
   end
 end
 
+def days_in_month(year, month)
+  (Date.new(year, 12, 31) << (12-month)).day
+end
+
+def last_hour_of_day?
+  @current_row_datetime.hour == 0
+end
+
+def last_day_of_month?
+  days_left_in_month = days_in_month(@current_row_datetime.year, @current_row_datetime.month) - @current_row_datetime.day
+  days_left_in_month == 0
+end
+
 def collect_station_weather_data
   @current_tmy3_file.each do |row| #Loop through each row. Each row is one hour; 24 rows per day.
-
-    current_row_date = Date.strptime(row[0], '%m/%d/%Y') 
-    @current_row_month = current_row_date.month
-    @current_row_day = current_row_date.day
       
-    # If month changes, we've looped through all hours for that month and 
-    # stored all day-level information. Now store it:
-    set_monthly_averages unless @month == @current_row_month 
-    set_daily_values unless @day == @current_row_day
-
-    #we want the daily high temp and the overnight low temp
     @max_temp = row[31].to_f if row[31].to_f > @max_temp #which was initialized to -999 in "reset_values" method
     @min_temp = row[31].to_f if row[31].to_f < @min_temp #which was initizlized to 999
-     
     @dew += row[34].to_f
     @wind += row[46].to_f
     @precipitation += row[64].to_f unless row[64].to_i == -9900
     @sunshine = @sunshine + 1 if row[7].to_i > 120
     # we want (hours of sunshine)/day, which is defined as 
     # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
+
+    current_row_date = Date.strptime(row[0], '%m/%d/%Y') 
+    current_row_time = Time.parse(row[1])
+    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M')
+    @current_row_year = current_row_date.year
+    @current_row_month = current_row_date.month
+    @current_row_day = current_row_date.day
+
+    set_daily_values if last_hour_of_day?
+    set_monthly_averages if last_day_of_month? 
+
   end
   # The file ends without triggering final day and month writes. We call them explicitly:
   set_daily_values
@@ -231,7 +245,6 @@ filenames.sort.each do |filename|
   @current_tmy3_file = CSV.read(filename)
   collect_station_characteristics 
   puts filename #progress indicator
-  puts valid?
   initialize_arrays_and_variables
   collect_station_weather_data if valid?
 end
