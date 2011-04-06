@@ -1,4 +1,4 @@
-require 'rubygems'
+require 'rubygems' #think this is uncessary. when program works, delete this line.
 require 'csv'
 
 def sum(values)
@@ -20,8 +20,8 @@ def set_state_values
   if @state
     @states[@state] = {} unless @states[@state]
     if @subregion
-      @states[@state][@subregion] = {} unless @states[@state][@subregion]
-      @states[@state][@subregion]||= { :avg_monthly_highs => {}, 
+      @states[@state][@subregion] ||= { 
+                                                :avg_monthly_highs => {}, 
                                                 :avg_monthly_lows => {}, 
                                                 :dews => {}, 
                                                 :winds => {}, 
@@ -62,7 +62,7 @@ def set_monthly_averages
   sunshine_sum = sum(@days_sunshine.values)
   total_monthly_precipitation = sum(@daily_precips.values)
 
-  days_in_month = @daily_highs.size
+  days_in_month = @daily_highs.size #this appears to be returning n-1
   @weather_averages_by_month[@month] = {                                    #@weather_averages_by_month[1] ...
     :avg_monthly_high => daily_highs_sum.to_f / days_in_month,              #this is that month's average overnight low
     :avg_monthly_low => overnight_lows_sum.to_f / days_in_month,            #this is that month's average daily high
@@ -218,7 +218,7 @@ end
 
 def valid?
   elevation = ( @elevation <= 1000 )
-  state = ( @state != ("AK" or "HI" or "CA" ))
+  state = ( @state != "AK")
   return false unless elevation and state
 end
 
@@ -230,7 +230,7 @@ filenames.sort.each do |filename|
   collect_station_characteristics 
   puts filename #progress indicator
   initialize_arrays_and_variables
-  collect_station_weather_data if valid?
+  collect_station_weather_data #if valid?
 end
 
 write_to_the_csv_file("test.csv")
