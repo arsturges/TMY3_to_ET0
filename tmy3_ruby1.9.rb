@@ -141,13 +141,12 @@ def write_to_the_csv_file(filename)
                       avg_max_temp 
                       avg_min_temp 
                       avg_dew_temp 
+                      elevation_(m) 
                       wind_speed_(m/s) 
                       latitude 
-                      longitude 
-                      elevation_(m) 
                       sunshine 
+                      longitude 
                       accumulated_liquid_precipitation_(mm) 
-                      category 
                       stations))
 
     state_keys = @states.keys.sort
@@ -172,11 +171,11 @@ def write_to_the_csv_file(filename)
                     state_daily_highs,
                     state_overnight_lows,
                     state_dew,
+                    elevation,
                     state_wind,
                     latitude,
-                    longitude,
-                    elevation,
                     state_sunshine,
+                    longitude,
                     state_precipitation,
                     number_of_stations
                     ]
