@@ -83,7 +83,6 @@ end
 
 def set_daily_values
   @daily_highs[@current_row_datetime.day] = @max_temp
-  puts @current_row_datetime.to_s + "---" + @max_temp.to_s
   @overnight_lows[@current_row_datetime.day] = @min_temp
   @days_dew[@current_row_datetime.day] = @dew / 24
   @days_wind[@current_row_datetime.day] = @wind / 24
@@ -180,7 +179,12 @@ def write_to_the_csv_file(filename)
 end
 
 def days_in_month(year, month)
-  (Date.new(year, 12, 31) << (12-month)).day
+  days = (Date.new(year, 12, 31) << (12-month)).day
+  if days == 29
+    return 28 #this is because TMY data does not include February 29
+  else 
+    return days
+  end
 end
 
 def last_hour_of_day?
@@ -204,7 +208,7 @@ def collect_station_weather_data
     # we want (hours of sunshine)/day, which is defined as 
     # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
 
-    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M') - 1/24.0 # subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
+    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M') - 1/(24.0*60) # subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
     set_daily_values if last_hour_of_day?
     set_monthly_averages if (last_hour_of_day? and last_day_of_month?)
   end
@@ -227,7 +231,7 @@ filenames.sort.each do |filename|
   @current_tmy3_file = CSV.read(filename)
   collect_station_characteristics 
   puts filename #progress indicator
-  initialize_arrays_and_variables #if valid?
+  initialize_arrays_and_variables
   collect_station_weather_data if valid?
   set_state_values if valid?
 end
