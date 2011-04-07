@@ -83,6 +83,7 @@ end
 
 def set_daily_values
   @daily_highs[@current_row_datetime.day] = @max_temp
+  puts @current_row_datetime.to_s + "---" + @max_temp.to_s
   @overnight_lows[@current_row_datetime.day] = @min_temp
   @days_dew[@current_row_datetime.day] = @dew / 24
   @days_wind[@current_row_datetime.day] = @wind / 24
@@ -116,7 +117,6 @@ def collect_station_characteristics
   end
 end
 def initialize_arrays_and_variables
-  #initialize arrays to hold data from this particular weather station
   @weather_averages_by_month = {}
   @overnight_lows = {}
   @daily_highs = {}
@@ -184,7 +184,7 @@ def days_in_month(year, month)
 end
 
 def last_hour_of_day?
-  @current_row_datetime.hour == 0
+  @current_row_datetime.hour == 23
 end
 
 def last_day_of_month?
@@ -204,7 +204,7 @@ def collect_station_weather_data
     # we want (hours of sunshine)/day, which is defined as 
     # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
 
-    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M')
+    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M') - 1/24.0 # subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
     set_daily_values if last_hour_of_day?
     set_monthly_averages if (last_hour_of_day? and last_day_of_month?)
   end
