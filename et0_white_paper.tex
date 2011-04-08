@@ -1,0 +1,285 @@
+%% LyX 1.6.7 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+\makeatother
+
+\usepackage{babel}
+
+\begin{document}
+
+\title{Computing Evapotranspiration Using TMY3 Weather Data}
+
+
+\author{Andrew Sturges}
+
+\maketitle
+
+\section{Reference Evapotranspiration ($ET_{0}$)}
+
+Evapotranspiration, expressed in units of water depth per unit time
+(e.g. $\frac{mm}{day}$), is a combination of two separate processes
+whereby water is lost on the one hand from the soil surface by evaporation
+and on the other hand from the crop by transpiration \cite{FAO-56}.
+For a given geographic location, a reference evapotranspiration, $ET_{0}$,
+provides a relative indication of evapotranspiration losses, and thus,
+irrigation needs. When multiplied by a crop coefficient $K_{c}$,
+$ET_{0}$ yields the crop evapotranspiration $ET_{c}$, the actual
+theoretical irrigation requirement of a given crop at a given location.
+
+\begin{equation}
+ET_{0}\ast K_{c}=ET_{c}\end{equation}
+
+
+
+\subsection{The Penman-Monteith Equation}
+
+$ET_{0}$ data for this report was calculated with the FAO Penman-Monteith
+equation according to methods developed by the UN\textquoteright{}s
+Food and Agriculture Organization (FAO) in Crop Evapotranspiration
+\cite{FAO-56}. \begin{equation}
+\frac{0.408\Delta(R_{n}-G)+\gamma\frac{900}{T+273}u_{2}(e_{s}-e_{a})}{\Delta+\gamma(1+0.34u_{2})}=ET_{0}\label{eq:Penman-Monteith}\end{equation}
+
+
+This equation depends on solar radiation, air temperature, air humidity
+and wind speed data. See table \ref{Flo:Penman Equation Variables}
+for an explanation of the variables. All input data for the FAO Penman-Monteith
+Equation came from the National Renewable Energy Laboratory\textquoteright{}s
+(NREL) National Solar Radiation Database, commonly known as TMY3.
+
+%
+\begin{table}
+\caption{Penman-Monteith Equation Variables}
+\label{Flo:Penman Equation Variables}
+
+\begin{tabular}{|c|c|c|}
+\hline 
+Variable & Description & Units\tabularnewline
+\hline
+\hline 
+$ET_{0}$ & Reference evapotranspiration & $\frac{mm}{day}$\tabularnewline
+\hline 
+$R_{n}$ & Net radiation at the crop surface & $\frac{MJ}{m^{2}day}$\tabularnewline
+\hline 
+$G$ & Soil heat flux density & $\frac{MJ}{m^{2}day}$\tabularnewline
+\hline 
+$T$ & Mean daily air temperature at 2 meters height & $\textdegree C$\tabularnewline
+\hline 
+$u_{2}$ & Wind speed at 2 meters height & $\frac{m}{s}$\tabularnewline
+\hline 
+$e_{s}$ & Saturation vapor pressure & $kPa$ \tabularnewline
+\hline 
+$e_{a}$ & Actual vapor pressure & $kPa$\tabularnewline
+\hline 
+$e_{s}-e_{a}$  & Saturation vapor pressure deficit & $kPa$\tabularnewline
+\hline 
+$\Delta$ & Slope of the vapor pressure curve & $\frac{kPa}{\textdegree C}$\tabularnewline
+\hline 
+$\gamma$ & Psychrometric constant & $\frac{kPa}{\textdegree C}$\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{TMY3 Data }
+
+TMY3 data come from 1020 weather stations around the U.S. which record
+climate parameters once every hour. To account for variability across
+years (such as a particular year\textquoteright{}s unseasonably high
+occurrence of hurricanes in the south), NREL developed a method of
+choosing a reference year to represent each month of data in the TMY3
+dataset for each individual weather station \cite{wilcox2008users}.
+For example, January weather data from Gainesville, Florida, (station
+ID 722146) comes from 1994 records, while February data comes from
+1991 records. In this way, the TMY3 dataset aims to represent a typical
+meteorological year (TMY). To arrive at the list of variables in table
+\ref{Flo:Penman Equation Variables} requires calculations on more
+fundamental input data. These, which come from TMY3, appear in table
+\ref{Flo:TMY3 data inputs}. 
+
+%
+\begin{table}
+
+
+\caption{Inputs from TMY3 Data}
+\label{Flo:TMY3 data inputs}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Variable & Description & Units & Dependent $ET_{0}$ Variable & TMY3 Field\tabularnewline
+\hline
+\hline 
+$T_{max}$ & Average daily high temperature & $\textdegree C$ & $e_{s}$ & 32\tabularnewline
+\hline 
+$T_{min}$ & Average daily low temperature & $\textdegree C$ & $e_{s}$ & 32\tabularnewline
+\hline 
+$T_{dew}$ & Average dew point temperature & $\textdegree C$ & $e_{a}$ & 32\tabularnewline
+\hline 
+$z$ & Elevation & $m$ & $\gamma$  & 7 (header 1)\tabularnewline
+\hline 
+$u_{2}$ & Average wind speed & $\frac{m}{s}$ & $u_{2}$  & 47\tabularnewline
+\hline 
+Latitude & Latitude & $degrees$  & $R_{n}$ & 5 (header 1)\tabularnewline
+\hline 
+$n$ & Average sunshine duration & $hours$  & $R_{n}$ & 8\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Scope }
+
+Because this study is primarily concerned with large-scale agriculture,
+most of which is found at elevations below 1000 meters (reference?
+Use a USDA database?), the calculation only includes weather stations
+at or below an elevation of 1000 meters. 
+
+To estimate national crop yields, this study limits its scope to state-level
+data. For TMY3 data, this means that primary data from all weather
+stations in a given state are compiled and averaged by month to come
+up with the inputs for each $ET_{0}$ calculation. This averaging
+effectively creates one hypothetical master weather station for each
+state, with a representative latitude and elevation. 
+
+
+\subsection{Variables }
+
+Treatment of the FAO Penman-Monteith equation and derivation of its
+constituent variables was done according to the methods laid out in
+Crop evapotranspiration \cite{FAO-56}. However, the following variables
+deserve discussion beyond what is provided in Crop evapotranspiration. 
+
+
+\subsubsection{$T_{max}$ and $T_{min}$ }
+
+Temperature data in TMY3 is recorded every hour, and used in the FAO
+Penman-Monteith equation to calculate saturation vapor pressure $e_{s}$.
+To calculate $T_{max}$, we record the daily high for each day in
+a given month, and then compute the average of those daily highs.\[
+\frac{\sum_{1}^{d}\mbox{daily high temperature}}{d}=T_{max}\]
+where $d$ is the number of days in the month. Substituting the daily
+low temperature for the daily high temperature leads to the equation
+for the average daily low.
+
+
+\subsubsection{Soil Heat Flux Density (G) }
+
+Some portion of solar radiation is utilized in heating the soil. $G$
+is positive when the soil is warming and negative when the soil is
+cooling. The soil heat flux density for a given month depends on whether
+the average temperature during that month is greater or less than
+the average temperature of the previous month. For example, the average
+temperature in June is typically greater than the average temperature
+in May, so the net soil heat flux is positive. The temperature in
+November is typically cooler than the temperature in October, so the
+soil heat flux is negative. We compute average temperature for each
+month by state. Because we have a single calendar month, for February
+through December, G is computed using average temperature as described
+above. For January, we use average temperature data from the following
+(priod?) December. 
+
+
+\subsubsection{$T_{dew}$}
+
+Dew point temperature is used in the calculation of actual vapor pressure.
+To calculate the average dew point temperature for a given month,
+we take the average of all the dew point readings, which are taken
+every hour:
+
+\[
+\frac{\sum_{1}^{h}\mbox{hourly dew point temperature}}{h}=T_{dew}\]
+where $h$ is the number of hours in the month.
+
+
+\subsubsection{Elevation ($z$) }
+
+Elevation is used in the calculation of the psychrometric constant
+($\gamma$), which relies intermediately on atmospheric pressure.
+Because all weather stations in a given state are averaged together,
+the resulting {}``master weather station'' is given an elevation
+calculated from the unweighted averages of all of that state\textquoteright{}s
+weather stations.
+
+\[
+\frac{\sum_{1}^{s}\mbox{elevation}}{s}=z\]
+where $s$ is the number of weather stations in the state.
+
+
+\subsubsection{Wind speed ($u_{2}$)}
+
+The FAO Penman-Monteith Equation \eqref{eq:Penman-Monteith} relies
+directly on wind speed in both the numerator and the denominator.
+Hourly wind speed for a given weather station is averaged over each
+day, and wind speed for a given month is the average of its constituent
+days. Therefore a month\textquoteright{}s wind speed is effectively
+the average of all of its hourly wind speed recordings: 
+
+\[
+\frac{\sum_{1}^{h}(\mbox{hourly wind speed})_{h}}{h}=u_{2}\]
+ where $h$ is the number of hours in the month and $(\mbox{hourly wind speed})_{h}$
+is the wind speed during hour $h$.
+
+
+\subsubsection{Latitude }
+
+Latitude is used in the calculation of net radiation $R_{n}$. Like
+elevation, latitude is averaged together over all weather stations
+to come up with a latitude for the state\textquoteright{}s hypothetical
+master weather station.
+
+\[
+\frac{\sum_{1}^{s}\mbox{latitude}_{s}}{s}=latitude\]
+where $s$ is the number of weather stations in the state, and $latitude_{s}$
+is the latitude of weather station $s$.
+
+
+\subsubsection{Sunshine duration ($n$) }
+
+Net radiation ($R_{n}$) relies on a ratio of actual sunshine duration
+($n$ hours) to possible sunshine duration ($N$ hours). A day with
+no cloud cover would have an $n:N$ ratio of 1, with an increase in
+cloud cover reducing this ratio. The World Meteorological Organization
+(WMO) defines sunshine duration during a given period as the sum of
+that sub-period for which the direct solar irradiance exceeds $120\frac{W}{m^{2}}$
+\cite{wmo2008}. In a given day, there may be 14 or more hours (depending
+on latitude) during which direct solar irradiance exceeds this number,
+or as few as zero. For a particular day, $n$ is the number of hours
+for which direct solar irradiance is greater than $120\frac{W}{m^{2}}$.
+Because TMY3 provides direct solar irradiation data, monthly sunshine
+duration ($n$) is calculated as the average of a given month\textquoteright{}s
+daily sunshine durations.
+
+\[
+\sum_{1}^{d}(\mbox{sunshine duration})_{d}=n\]
+ where $d$ is the number of days in the month, and $(\mbox{sunshine duration})_{d}$
+is the number of hours during day $d$ during which direct solar irradiance
+was greater than $120\frac{W}{m^{2}}$.
+
+
+\subsection{Calculation }
+
+The primary input variables listed above are calculated by state and
+by month for a total of 600 rows for each of three elevation bands.
+These are fed to an Excel spreadsheet which performs the intermediary
+calculations outlined in Crop evapotranspiration. 
+
+\[
+\]
+
+
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{C:/Users/arsturges/Documents/LDRD/sturges_reference_database}
+
+\end{document}
