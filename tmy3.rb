@@ -1,4 +1,5 @@
 require 'csv'
+require 'date'
 
 def sum(values)
   total = 0
@@ -227,7 +228,7 @@ end
 
 @states = Hash.new
 
-filenames = Dir.glob('tmy3_test_files/*')
+filenames = Dir.glob('tmy3/*')
 filenames.sort.each do |filename|
   @current_tmy3_file = CSV.read(filename)
   collect_station_characteristics 
