@@ -214,10 +214,11 @@ def collect_station_weather_data
   end
 end
 
-def valid?
-  elevation = ( @elevation <= 1000 )
-  state = ( @state != ("AK" or "HI" or  "GU" or "PR" or "VI"))
-  if elevation and state
+def invalid?
+  elevation = ( @elevation >= 1000 )
+  disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
+  state = disallowed_states.include?(@state)
+  if state or elevation 
     return true
   else
     return false
@@ -232,8 +233,8 @@ filenames.sort.each do |filename|
   collect_station_characteristics 
   puts filename #progress indicator
   initialize_arrays_and_variables
-  collect_station_weather_data if valid?
-  set_state_values if valid?
+  collect_station_weather_data unless invalid?
+  set_state_values unless invalid?
 end
 
 write_to_the_csv_file("test.csv")
