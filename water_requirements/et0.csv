@@ -1,865 +1,661 @@
-state,abbreviation,subregion,month,category,et0
-Alabama,AL,none,1,1,1.740042968
-Alabama,AL,none,2,1,2.40522655
-Alabama,AL,none,3,1,3.34535909
-Alabama,AL,none,4,1,4.403973336
-Alabama,AL,none,5,1,4.75282344
-Alabama,AL,none,6,1,5.218113973
-Alabama,AL,none,7,1,5.156840995
-Alabama,AL,none,8,1,5.00135379
-Alabama,AL,none,9,1,4.521953315
-Alabama,AL,none,10,1,3.549760436
-Alabama,AL,none,11,1,2.507508908
-Alabama,AL,none,12,1,1.990529655
-Arkansas,AR,none,1,1,1.449803937
-Arkansas,AR,none,2,1,2.050153852
-Arkansas,AR,none,3,1,2.909580279
-Arkansas,AR,none,4,1,4.17853778
-Arkansas,AR,none,5,1,4.575175683
-Arkansas,AR,none,6,1,5.309308436
-Arkansas,AR,none,7,1,5.869198356
-Arkansas,AR,none,8,1,5.901672168
-Arkansas,AR,none,9,1,4.811639428
-Arkansas,AR,none,10,1,3.110591812
-Arkansas,AR,none,11,1,2.235644179
-Arkansas,AR,none,12,1,1.695822461
-Arizona,AZ,none,1,1,3.166425951
-Arizona,AZ,none,2,1,3.671257301
-Arizona,AZ,none,3,1,4.912383735
-Arizona,AZ,none,4,1,7.463078857
-Arizona,AZ,none,5,1,8.88433972
-Arizona,AZ,none,6,1,9.953799095
-Arizona,AZ,none,7,1,10.1980531
-Arizona,AZ,none,8,1,9.002590231
-Arizona,AZ,none,9,1,8.034201615
-Arizona,AZ,none,10,1,5.830881372
-Arizona,AZ,none,11,1,4.170484581
-Arizona,AZ,none,12,1,3.019788685
-Arizona,AZ,none,1,2,2.123148517
-Arizona,AZ,none,2,2,2.586886557
-Arizona,AZ,none,3,2,3.484271453
-Arizona,AZ,none,4,2,6.073727695
-Arizona,AZ,none,5,2,7.6117345
-Arizona,AZ,none,6,2,8.96919469
-Arizona,AZ,none,7,2,7.977845508
-Arizona,AZ,none,8,2,6.625029895
-Arizona,AZ,none,9,2,5.749125581
-Arizona,AZ,none,10,2,4.214490739
-Arizona,AZ,none,11,2,2.742410053
-Arizona,AZ,none,12,2,2.001065046
-California,CA,none,1,1,1.936623917
-California,CA,none,2,1,2.553660456
-California,CA,none,3,1,3.368482776
-California,CA,none,4,1,4.752397014
-California,CA,none,5,1,5.815856538
-California,CA,none,6,1,6.736365895
-California,CA,none,7,1,6.836593304
-California,CA,none,8,1,6.545854923
-California,CA,none,9,1,5.462039136
-California,CA,none,10,1,3.784687124
-California,CA,none,11,1,2.621187029
-California,CA,none,12,1,2.073060987
-California,CA,none,1,2,1.418676165
-California,CA,none,2,2,1.972994197
-California,CA,none,3,2,2.430651021
-California,CA,none,4,2,4.070652883
-California,CA,none,5,2,5.113179171
-California,CA,none,6,2,3.705613678
-California,CA,none,7,2,7.231171899
-California,CA,none,8,2,6.958560647
-California,CA,none,9,2,5.119492456
-California,CA,none,10,2,3.656197963
-California,CA,none,11,2,2.289995915
-California,CA,none,12,2,1.560518028
-Colorado,CO,none,1,2,1.129665082
-Colorado,CO,none,2,2,1.631882227
-Colorado,CO,none,3,2,2.741396805
-Colorado,CO,none,4,2,3.998011967
-Colorado,CO,none,5,2,5.443922945
-Colorado,CO,none,6,2,5.59391503
-Colorado,CO,none,7,2,7.012551888
-Colorado,CO,none,8,2,6.445827777
-Colorado,CO,none,9,2,5.186334395
-Colorado,CO,none,10,2,3.448012957
-Colorado,CO,none,11,2,2.025992137
-Colorado,CO,none,12,2,1.290625739
-Connecticut,CT,none,1,1,1.070726551
-Connecticut,CT,none,2,1,1.394148748
-Connecticut,CT,none,3,1,1.894268763
-Connecticut,CT,none,4,1,3.016729561
-Connecticut,CT,none,5,1,3.765366341
-Connecticut,CT,none,6,1,4.366633314
-Connecticut,CT,none,7,1,4.820271577
-Connecticut,CT,none,8,1,4.289429062
-Connecticut,CT,none,9,1,2.924856072
-Connecticut,CT,none,10,1,2.233037993
-Connecticut,CT,none,11,1,1.814816319
-Connecticut,CT,none,12,1,1.218717966
-Delaware,DE,none,1,1,1.126295977
-Delaware,DE,none,2,1,1.552052896
-Delaware,DE,none,3,1,2.556026439
-Delaware,DE,none,4,1,3.379373674
-Delaware,DE,none,5,1,4.446666704
-Delaware,DE,none,6,1,3.910732758
-Delaware,DE,none,7,1,5.038347898
-Delaware,DE,none,8,1,4.493192082
-Delaware,DE,none,9,1,3.662336402
-Delaware,DE,none,10,1,3.175943351
-Delaware,DE,none,11,1,2.011323385
-Delaware,DE,none,12,1,1.520504502
-Florida,FL,north,1,1,2.467371638
-Florida,FL,north,2,1,2.933084435
-Florida,FL,north,3,1,3.819956941
-Florida,FL,north,4,1,4.776624842
-Florida,FL,north,5,1,5.460828876
-Florida,FL,north,6,1,5.302368465
-Florida,FL,north,7,1,5.4158175
-Florida,FL,north,8,1,5.135923278
-Florida,FL,north,9,1,4.568185042
-Florida,FL,north,10,1,4.046510081
-Florida,FL,north,11,1,3.078585552
-Florida,FL,north,12,1,2.409592059
-Florida,FL,south,1,1,3.251277927
-Florida,FL,south,2,1,3.888321988
-Florida,FL,south,3,1,4.557776218
-Florida,FL,south,4,1,5.477430721
-Florida,FL,south,5,1,5.920056646
-Florida,FL,south,6,1,5.286646452
-Florida,FL,south,7,1,5.686515319
-Florida,FL,south,8,1,5.40041651
-Florida,FL,south,9,1,4.670907209
-Florida,FL,south,10,1,4.438352987
-Florida,FL,south,11,1,3.734306723
-Florida,FL,south,12,1,3.029436609
-Georgia,GA,none,1,1,1.930364693
-Georgia,GA,none,2,1,2.608121939
-Georgia,GA,none,3,1,3.486321331
-Georgia,GA,none,4,1,4.415456696
-Georgia,GA,none,5,1,5.094675014
-Georgia,GA,none,6,1,5.252832561
-Georgia,GA,none,7,1,5.372992746
-Georgia,GA,none,8,1,5.20679082
-Georgia,GA,none,9,1,4.233726528
-Georgia,GA,none,10,1,3.575642354
-Georgia,GA,none,11,1,2.442680964
-Georgia,GA,none,12,1,1.891340559
-Iowa,IA,none,1,1,0.73934619
-Iowa,IA,none,2,1,0.923164549
-Iowa,IA,none,3,1,1.964292957
-Iowa,IA,none,4,1,3.223738276
-Iowa,IA,none,5,1,4.063714637
-Iowa,IA,none,6,1,4.979580605
-Iowa,IA,none,7,1,5.062521285
-Iowa,IA,none,8,1,4.543820523
-Iowa,IA,none,9,1,3.906326305
-Iowa,IA,none,10,1,2.876156238
-Iowa,IA,none,11,1,1.445143373
-Iowa,IA,none,12,1,0.755912911
-Idaho,ID,none,1,1,0.713449321
-Idaho,ID,none,2,1,1.143090824
-Idaho,ID,none,3,1,2.33785071
-Idaho,ID,none,4,1,3.562185159
-Idaho,ID,none,5,1,4.781250807
-Idaho,ID,none,6,1,6.458048026
-Idaho,ID,none,7,1,7.643396607
-Idaho,ID,none,8,1,10.60128481
-Idaho,ID,none,9,1,4.678956765
-Idaho,ID,none,10,1,2.553953081
-Idaho,ID,none,11,1,1.306340342
-Idaho,ID,none,12,1,0.709261857
-Idaho,ID,none,1,2,0.703904469
-Idaho,ID,none,2,2,1.070076577
-Idaho,ID,none,3,2,1.992808639
-Idaho,ID,none,4,2,3.319331987
-Idaho,ID,none,5,2,4.914518111
-Idaho,ID,none,6,2,6.304557534
-Idaho,ID,none,7,2,7.755529036
-Idaho,ID,none,8,2,8.871841106
-Idaho,ID,none,9,2,4.834818656
-Idaho,ID,none,10,2,2.762378113
-Idaho,ID,none,11,2,1.186490539
-Idaho,ID,none,12,2,0.733724087
-Illinois,IL,none,1,1,0.850919423
-Illinois,IL,none,2,1,1.189976115
-Illinois,IL,none,3,1,2.132142027
-Illinois,IL,none,4,1,3.110732608
-Illinois,IL,none,5,1,4.364177645
-Illinois,IL,none,6,1,5.298499027
-Illinois,IL,none,7,1,5.491357706
-Illinois,IL,none,8,1,4.734605999
-Illinois,IL,none,9,1,4.014705752
-Illinois,IL,none,10,1,2.860268162
-Illinois,IL,none,11,1,1.739970438
-Illinois,IL,none,12,1,0.901199818
-Indiana,IN,none,1,1,0.882908085
-Indiana,IN,none,2,1,1.219900524
-Indiana,IN,none,3,1,2.115008465
-Indiana,IN,none,4,1,3.507023527
-Indiana,IN,none,5,1,4.380165496
-Indiana,IN,none,6,1,3.909690603
-Indiana,IN,none,7,1,5.409174351
-Indiana,IN,none,8,1,4.586297238
-Indiana,IN,none,9,1,4.001182478
-Indiana,IN,none,10,1,2.724248451
-Indiana,IN,none,11,1,1.671460946
-Indiana,IN,none,12,1,0.926330967
-Kansas,KS,east,1,1,1.209776011
-Kansas,KS,east,2,1,1.820786602
-Kansas,KS,east,3,1,2.836027381
-Kansas,KS,east,4,1,3.84787566
-Kansas,KS,east,5,1,4.72100695
-Kansas,KS,east,6,1,3.51971058
-Kansas,KS,east,7,1,6.669749392
-Kansas,KS,east,8,1,6.17569264
-Kansas,KS,east,9,1,5.19058062
-Kansas,KS,east,10,1,3.609272062
-Kansas,KS,east,11,1,2.568944367
-Kansas,KS,east,12,1,1.326086405
-Kansas,KS,west,1,1,1.390528734
-Kansas,KS,west,2,1,2.018258561
-Kansas,KS,west,3,1,3.277825752
-Kansas,KS,west,4,1,4.791413207
-Kansas,KS,west,5,1,5.431011697
-Kansas,KS,west,6,1,5.066757809
-Kansas,KS,west,7,1,8.45980481
-Kansas,KS,west,8,1,6.844849348
-Kansas,KS,west,9,1,5.489018702
-Kansas,KS,west,10,1,4.333539526
-Kansas,KS,west,11,1,2.789177224
-Kansas,KS,west,12,1,1.960894423
-Kansas,KS,west,1,2,1.693011422
-Kansas,KS,west,2,2,1.78462957
-Kansas,KS,west,3,2,3.30748679
-Kansas,KS,west,4,2,5.241653311
-Kansas,KS,west,5,2,4.911566363
-Kansas,KS,west,6,2,5.248577136
-Kansas,KS,west,7,2,8.19160764
-Kansas,KS,west,8,2,7.223301066
-Kansas,KS,west,9,2,5.861532692
-Kansas,KS,west,10,2,4.396382085
-Kansas,KS,west,11,2,2.763437466
-Kansas,KS,west,12,2,1.253743799
-Kentucky,KY,none,1,1,1.100413166
-Kentucky,KY,none,2,1,1.586376703
-Kentucky,KY,none,3,1,2.468152852
-Kentucky,KY,none,4,1,3.726018173
-Kentucky,KY,none,5,1,4.280810124
-Kentucky,KY,none,6,1,3.411575568
-Kentucky,KY,none,7,1,5.355187342
-Kentucky,KY,none,8,1,4.826745193
-Kentucky,KY,none,9,1,4.034645332
-Kentucky,KY,none,10,1,2.842406366
-Kentucky,KY,none,11,1,2.233909274
-Kentucky,KY,none,12,1,1.217129268
-Louisiana,LA,none,1,1,1.976713932
-Louisiana,LA,none,2,1,2.692563894
-Louisiana,LA,none,3,1,3.493506136
-Louisiana,LA,none,4,1,4.203242665
-Louisiana,LA,none,5,1,4.797874895
-Louisiana,LA,none,6,1,5.214825302
-Louisiana,LA,none,7,1,5.413258463
-Louisiana,LA,none,8,1,5.392920045
-Louisiana,LA,none,9,1,4.973820717
-Louisiana,LA,none,10,1,3.92203554
-Louisiana,LA,none,11,1,2.754117291
-Louisiana,LA,none,12,1,2.161029105
-Massachusetts,MA,none,1,1,1.052929285
-Massachusetts,MA,none,2,1,1.296737011
-Massachusetts,MA,none,3,1,1.958571278
-Massachusetts,MA,none,4,1,2.703368985
-Massachusetts,MA,none,5,1,3.492747748
-Massachusetts,MA,none,6,1,3.850407111
-Massachusetts,MA,none,7,1,4.461012843
-Massachusetts,MA,none,8,1,4.221959364
-Massachusetts,MA,none,9,1,3.007121092
-Massachusetts,MA,none,10,1,2.366401747
-Massachusetts,MA,none,11,1,1.691667668
-Massachusetts,MA,none,12,1,1.216253675
-Maryland,MD,none,1,1,1.351309793
-Maryland,MD,none,2,1,1.920614543
-Maryland,MD,none,3,1,2.677567819
-Maryland,MD,none,4,1,3.890251029
-Maryland,MD,none,5,1,4.350521138
-Maryland,MD,none,6,1,2.820711241
-Maryland,MD,none,7,1,5.118364003
-Maryland,MD,none,8,1,4.6766613
-Maryland,MD,none,9,1,3.593431083
-Maryland,MD,none,10,1,2.982506731
-Maryland,MD,none,11,1,2.242498869
-Maryland,MD,none,12,1,1.494506835
-Maine,ME,none,1,1,0.622278007
-Maine,ME,none,2,1,0.840622555
-Maine,ME,none,3,1,1.420337542
-Maine,ME,none,4,1,2.336271136
-Maine,ME,none,5,1,3.584947557
-Maine,ME,none,6,1,4.172808371
-Maine,ME,none,7,1,4.33224611
-Maine,ME,none,8,1,6.736376511
-Maine,ME,none,9,1,2.969292101
-Maine,ME,none,10,1,1.85058598
-Maine,ME,none,11,1,1.108521459
-Maine,ME,none,12,1,0.774753523
-Michigan,MI,none,1,1,0.62735213
-Michigan,MI,none,2,1,0.823684004
-Michigan,MI,none,3,1,1.608204393
-Michigan,MI,none,4,1,2.843776717
-Michigan,MI,none,5,1,3.820763673
-Michigan,MI,none,6,1,4.754106633
-Michigan,MI,none,7,1,5.015802707
-Michigan,MI,none,8,1,5.565009328
-Michigan,MI,none,9,1,3.033319527
-Michigan,MI,none,10,1,2.003232223
-Michigan,MI,none,11,1,1.25544589
-Michigan,MI,none,12,1,0.723606287
-Minnesota,MN,none,1,1,0.422923702
-Minnesota,MN,none,2,1,0.6707797
-Minnesota,MN,none,3,1,1.26958116
-Minnesota,MN,none,4,1,2.855540964
-Minnesota,MN,none,5,1,3.85521094
-Minnesota,MN,none,6,1,4.51324251
-Minnesota,MN,none,7,1,5.162076801
-Minnesota,MN,none,8,1,5.740363474
-Minnesota,MN,none,9,1,3.291162599
-Minnesota,MN,none,10,1,1.733095412
-Minnesota,MN,none,11,1,1.01932514
-Minnesota,MN,none,12,1,0.551414595
-Missouri,MO,none,1,1,1.090698177
-Missouri,MO,none,2,1,1.675246343
-Missouri,MO,none,3,1,2.632923763
-Missouri,MO,none,4,1,3.841230293
-Missouri,MO,none,5,1,4.556138611
-Missouri,MO,none,6,1,2.508762077
-Missouri,MO,none,7,1,5.80976184
-Missouri,MO,none,8,1,5.362704128
-Missouri,MO,none,9,1,4.336202995
-Missouri,MO,none,10,1,3.192089427
-Missouri,MO,none,11,1,1.932065497
-Missouri,MO,none,12,1,1.256335514
-Mississippi,MS,none,1,1,1.740984671
-Mississippi,MS,none,2,1,2.39263333
-Mississippi,MS,none,3,1,3.286065797
-Mississippi,MS,none,4,1,4.191459187
-Mississippi,MS,none,5,1,4.800705357
-Mississippi,MS,none,6,1,5.155321085
-Mississippi,MS,none,7,1,5.408648454
-Mississippi,MS,none,8,1,5.419009092
-Mississippi,MS,none,9,1,4.682024898
-Mississippi,MS,none,10,1,3.604255923
-Mississippi,MS,none,11,1,2.407990629
-Mississippi,MS,none,12,1,1.84328547
-Montana,MT,none,1,1,0.501794054
-Montana,MT,none,2,1,0.873600108
-Montana,MT,none,3,1,1.417575712
-Montana,MT,none,4,1,3.458216579
-Montana,MT,none,5,1,4.391236173
-Montana,MT,none,6,1,5.398699983
-Montana,MT,none,7,1,7.102471575
-Montana,MT,none,8,1,6.231441504
-Montana,MT,none,9,1,4.303922608
-Montana,MT,none,10,1,2.159877395
-Montana,MT,none,11,1,1.217183471
-Montana,MT,none,12,1,0.627421323
-Montana,MT,none,1,2,0.922099046
-Montana,MT,none,2,2,1.258252743
-Montana,MT,none,3,2,1.989929358
-Montana,MT,none,4,2,3.171047131
-Montana,MT,none,5,2,4.234679581
-Montana,MT,none,6,2,5.419204906
-Montana,MT,none,7,2,7.823730964
-Montana,MT,none,8,2,6.280901199
-Montana,MT,none,9,2,4.527503786
-Montana,MT,none,10,2,2.67478122
-Montana,MT,none,11,2,1.66952167
-Montana,MT,none,12,2,0.992869264
-North Carolina,NC,none,1,1,1.753447496
-North Carolina,NC,none,2,1,2.265784676
-North Carolina,NC,none,3,1,3.180269527
-North Carolina,NC,none,4,1,4.48323891
-North Carolina,NC,none,5,1,4.898599739
-North Carolina,NC,none,6,1,5.189810084
-North Carolina,NC,none,7,1,5.293836479
-North Carolina,NC,none,8,1,4.987588855
-North Carolina,NC,none,9,1,4.130563346
-North Carolina,NC,none,10,1,3.196021632
-North Carolina,NC,none,11,1,2.336483817
-North Carolina,NC,none,12,1,1.859501461
-North Dakota,ND,east,1,1,0.403655854
-North Dakota,ND,east,2,1,0.546191369
-North Dakota,ND,east,3,1,0.882594824
-North Dakota,ND,east,4,1,3.081440667
-North Dakota,ND,east,5,1,4.305330562
-North Dakota,ND,east,6,1,4.920892871
-North Dakota,ND,east,7,1,5.634652504
-North Dakota,ND,east,8,1,4.835043959
-North Dakota,ND,east,9,1,3.893540989
-North Dakota,ND,east,10,1,1.855101595
-North Dakota,ND,east,11,1,0.790775145
-North Dakota,ND,east,12,1,0.473304917
-North Dakota,ND,west,1,1,0.415071249
-North Dakota,ND,west,2,1,0.71711482
-North Dakota,ND,west,3,1,1.198076922
-North Dakota,ND,west,4,1,2.993921151
-North Dakota,ND,west,5,1,4.365130963
-North Dakota,ND,west,6,1,5.193651094
-North Dakota,ND,west,7,1,6.688166122
-North Dakota,ND,west,8,1,5.804282518
-North Dakota,ND,west,9,1,4.36810556
-North Dakota,ND,west,10,1,2.554963536
-North Dakota,ND,west,11,1,1.119231856
-North Dakota,ND,west,12,1,0.503719716
-Nebraska,NE,east,1,1,0.908699378
-Nebraska,NE,east,2,1,1.241470258
-Nebraska,NE,east,3,1,2.381956347
-Nebraska,NE,east,4,1,3.6234643
-Nebraska,NE,east,5,1,4.714916182
-Nebraska,NE,east,6,1,5.493195307
-Nebraska,NE,east,7,1,6.017105207
-Nebraska,NE,east,8,1,5.171875907
-Nebraska,NE,east,9,1,4.498157713
-Nebraska,NE,east,10,1,3.166360913
-Nebraska,NE,east,11,1,1.686786937
-Nebraska,NE,east,12,1,1.06094411
-Nebraska,NE,west,1,1,1.291638298
-Nebraska,NE,west,2,1,1.665144891
-Nebraska,NE,west,3,1,2.636072118
-Nebraska,NE,west,4,1,4.214509806
-Nebraska,NE,west,5,1,5.265760776
-Nebraska,NE,west,6,1,6.18264817
-Nebraska,NE,west,7,1,7.197114967
-Nebraska,NE,west,8,1,6.613206693
-Nebraska,NE,west,9,1,4.958175059
-Nebraska,NE,west,10,1,3.535387156
-Nebraska,NE,west,11,1,2.119976536
-Nebraska,NE,west,12,1,1.416718979
-Nebraska,NE,west,1,2,1.43213157
-Nebraska,NE,west,2,2,1.99943249
-Nebraska,NE,west,3,2,2.582518697
-Nebraska,NE,west,4,2,3.946460246
-Nebraska,NE,west,5,2,4.872519364
-Nebraska,NE,west,6,2,6.838892872
-Nebraska,NE,west,7,2,7.701868905
-Nebraska,NE,west,8,2,6.960930301
-Nebraska,NE,west,9,2,4.962643312
-Nebraska,NE,west,10,2,3.880764136
-Nebraska,NE,west,11,2,1.952156663
-Nebraska,NE,west,12,2,1.479563196
-New Hampshire,NH,none,1,1,0.731320663
-New Hampshire,NH,none,2,1,0.938238548
-New Hampshire,NH,none,3,1,1.617319506
-New Hampshire,NH,none,4,1,2.586263667
-New Hampshire,NH,none,5,1,3.469694562
-New Hampshire,NH,none,6,1,4.40570801
-New Hampshire,NH,none,7,1,4.657846282
-New Hampshire,NH,none,8,1,5.556404315
-New Hampshire,NH,none,9,1,2.836097231
-New Hampshire,NH,none,10,1,1.919826031
-New Hampshire,NH,none,11,1,1.379672745
-New Hampshire,NH,none,12,1,0.781374971
-New Hampshire,NH,none,1,2,0.542312252
-New Hampshire,NH,none,2,2,0.610181245
-New Hampshire,NH,none,3,2,0.531937155
-New Hampshire,NH,none,4,2,0.95442995
-New Hampshire,NH,none,5,2,1.142366719
-New Hampshire,NH,none,6,2,1.928139875
-New Hampshire,NH,none,7,2,1.85220013
-New Hampshire,NH,none,8,2,3.040306532
-New Hampshire,NH,none,9,2,1.376303233
-New Hampshire,NH,none,10,2,1.534983418
-New Hampshire,NH,none,11,2,0.680620659
-New Hampshire,NH,none,12,2,0.881677027
-New Jersey,NJ,none,1,1,1.364793126
-New Jersey,NJ,none,2,1,1.647189138
-New Jersey,NJ,none,3,1,2.330680349
-New Jersey,NJ,none,4,1,3.463690231
-New Jersey,NJ,none,5,1,4.179697261
-New Jersey,NJ,none,6,1,4.992285425
-New Jersey,NJ,none,7,1,5.38596366
-New Jersey,NJ,none,8,1,4.630462295
-New Jersey,NJ,none,9,1,3.734694454
-New Jersey,NJ,none,10,1,2.752887305
-New Jersey,NJ,none,11,1,1.96218312
-New Jersey,NJ,none,12,1,1.444252638
-New Mexico,NM,none,1,1,2.35758382
-New Mexico,NM,none,2,1,2.357609105
-New Mexico,NM,none,3,1,5.873257662
-New Mexico,NM,none,4,1,5.612303422
-New Mexico,NM,none,5,1,9.619466557
-New Mexico,NM,none,6,1,7.889066354
-New Mexico,NM,none,7,1,9.288171285
-New Mexico,NM,none,8,1,8.034136613
-New Mexico,NM,none,9,1,5.896929291
-New Mexico,NM,none,10,1,6.013158473
-New Mexico,NM,none,11,1,4.405057349
-New Mexico,NM,none,12,1,2.709399038
-New Mexico,NM,none,1,2,2.317836401
-New Mexico,NM,none,2,2,2.825229878
-New Mexico,NM,none,3,2,4.353976549
-New Mexico,NM,none,4,2,6.202023127
-New Mexico,NM,none,5,2,7.795041498
-New Mexico,NM,none,6,2,8.736552136
-New Mexico,NM,none,7,2,8.053665781
-New Mexico,NM,none,8,2,7.073639251
-New Mexico,NM,none,9,2,6.205151947
-New Mexico,NM,none,10,2,4.523815504
-New Mexico,NM,none,11,2,2.97672802
-New Mexico,NM,none,12,2,2.270336803
-Nevada,NV,none,1,1,2.466250297
-Nevada,NV,none,2,1,3.547451025
-Nevada,NV,none,3,1,5.206363457
-Nevada,NV,none,4,1,7.143432538
-Nevada,NV,none,5,1,9.714420664
-Nevada,NV,none,6,1,11.659484
-Nevada,NV,none,7,1,10.494328
-Nevada,NV,none,8,1,10.66017128
-Nevada,NV,none,9,1,8.832105754
-Nevada,NV,none,10,1,5.85634253
-Nevada,NV,none,11,1,3.494098101
-Nevada,NV,none,12,1,2.794828279
-Nevada,NV,none,1,2,1.263808211
-Nevada,NV,none,2,2,1.914754268
-Nevada,NV,none,3,2,2.751745001
-Nevada,NV,none,4,2,4.420570455
-Nevada,NV,none,5,2,5.840390988
-Nevada,NV,none,6,2,6.323719235
-Nevada,NV,none,7,2,8.445457007
-Nevada,NV,none,8,2,7.67833572
-Nevada,NV,none,9,2,5.799931906
-Nevada,NV,none,10,2,3.700742871
-Nevada,NV,none,11,2,2.07786735
-Nevada,NV,none,12,2,1.301756539
-New York,NY,none,1,1,0.864316914
-New York,NY,none,2,1,1.189240921
-New York,NY,none,3,1,1.836151894
-New York,NY,none,4,1,3.030453814
-New York,NY,none,5,1,3.845947393
-New York,NY,none,6,1,4.469945212
-New York,NY,none,7,1,4.836862472
-New York,NY,none,8,1,4.302879755
-New York,NY,none,9,1,2.987551175
-New York,NY,none,10,1,2.121292865
-New York,NY,none,11,1,1.497470606
-New York,NY,none,12,1,1.007163572
-Ohio,OH,none,1,1,0.849310226
-Ohio,OH,none,2,1,1.203161589
-Ohio,OH,none,3,1,1.993238756
-Ohio,OH,none,4,1,3.219584049
-Ohio,OH,none,5,1,4.133639848
-Ohio,OH,none,6,1,4.714290694
-Ohio,OH,none,7,1,5.069242451
-Ohio,OH,none,8,1,4.317360829
-Ohio,OH,none,9,1,3.474396982
-Ohio,OH,none,10,1,2.471210673
-Ohio,OH,none,11,1,1.693827937
-Ohio,OH,none,12,1,1.083919161
-Oklahoma,OK,east,1,1,1.713887048
-Oklahoma,OK,east,2,1,1.980778482
-Oklahoma,OK,east,3,1,3.247122458
-Oklahoma,OK,east,4,1,5.104531013
-Oklahoma,OK,east,5,1,5.294767668
-Oklahoma,OK,east,6,1,6.187088623
-Oklahoma,OK,east,7,1,7.285061502
-Oklahoma,OK,east,8,1,7.2534183
-Oklahoma,OK,east,9,1,5.657914295
-Oklahoma,OK,east,10,1,3.928236428
-Oklahoma,OK,east,11,1,2.448637098
-Oklahoma,OK,east,12,1,1.870363921
-Oklahoma,OK,west,1,1,1.983878752
-Oklahoma,OK,west,2,1,2.301857478
-Oklahoma,OK,west,3,1,3.84618708
-Oklahoma,OK,west,4,1,5.361037608
-Oklahoma,OK,west,5,1,6.013030975
-Oklahoma,OK,west,6,1,8.284470536
-Oklahoma,OK,west,7,1,8.164171261
-Oklahoma,OK,west,8,1,8.249127565
-Oklahoma,OK,west,9,1,6.562903583
-Oklahoma,OK,west,10,1,4.676941607
-Oklahoma,OK,west,11,1,2.891120274
-Oklahoma,OK,west,12,1,2.174688621
-Oregon,OR,east,1,1,0.862624077
-Oregon,OR,east,2,1,1.148386593
-Oregon,OR,east,3,1,2.271845182
-Oregon,OR,east,4,1,3.280142425
-Oregon,OR,east,5,1,4.302246479
-Oregon,OR,east,6,1,6.114291073
-Oregon,OR,east,7,1,7.395100982
-Oregon,OR,east,8,1,8.637639506
-Oregon,OR,east,9,1,4.512877968
-Oregon,OR,east,10,1,2.906097624
-Oregon,OR,east,11,1,1.614380052
-Oregon,OR,east,12,1,0.885784118
-Oregon,OR,east,1,2,0.802529547
-Oregon,OR,east,2,2,1.073752459
-Oregon,OR,east,3,2,1.70917637
-Oregon,OR,east,4,2,3.21316336
-Oregon,OR,east,5,2,4.530180949
-Oregon,OR,east,6,2,5.645091765
-Oregon,OR,east,7,2,6.953026657
-Oregon,OR,east,8,2,9.152373656
-Oregon,OR,east,9,2,4.140470113
-Oregon,OR,east,10,2,2.405739892
-Oregon,OR,east,11,2,1.365031934
-Oregon,OR,east,12,2,0.552638494
-Oregon,OR,west,1,1,0.867737049
-Oregon,OR,west,2,1,1.361156781
-Oregon,OR,west,3,1,1.916691197
-Oregon,OR,west,4,1,2.864582206
-Oregon,OR,west,5,1,3.579301729
-Oregon,OR,west,6,1,4.630338094
-Oregon,OR,west,7,1,5.560497042
-Oregon,OR,west,8,1,7.931365542
-Oregon,OR,west,9,1,3.746687326
-Oregon,OR,west,10,1,2.125326307
-Oregon,OR,west,11,1,0.981057168
-Oregon,OR,west,12,1,0.744140513
-Oregon,OR,west,1,2,0.969275327
-Oregon,OR,west,2,2,1.446110564
-Oregon,OR,west,3,2,1.772735804
-Oregon,OR,west,4,2,2.874715471
-Oregon,OR,west,5,2,4.442247195
-Oregon,OR,west,6,2,5.820898814
-Oregon,OR,west,7,2,6.763671153
-Oregon,OR,west,8,2,5.996069476
-Oregon,OR,west,9,2,4.366226099
-Oregon,OR,west,10,2,2.722864587
-Oregon,OR,west,11,2,1.504283372
-Oregon,OR,west,12,2,1.04513521
-Pennsylvania,PA,none,1,1,0.973861755
-Pennsylvania,PA,none,2,1,1.338405695
-Pennsylvania,PA,none,3,1,2.088155161
-Pennsylvania,PA,none,4,1,3.342377063
-Pennsylvania,PA,none,5,1,3.966242206
-Pennsylvania,PA,none,6,1,4.548723206
-Pennsylvania,PA,none,7,1,5.040287068
-Pennsylvania,PA,none,8,1,4.252902617
-Pennsylvania,PA,none,9,1,3.377808873
-Pennsylvania,PA,none,10,1,2.432900091
-Pennsylvania,PA,none,11,1,1.664851862
-Pennsylvania,PA,none,12,1,1.106631269
-Rhode Island,RI,none,1,1,1.278451245
-Rhode Island,RI,none,2,1,1.751024626
-Rhode Island,RI,none,3,1,1.888099592
-Rhode Island,RI,none,4,1,2.826186863
-Rhode Island,RI,none,5,1,3.575691568
-Rhode Island,RI,none,6,1,4.322793594
-Rhode Island,RI,none,7,1,4.692906364
-Rhode Island,RI,none,8,1,4.276523511
-Rhode Island,RI,none,9,1,3.117277174
-Rhode Island,RI,none,10,1,2.406912579
-Rhode Island,RI,none,11,1,1.805712325
-Rhode Island,RI,none,12,1,1.414528056
-South Carolina,SC,none,1,1,2.025650111
-South Carolina,SC,none,2,1,2.497537635
-South Carolina,SC,none,3,1,3.331259488
-South Carolina,SC,none,4,1,4.524952378
-South Carolina,SC,none,5,1,5.328613962
-South Carolina,SC,none,6,1,5.342430978
-South Carolina,SC,none,7,1,5.659852239
-South Carolina,SC,none,8,1,4.968108109
-South Carolina,SC,none,9,1,4.105082683
-South Carolina,SC,none,10,1,3.537335112
-South Carolina,SC,none,11,1,2.423937228
-South Carolina,SC,none,12,1,1.953519367
-South Dakota,SD,east,1,1,0.613551138
-South Dakota,SD,east,2,1,0.936446154
-South Dakota,SD,east,3,1,1.522574187
-South Dakota,SD,east,4,1,3.259810146
-South Dakota,SD,east,5,1,4.117379772
-South Dakota,SD,east,6,1,5.114933188
-South Dakota,SD,east,7,1,6.010358269
-South Dakota,SD,east,8,1,7.848252831
-South Dakota,SD,east,9,1,4.315949335
-South Dakota,SD,east,10,1,2.472065799
-South Dakota,SD,east,11,1,1.229229999
-South Dakota,SD,east,12,1,0.64886594
-South Dakota,SD,west,1,1,0.814838647
-South Dakota,SD,west,2,1,1.216995878
-South Dakota,SD,west,3,1,1.683249696
-South Dakota,SD,west,4,1,3.352512265
-South Dakota,SD,west,5,1,4.666864505
-South Dakota,SD,west,6,1,5.926311129
-South Dakota,SD,west,7,1,7.27159258
-South Dakota,SD,west,8,1,9.797216206
-South Dakota,SD,west,9,1,4.889330532
-South Dakota,SD,west,10,1,2.642569843
-South Dakota,SD,west,11,1,1.389297465
-South Dakota,SD,west,12,1,1.080157208
-Tennessee,TN,none,1,1,1.376887441
-Tennessee,TN,none,2,1,1.828239804
-Tennessee,TN,none,3,1,3.031289921
-Tennessee,TN,none,4,1,4.069241969
-Tennessee,TN,none,5,1,4.483273363
-Tennessee,TN,none,6,1,5.101229437
-Tennessee,TN,none,7,1,5.643395624
-Tennessee,TN,none,8,1,4.984467581
-Tennessee,TN,none,9,1,4.083295849
-Tennessee,TN,none,10,1,2.948658936
-Tennessee,TN,none,11,1,2.281709059
-Tennessee,TN,none,12,1,1.618333037
-Texas,TX,east,1,1,2.448648512
-Texas,TX,east,2,1,3.148487164
-Texas,TX,east,3,1,3.814352022
-Texas,TX,east,4,1,4.907447913
-Texas,TX,east,5,1,5.360245224
-Texas,TX,east,6,1,6.108501642
-Texas,TX,east,7,1,6.976457624
-Texas,TX,east,8,1,6.614015513
-Texas,TX,east,9,1,5.866121812
-Texas,TX,east,10,1,4.361242505
-Texas,TX,east,11,1,3.284054875
-Texas,TX,east,12,1,2.53989264
-Texas,TX,west,1,1,2.722152948
-Texas,TX,west,2,1,3.709723839
-Texas,TX,west,3,1,4.898622382
-Texas,TX,west,4,1,6.2831479
-Texas,TX,west,5,1,6.760961138
-Texas,TX,west,6,1,7.641994933
-Texas,TX,west,7,1,7.983432361
-Texas,TX,west,8,1,7.432862525
-Texas,TX,west,9,1,6.26521451
-Texas,TX,west,10,1,4.973168398
-Texas,TX,west,11,1,3.442218877
-Texas,TX,west,12,1,3.057641961
-Texas,TX,west,1,2,2.637648006
-Texas,TX,west,2,2,3.359008878
-Texas,TX,west,3,2,4.673144253
-Texas,TX,west,4,2,6.289489377
-Texas,TX,west,5,2,8.297245928
-Texas,TX,west,6,2,8.180402549
-Texas,TX,west,7,2,7.994038074
-Texas,TX,west,8,2,7.487218573
-Texas,TX,west,9,2,6.511363492
-Texas,TX,west,10,2,4.619488847
-Texas,TX,west,11,2,3.647032534
-Texas,TX,west,12,2,2.586257036
-Utah,UT,none,1,1,1.629230243
-Utah,UT,none,2,1,1.771816769
-Utah,UT,none,3,1,4.753399544
-Utah,UT,none,4,1,7.115116827
-Utah,UT,none,5,1,8.944072472
-Utah,UT,none,6,1,8.430543792
-Utah,UT,none,7,1,10.97916554
-Utah,UT,none,8,1,9.530114163
-Utah,UT,none,9,1,7.340353878
-Utah,UT,none,10,1,4.031440486
-Utah,UT,none,11,1,2.017237779
-Utah,UT,none,12,1,1.554719961
-Utah,UT,none,1,2,1.106113534
-Utah,UT,none,2,2,1.420905478
-Utah,UT,none,3,2,2.589000939
-Utah,UT,none,4,2,4.181054032
-Utah,UT,none,5,2,5.952185943
-Utah,UT,none,6,2,6.424171923
-Utah,UT,none,7,2,8.613117544
-Utah,UT,none,8,2,7.534847022
-Utah,UT,none,9,2,5.390966
-Utah,UT,none,10,2,3.187948749
-Utah,UT,none,11,2,1.605241761
-Utah,UT,none,12,2,1.078737494
-Virginia,VA,none,1,1,1.461497895
-Virginia,VA,none,2,1,1.778844781
-Virginia,VA,none,3,1,2.63248809
-Virginia,VA,none,4,1,3.862682866
-Virginia,VA,none,5,1,4.488970698
-Virginia,VA,none,6,1,3.619751059
-Virginia,VA,none,7,1,5.158221309
-Virginia,VA,none,8,1,4.868834978
-Virginia,VA,none,9,1,3.787763653
-Virginia,VA,none,10,1,2.928126262
-Virginia,VA,none,11,1,2.001480646
-Virginia,VA,none,12,1,1.485698918
-Virginia,VA,none,1,2,0.971489815
-Virginia,VA,none,2,2,1.431237403
-Virginia,VA,none,3,2,1.921368065
-Virginia,VA,none,4,2,3.661664118
-Virginia,VA,none,5,2,3.938843447
-Virginia,VA,none,6,2,3.260956401
-Virginia,VA,none,7,2,4.303531544
-Virginia,VA,none,8,2,4.783648225
-Virginia,VA,none,9,2,3.987360192
-Virginia,VA,none,10,2,3.244892688
-Virginia,VA,none,11,2,1.439009831
-Virginia,VA,none,12,2,0.891751233
-Vermont,VT,none,1,1,0.616043803
-Vermont,VT,none,2,1,0.970036395
-Vermont,VT,none,3,1,1.378212222
-Vermont,VT,none,4,1,2.761317763
-Vermont,VT,none,5,1,3.659328231
-Vermont,VT,none,6,1,4.327888356
-Vermont,VT,none,7,1,4.573026598
-Vermont,VT,none,8,1,5.501344704
-Vermont,VT,none,9,1,2.843632685
-Vermont,VT,none,10,1,1.726161809
-Vermont,VT,none,11,1,1.282300657
-Vermont,VT,none,12,1,0.727499237
-Washington,WA,east,1,1,0.475773223
-Washington,WA,east,2,1,1.13344565
-Washington,WA,east,3,1,2.121441691
-Washington,WA,east,4,1,3.45802351
-Washington,WA,east,5,1,4.701344952
-Washington,WA,east,6,1,5.996924071
-Washington,WA,east,7,1,8.903015112
-Washington,WA,east,8,1,6.872855722
-Washington,WA,east,9,1,4.716526935
-Washington,WA,east,10,1,2.542756483
-Washington,WA,east,11,1,0.95278119
-Washington,WA,east,12,1,0.513956016
-Washington,WA,west,1,1,0.544394832
-Washington,WA,west,2,1,1.025816146
-Washington,WA,west,3,1,1.662184341
-Washington,WA,west,4,1,2.813899163
-Washington,WA,west,5,1,3.290931891
-Washington,WA,west,6,1,4.136043172
-Washington,WA,west,7,1,5.137314649
-Washington,WA,west,8,1,4.285194158
-Washington,WA,west,9,1,2.990843408
-Washington,WA,west,10,1,1.69736151
-Washington,WA,west,11,1,0.823571008
-Washington,WA,west,12,1,0.530486047
-Washington,WA,west,1,2,0.217901987
-Washington,WA,west,2,2,0.588431678
-Washington,WA,west,3,2,0.935605583
-Washington,WA,west,4,2,1.744856656
-Washington,WA,west,5,2,2.811928547
-Washington,WA,west,6,2,3.686252266
-Washington,WA,west,7,2,5.155348152
-Washington,WA,west,8,2,4.483179364
-Washington,WA,west,9,2,2.059711694
-Washington,WA,west,10,2,1.603600369
-Washington,WA,west,11,2,0.609339691
-Washington,WA,west,12,2,0.162974753
-Wisconsin,WI,none,1,1,0.489795001
-Wisconsin,WI,none,2,1,0.737025328
-Wisconsin,WI,none,3,1,1.449128817
-Wisconsin,WI,none,4,1,2.818206061
-Wisconsin,WI,none,5,1,3.96722696
-Wisconsin,WI,none,6,1,4.58175519
-Wisconsin,WI,none,7,1,4.826847386
-Wisconsin,WI,none,8,1,6.898548654
-Wisconsin,WI,none,9,1,3.210719783
-Wisconsin,WI,none,10,1,2.069117589
-Wisconsin,WI,none,11,1,1.152949616
-Wisconsin,WI,none,12,1,0.621672544
-West Virginia,WV,none,1,1,1.023914418
-West Virginia,WV,none,2,1,1.470208697
-West Virginia,WV,none,3,1,2.401526749
-West Virginia,WV,none,4,1,3.41848664
-West Virginia,WV,none,5,1,3.802689875
-West Virginia,WV,none,6,1,1.796501163
-West Virginia,WV,none,7,1,4.399590381
-West Virginia,WV,none,8,1,4.045119747
-West Virginia,WV,none,9,1,3.274035418
-West Virginia,WV,none,10,1,2.429398293
-West Virginia,WV,none,11,1,1.826996555
-West Virginia,WV,none,12,1,1.173851774
-Wyoming,WY,none,1,2,0.999405844
-Wyoming,WY,none,2,2,1.329303699
-Wyoming,WY,none,3,2,2.320056375
-Wyoming,WY,none,4,2,3.697094942
-Wyoming,WY,none,5,2,4.64126676
-Wyoming,WY,none,6,2,6.321256568
-Wyoming,WY,none,7,2,7.374368349
-Wyoming,WY,none,8,2,6.848521751
-Wyoming,WY,none,9,2,4.626256565
-Wyoming,WY,none,10,2,3.088433257
-Wyoming,WY,none,11,2,1.706930556
-Wyoming,WY,none,12,2,1.088266158
+state,abbreviation,subregion,month,et0
+Alabama,AL,none,1,1.752791035
+Alabama,AL,none,2,2.406666462
+Alabama,AL,none,3,3.328518598
+Alabama,AL,none,4,4.372449731
+Alabama,AL,none,5,4.770382415
+Alabama,AL,none,6,5.207378268
+Alabama,AL,none,7,5.139613164
+Alabama,AL,none,8,5.002852052
+Alabama,AL,none,9,4.518688568
+Alabama,AL,none,10,3.542383209
+Alabama,AL,none,11,2.516420945
+Alabama,AL,none,12,1.987582657
+Arkansas,AR,none,1,1.453566535
+Arkansas,AR,none,2,2.040025529
+Arkansas,AR,none,3,2.921451444
+Arkansas,AR,none,4,4.196311034
+Arkansas,AR,none,5,4.589150146
+Arkansas,AR,none,6,5.314161964
+Arkansas,AR,none,7,5.875661519
+Arkansas,AR,none,8,5.908431928
+Arkansas,AR,none,9,4.794944169
+Arkansas,AR,none,10,3.084202888
+Arkansas,AR,none,11,2.24658846
+Arkansas,AR,none,12,1.695057961
+Arizona,AZ,none,1,3.162291542
+Arizona,AZ,none,2,3.676758063
+Arizona,AZ,none,3,4.930175952
+Arizona,AZ,none,4,7.489395411
+Arizona,AZ,none,5,8.897593162
+Arizona,AZ,none,6,9.965565859
+Arizona,AZ,none,7,10.15491268
+Arizona,AZ,none,8,9.005798024
+Arizona,AZ,none,9,8.00599545
+Arizona,AZ,none,10,5.793592523
+Arizona,AZ,none,11,4.141824383
+Arizona,AZ,none,12,3.017193758
+California,CA,none,1,1.945972341
+California,CA,none,2,2.558817877
+California,CA,none,3,3.390777356
+California,CA,none,4,4.758888915
+California,CA,none,5,5.830253032
+California,CA,none,6,6.744994493
+California,CA,none,7,6.835239975
+California,CA,none,8,6.533011142
+California,CA,none,9,5.448184629
+California,CA,none,10,3.771830935
+California,CA,none,11,2.601491873
+California,CA,none,12,2.071027965
+Connecticut,CT,none,1,1.06849218
+Connecticut,CT,none,2,1.414576003
+Connecticut,CT,none,3,1.90290254
+Connecticut,CT,none,4,3.050787009
+Connecticut,CT,none,5,3.780384687
+Connecticut,CT,none,6,4.397310701
+Connecticut,CT,none,7,4.810755101
+Connecticut,CT,none,8,4.270343037
+Connecticut,CT,none,9,2.926935978
+Connecticut,CT,none,10,2.230664872
+Connecticut,CT,none,11,1.804315009
+Connecticut,CT,none,12,1.218657116
+Delaware,DE,none,1,1.118541335
+Delaware,DE,none,2,1.595785544
+Delaware,DE,none,3,2.576491956
+Delaware,DE,none,4,3.36986815
+Delaware,DE,none,5,4.423608762
+Delaware,DE,none,6,3.952436586
+Delaware,DE,none,7,4.985101353
+Delaware,DE,none,8,4.509760012
+Delaware,DE,none,9,3.657664859
+Delaware,DE,none,10,3.16201872
+Delaware,DE,none,11,1.993847026
+Delaware,DE,none,12,1.518564959
+Florida,FL,north,1,2.459322255
+Florida,FL,north,2,2.926810093
+Florida,FL,north,3,3.809365541
+Florida,FL,north,4,4.774482815
+Florida,FL,north,5,5.467786452
+Florida,FL,north,6,5.308502868
+Florida,FL,north,7,5.410569978
+Florida,FL,north,8,5.120402796
+Florida,FL,north,9,4.566114528
+Florida,FL,north,10,4.026555025
+Florida,FL,north,11,3.077264334
+Florida,FL,north,12,2.407304209
+Florida,FL,south,1,3.242545611
+Florida,FL,south,2,3.895966156
+Florida,FL,south,3,4.56721147
+Florida,FL,south,4,5.474701374
+Florida,FL,south,5,5.926770092
+Florida,FL,south,6,5.299869814
+Florida,FL,south,7,5.693423253
+Florida,FL,south,8,5.39592897
+Florida,FL,south,9,4.658147943
+Florida,FL,south,10,4.419190306
+Florida,FL,south,11,3.721937442
+Florida,FL,south,12,3.029222004
+Georgia,GA,none,1,1.934224019
+Georgia,GA,none,2,2.61585778
+Georgia,GA,none,3,3.462608214
+Georgia,GA,none,4,4.397880021
+Georgia,GA,none,5,5.094605752
+Georgia,GA,none,6,5.24711904
+Georgia,GA,none,7,5.367816871
+Georgia,GA,none,8,5.200662368
+Georgia,GA,none,9,4.224036743
+Georgia,GA,none,10,3.568743917
+Georgia,GA,none,11,2.432121203
+Georgia,GA,none,12,1.889676805
+Iowa,IA,none,1,0.736189745
+Iowa,IA,none,2,0.928399513
+Iowa,IA,none,3,1.988652352
+Iowa,IA,none,4,3.248005429
+Iowa,IA,none,5,4.070046874
+Iowa,IA,none,6,4.978684354
+Iowa,IA,none,7,5.071511985
+Iowa,IA,none,8,4.554563268
+Iowa,IA,none,9,3.936408365
+Iowa,IA,none,10,2.855042239
+Iowa,IA,none,11,1.452439109
+Iowa,IA,none,12,0.755361035
+Idaho,ID,none,1,0.71873804
+Idaho,ID,none,2,1.169366555
+Idaho,ID,none,3,2.362704183
+Idaho,ID,none,4,3.585818446
+Idaho,ID,none,5,4.824339899
+Idaho,ID,none,6,6.48358735
+Idaho,ID,none,7,7.646548703
+Idaho,ID,none,8,10.56733183
+Idaho,ID,none,9,4.66625184
+Idaho,ID,none,10,2.535344018
+Idaho,ID,none,11,1.287956783
+Idaho,ID,none,12,0.707561386
+Illinois,IL,none,1,0.841655123
+Illinois,IL,none,2,1.204950477
+Illinois,IL,none,3,2.13399506
+Illinois,IL,none,4,3.149167471
+Illinois,IL,none,5,4.365896812
+Illinois,IL,none,6,5.319145041
+Illinois,IL,none,7,5.502789761
+Illinois,IL,none,8,4.731629303
+Illinois,IL,none,9,4.026230943
+Illinois,IL,none,10,2.849671829
+Illinois,IL,none,11,1.731075622
+Illinois,IL,none,12,0.89989533
+Indiana,IN,none,1,0.879546873
+Indiana,IN,none,2,1.232109583
+Indiana,IN,none,3,2.11825614
+Indiana,IN,none,4,3.521640075
+Indiana,IN,none,5,4.404269343
+Indiana,IN,none,6,3.88754531
+Indiana,IN,none,7,5.427255721
+Indiana,IN,none,8,4.586197752
+Indiana,IN,none,9,3.999463959
+Indiana,IN,none,10,2.730849867
+Indiana,IN,none,11,1.656267575
+Indiana,IN,none,12,0.924986069
+Kansas,KS,east,1,1.194374359
+Kansas,KS,east,2,1.810235089
+Kansas,KS,east,3,2.846791663
+Kansas,KS,east,4,3.833886728
+Kansas,KS,east,5,4.726666446
+Kansas,KS,east,6,3.542018595
+Kansas,KS,east,7,6.679927875
+Kansas,KS,east,8,6.1578428
+Kansas,KS,east,9,5.183158814
+Kansas,KS,east,10,3.574636917
+Kansas,KS,east,11,2.563814726
+Kansas,KS,east,12,1.324513544
+Kansas,KS,west,1,1.380747568
+Kansas,KS,west,2,2.031896963
+Kansas,KS,west,3,3.287616893
+Kansas,KS,west,4,4.757825355
+Kansas,KS,west,5,5.481913986
+Kansas,KS,west,6,5.039777526
+Kansas,KS,west,7,8.444773215
+Kansas,KS,west,8,6.844235386
+Kansas,KS,west,9,5.518045645
+Kansas,KS,west,10,4.315420561
+Kansas,KS,west,11,2.78576454
+Kansas,KS,west,12,1.959441067
+Kentucky,KY,none,1,1.099553146
+Kentucky,KY,none,2,1.586182761
+Kentucky,KY,none,3,2.459000432
+Kentucky,KY,none,4,3.740108717
+Kentucky,KY,none,5,4.288803248
+Kentucky,KY,none,6,3.418941638
+Kentucky,KY,none,7,5.362377018
+Kentucky,KY,none,8,4.828274632
+Kentucky,KY,none,9,4.033914974
+Kentucky,KY,none,10,2.836987902
+Kentucky,KY,none,11,2.208165013
+Kentucky,KY,none,12,1.214184441
+Louisiana,LA,none,1,1.986628853
+Louisiana,LA,none,2,2.691372625
+Louisiana,LA,none,3,3.504761011
+Louisiana,LA,none,4,4.220609119
+Louisiana,LA,none,5,4.79198023
+Louisiana,LA,none,6,5.221047765
+Louisiana,LA,none,7,5.437050595
+Louisiana,LA,none,8,5.388586444
+Louisiana,LA,none,9,4.968694175
+Louisiana,LA,none,10,3.90458827
+Louisiana,LA,none,11,2.751568804
+Louisiana,LA,none,12,2.157537856
+Massachusetts,MA,none,1,1.051603254
+Massachusetts,MA,none,2,1.298082672
+Massachusetts,MA,none,3,1.966135009
+Massachusetts,MA,none,4,2.701489954
+Massachusetts,MA,none,5,3.507815982
+Massachusetts,MA,none,6,3.849803659
+Massachusetts,MA,none,7,4.455094659
+Massachusetts,MA,none,8,4.192596163
+Massachusetts,MA,none,9,2.991297176
+Massachusetts,MA,none,10,2.357500592
+Massachusetts,MA,none,11,1.680946717
+Massachusetts,MA,none,12,1.215695969
+Maryland,MD,none,1,1.354340871
+Maryland,MD,none,2,1.926908825
+Maryland,MD,none,3,2.668228491
+Maryland,MD,none,4,3.867143545
+Maryland,MD,none,5,4.396131603
+Maryland,MD,none,6,2.826428106
+Maryland,MD,none,7,5.116977288
+Maryland,MD,none,8,4.663059697
+Maryland,MD,none,9,3.594238975
+Maryland,MD,none,10,2.973503044
+Maryland,MD,none,11,2.239695015
+Maryland,MD,none,12,1.493758506
+Maine,ME,none,1,0.623565899
+Maine,ME,none,2,0.847754291
+Maine,ME,none,3,1.42569229
+Maine,ME,none,4,2.378462547
+Maine,ME,none,5,3.607304531
+Maine,ME,none,6,4.167361987
+Maine,ME,none,7,4.345507884
+Maine,ME,none,8,6.730561364
+Maine,ME,none,9,2.955786297
+Maine,ME,none,10,1.85373582
+Maine,ME,none,11,1.103058877
+Maine,ME,none,12,0.773996717
+Michigan,MI,none,1,0.627549313
+Michigan,MI,none,2,0.830408216
+Michigan,MI,none,3,1.625125857
+Michigan,MI,none,4,2.858895874
+Michigan,MI,none,5,3.839636125
+Michigan,MI,none,6,4.762142469
+Michigan,MI,none,7,5.035652655
+Michigan,MI,none,8,5.574407936
+Michigan,MI,none,9,3.037337622
+Michigan,MI,none,10,1.996868077
+Michigan,MI,none,11,1.246400268
+Michigan,MI,none,12,0.722592801
+Minnesota,MN,none,1,0.424221608
+Minnesota,MN,none,2,0.675286413
+Minnesota,MN,none,3,1.288105221
+Minnesota,MN,none,4,2.864731728
+Minnesota,MN,none,5,3.865678883
+Minnesota,MN,none,6,4.532810705
+Minnesota,MN,none,7,5.166058184
+Minnesota,MN,none,8,5.733594977
+Minnesota,MN,none,9,3.286492974
+Minnesota,MN,none,10,1.714819833
+Minnesota,MN,none,11,1.01415192
+Minnesota,MN,none,12,0.550743703
+Missouri,MO,none,1,1.098683257
+Missouri,MO,none,2,1.673884657
+Missouri,MO,none,3,2.642581269
+Missouri,MO,none,4,3.847752055
+Missouri,MO,none,5,4.557830321
+Missouri,MO,none,6,2.516588029
+Missouri,MO,none,7,5.816461831
+Missouri,MO,none,8,5.364525109
+Missouri,MO,none,9,4.341991517
+Missouri,MO,none,10,3.191168486
+Missouri,MO,none,11,1.934222283
+Missouri,MO,none,12,1.25486908
+Mississippi,MS,none,1,1.747980559
+Mississippi,MS,none,2,2.411329219
+Mississippi,MS,none,3,3.285868477
+Mississippi,MS,none,4,4.188829506
+Mississippi,MS,none,5,4.772748342
+Mississippi,MS,none,6,5.169005436
+Mississippi,MS,none,7,5.403464876
+Mississippi,MS,none,8,5.412519324
+Mississippi,MS,none,9,4.678874673
+Mississippi,MS,none,10,3.575630267
+Mississippi,MS,none,11,2.416411406
+Mississippi,MS,none,12,1.84078626
+Montana,MT,none,1,0.506648869
+Montana,MT,none,2,0.873790102
+Montana,MT,none,3,1.424716721
+Montana,MT,none,4,3.460380652
+Montana,MT,none,5,4.367644264
+Montana,MT,none,6,5.448912502
+Montana,MT,none,7,7.121654248
+Montana,MT,none,8,6.213251896
+Montana,MT,none,9,4.306812797
+Montana,MT,none,10,2.136327188
+Montana,MT,none,11,1.205616333
+Montana,MT,none,12,0.626612862
+North Carolina,NC,none,1,1.752495562
+North Carolina,NC,none,2,2.277009245
+North Carolina,NC,none,3,3.15940146
+North Carolina,NC,none,4,4.474992188
+North Carolina,NC,none,5,4.895766785
+North Carolina,NC,none,6,5.208803807
+North Carolina,NC,none,7,5.27003217
+North Carolina,NC,none,8,4.981160411
+North Carolina,NC,none,9,4.126992329
+North Carolina,NC,none,10,3.183555745
+North Carolina,NC,none,11,2.328239207
+North Carolina,NC,none,12,1.858151208
+North Dakota,ND,east,1,0.402472819
+North Dakota,ND,east,2,0.552401842
+North Dakota,ND,east,3,0.88694776
+North Dakota,ND,east,4,3.135767031
+North Dakota,ND,east,5,4.3189098
+North Dakota,ND,east,6,4.930387963
+North Dakota,ND,east,7,5.627332541
+North Dakota,ND,east,8,4.832638572
+North Dakota,ND,east,9,3.849654116
+North Dakota,ND,east,10,1.866903827
+North Dakota,ND,east,11,0.789336949
+North Dakota,ND,east,12,0.473389171
+North Dakota,ND,west,1,0.414685332
+North Dakota,ND,west,2,0.710517738
+North Dakota,ND,west,3,1.220452049
+North Dakota,ND,west,4,3.042760511
+North Dakota,ND,west,5,4.33200525
+North Dakota,ND,west,6,5.246879324
+North Dakota,ND,west,7,6.700782397
+North Dakota,ND,west,8,5.818719787
+North Dakota,ND,west,9,4.344986913
+North Dakota,ND,west,10,2.574230285
+North Dakota,ND,west,11,1.099935032
+North Dakota,ND,west,12,0.502893936
+Nebraska,NE,east,1,0.910017411
+Nebraska,NE,east,2,1.243775779
+Nebraska,NE,east,3,2.409682196
+Nebraska,NE,east,4,3.626182863
+Nebraska,NE,east,5,4.695877459
+Nebraska,NE,east,6,5.500366378
+Nebraska,NE,east,7,6.042837873
+Nebraska,NE,east,8,5.17206418
+Nebraska,NE,east,9,4.49764332
+Nebraska,NE,east,10,3.125741442
+Nebraska,NE,east,11,1.678092764
+Nebraska,NE,east,12,1.060047905
+Nebraska,NE,west,1,1.285285533
+Nebraska,NE,west,2,1.6922603
+Nebraska,NE,west,3,2.681297086
+Nebraska,NE,west,4,4.150520834
+Nebraska,NE,west,5,5.221924465
+Nebraska,NE,west,6,6.222997831
+Nebraska,NE,west,7,7.125762275
+Nebraska,NE,west,8,6.611596215
+Nebraska,NE,west,9,4.989425118
+Nebraska,NE,west,10,3.485268782
+Nebraska,NE,west,11,2.105757944
+Nebraska,NE,west,12,1.415098844
+New Hampshire,NH,none,1,0.732172128
+New Hampshire,NH,none,2,0.960306717
+New Hampshire,NH,none,3,1.638750324
+New Hampshire,NH,none,4,2.62652679
+New Hampshire,NH,none,5,3.473558683
+New Hampshire,NH,none,6,4.434390284
+New Hampshire,NH,none,7,4.642479293
+New Hampshire,NH,none,8,5.491397285
+New Hampshire,NH,none,9,2.830036949
+New Hampshire,NH,none,10,1.914389508
+New Hampshire,NH,none,11,1.368659459
+New Hampshire,NH,none,12,0.780523909
+New Jersey,NJ,none,1,1.35321342
+New Jersey,NJ,none,2,1.65631214
+New Jersey,NJ,none,3,2.326001047
+New Jersey,NJ,none,4,3.457951829
+New Jersey,NJ,none,5,4.191435707
+New Jersey,NJ,none,6,4.999532665
+New Jersey,NJ,none,7,5.376250083
+New Jersey,NJ,none,8,4.617595518
+New Jersey,NJ,none,9,3.71841421
+New Jersey,NJ,none,10,2.752092827
+New Jersey,NJ,none,11,1.957876238
+New Jersey,NJ,none,12,1.44205719
+New Mexico,NM,none,1,2.3360196
+New Mexico,NM,none,2,2.403531185
+New Mexico,NM,none,3,5.798823861
+New Mexico,NM,none,4,5.659593481
+New Mexico,NM,none,5,9.661537422
+New Mexico,NM,none,6,7.750017317
+New Mexico,NM,none,7,9.232420784
+New Mexico,NM,none,8,8.005028126
+New Mexico,NM,none,9,5.947295219
+New Mexico,NM,none,10,6.007019573
+New Mexico,NM,none,11,4.374548425
+New Mexico,NM,none,12,2.706457162
+Nevada,NV,none,1,2.468040587
+Nevada,NV,none,2,3.512988435
+Nevada,NV,none,3,5.255070768
+Nevada,NV,none,4,7.135064558
+Nevada,NV,none,5,9.733082344
+Nevada,NV,none,6,11.669053
+Nevada,NV,none,7,10.45979302
+Nevada,NV,none,8,10.65986993
+Nevada,NV,none,9,8.793533649
+Nevada,NV,none,10,5.823119379
+Nevada,NV,none,11,3.487354956
+Nevada,NV,none,12,2.792274017
+New York,NY,none,1,0.86528239
+New York,NY,none,2,1.196474478
+New York,NY,none,3,1.843770289
+New York,NY,none,4,3.030714738
+New York,NY,none,5,3.872308086
+New York,NY,none,6,4.47545406
+New York,NY,none,7,4.815783231
+New York,NY,none,8,4.281519066
+New York,NY,none,9,2.989744707
+New York,NY,none,10,2.129249976
+New York,NY,none,11,1.484624827
+New York,NY,none,12,1.007133578
+Ohio,OH,none,1,0.852658146
+Ohio,OH,none,2,1.21299206
+Ohio,OH,none,3,1.993939736
+Ohio,OH,none,4,3.228632616
+Ohio,OH,none,5,4.143218767
+Ohio,OH,none,6,4.70852711
+Ohio,OH,none,7,5.079745401
+Ohio,OH,none,8,4.311615354
+Ohio,OH,none,9,3.487403285
+Ohio,OH,none,10,2.475312086
+Ohio,OH,none,11,1.692368143
+Ohio,OH,none,12,1.082962535
+Oklahoma,OK,east,1,1.692856681
+Oklahoma,OK,east,2,1.965072738
+Oklahoma,OK,east,3,3.256770441
+Oklahoma,OK,east,4,5.1194738
+Oklahoma,OK,east,5,5.320078494
+Oklahoma,OK,east,6,6.223670995
+Oklahoma,OK,east,7,7.307915537
+Oklahoma,OK,east,8,7.234118506
+Oklahoma,OK,east,9,5.702812286
+Oklahoma,OK,east,10,3.876806263
+Oklahoma,OK,east,11,2.432923739
+Oklahoma,OK,east,12,1.867608421
+Oklahoma,OK,west,1,1.961686107
+Oklahoma,OK,west,2,2.2609667
+Oklahoma,OK,west,3,3.872411568
+Oklahoma,OK,west,4,5.341635223
+Oklahoma,OK,west,5,6.070589198
+Oklahoma,OK,west,6,8.286724725
+Oklahoma,OK,west,7,8.145243472
+Oklahoma,OK,west,8,8.228432492
+Oklahoma,OK,west,9,6.59451821
+Oklahoma,OK,west,10,4.618090133
+Oklahoma,OK,west,11,2.91590296
+Oklahoma,OK,west,12,2.173650687
+Oregon,OR,east,1,0.865627415
+Oregon,OR,east,2,1.155822118
+Oregon,OR,east,3,2.307405446
+Oregon,OR,east,4,3.280191286
+Oregon,OR,east,5,4.28614192
+Oregon,OR,east,6,6.140026503
+Oregon,OR,east,7,7.431935538
+Oregon,OR,east,8,8.598947857
+Oregon,OR,east,9,4.525524977
+Oregon,OR,east,10,2.904229834
+Oregon,OR,east,11,1.596236463
+Oregon,OR,east,12,0.883448758
+Oregon,OR,west,1,0.871104928
+Oregon,OR,west,2,1.363794196
+Oregon,OR,west,3,1.920498938
+Oregon,OR,west,4,2.877950709
+Oregon,OR,west,5,3.60748696
+Oregon,OR,west,6,4.634331971
+Oregon,OR,west,7,5.578167908
+Oregon,OR,west,8,7.9224755
+Oregon,OR,west,9,3.724410619
+Oregon,OR,west,10,2.102690504
+Oregon,OR,west,11,0.972951452
+Oregon,OR,west,12,0.743035563
+Pennsylvania,PA,none,1,0.975786396
+Pennsylvania,PA,none,2,1.350831524
+Pennsylvania,PA,none,3,2.100835324
+Pennsylvania,PA,none,4,3.355257156
+Pennsylvania,PA,none,5,3.994581405
+Pennsylvania,PA,none,6,4.554281138
+Pennsylvania,PA,none,7,5.041397124
+Pennsylvania,PA,none,8,4.236097143
+Pennsylvania,PA,none,9,3.372676071
+Pennsylvania,PA,none,10,2.437679202
+Pennsylvania,PA,none,11,1.658505531
+Pennsylvania,PA,none,12,1.10582998
+Rhode Island,RI,none,1,1.271846871
+Rhode Island,RI,none,2,1.762914036
+Rhode Island,RI,none,3,1.88967338
+Rhode Island,RI,none,4,2.828453965
+Rhode Island,RI,none,5,3.624611012
+Rhode Island,RI,none,6,4.334894327
+Rhode Island,RI,none,7,4.670740755
+Rhode Island,RI,none,8,4.230583429
+Rhode Island,RI,none,9,3.115942651
+Rhode Island,RI,none,10,2.407969274
+Rhode Island,RI,none,11,1.781924694
+Rhode Island,RI,none,12,1.414016019
+South Carolina,SC,none,1,2.028251704
+South Carolina,SC,none,2,2.487679465
+South Carolina,SC,none,3,3.318380016
+South Carolina,SC,none,4,4.506585769
+South Carolina,SC,none,5,5.310156584
+South Carolina,SC,none,6,5.342353321
+South Carolina,SC,none,7,5.652101859
+South Carolina,SC,none,8,4.965515583
+South Carolina,SC,none,9,4.126971151
+South Carolina,SC,none,10,3.530855586
+South Carolina,SC,none,11,2.425028761
+South Carolina,SC,none,12,1.95130721
+South Dakota,SD,east,1,0.610261766
+South Dakota,SD,east,2,0.943336376
+South Dakota,SD,east,3,1.533424789
+South Dakota,SD,east,4,3.242927389
+South Dakota,SD,east,5,4.10172036
+South Dakota,SD,east,6,5.167557691
+South Dakota,SD,east,7,6.022983738
+South Dakota,SD,east,8,7.852376119
+South Dakota,SD,east,9,4.288226841
+South Dakota,SD,east,10,2.460516972
+South Dakota,SD,east,11,1.218958448
+South Dakota,SD,east,12,0.648378977
+South Dakota,SD,west,1,0.824624056
+South Dakota,SD,west,2,1.210620109
+South Dakota,SD,west,3,1.684500899
+South Dakota,SD,west,4,3.350187853
+South Dakota,SD,west,5,4.688794144
+South Dakota,SD,west,6,6.007242935
+South Dakota,SD,west,7,7.281658903
+South Dakota,SD,west,8,9.810105909
+South Dakota,SD,west,9,4.880763819
+South Dakota,SD,west,10,2.613247324
+South Dakota,SD,west,11,1.387754422
+South Dakota,SD,west,12,1.079896054
+Tennessee,TN,none,1,1.393580183
+Tennessee,TN,none,2,1.837262108
+Tennessee,TN,none,3,3.038622601
+Tennessee,TN,none,4,4.057003275
+Tennessee,TN,none,5,4.496644089
+Tennessee,TN,none,6,5.119996773
+Tennessee,TN,none,7,5.652561586
+Tennessee,TN,none,8,4.987585063
+Tennessee,TN,none,9,4.090974464
+Tennessee,TN,none,10,2.938959837
+Tennessee,TN,none,11,2.274562675
+Tennessee,TN,none,12,1.614873559
+Texas,TX,east,1,2.458952589
+Texas,TX,east,2,3.140661694
+Texas,TX,east,3,3.820896243
+Texas,TX,east,4,4.931582121
+Texas,TX,east,5,5.374496246
+Texas,TX,east,6,6.112344278
+Texas,TX,east,7,6.972973779
+Texas,TX,east,8,6.58706907
+Texas,TX,east,9,5.859499007
+Texas,TX,east,10,4.337498395
+Texas,TX,east,11,3.283848664
+Texas,TX,east,12,2.537504332
+Texas,TX,west,1,2.734304222
+Texas,TX,west,2,3.72556431
+Texas,TX,west,3,4.905030083
+Texas,TX,west,4,6.294043046
+Texas,TX,west,5,6.77795705
+Texas,TX,west,6,7.631209231
+Texas,TX,west,7,7.98371332
+Texas,TX,west,8,7.412492067
+Texas,TX,west,9,6.242857353
+Texas,TX,west,10,4.95567675
+Texas,TX,west,11,3.445924637
+Texas,TX,west,12,3.05567799
+Utah,UT,none,1,1.624910347
+Utah,UT,none,2,1.778677274
+Utah,UT,none,3,4.847011244
+Utah,UT,none,4,7.144750346
+Utah,UT,none,5,8.957818514
+Utah,UT,none,6,8.476525898
+Utah,UT,none,7,11.03631474
+Utah,UT,none,8,9.389541143
+Utah,UT,none,9,7.278321551
+Utah,UT,none,10,4.038992791
+Utah,UT,none,11,1.993567391
+Utah,UT,none,12,1.547272014
+Virginia,VA,none,1,1.456120365
+Virginia,VA,none,2,1.789480349
+Virginia,VA,none,3,2.633427708
+Virginia,VA,none,4,3.878112864
+Virginia,VA,none,5,4.502978025
+Virginia,VA,none,6,3.633408487
+Virginia,VA,none,7,5.150367332
+Virginia,VA,none,8,4.86357007
+Virginia,VA,none,9,3.785873585
+Virginia,VA,none,10,2.921610183
+Virginia,VA,none,11,1.991177485
+Virginia,VA,none,12,1.484440956
+Vermont,VT,none,1,0.615378397
+Vermont,VT,none,2,0.971974462
+Vermont,VT,none,3,1.397086407
+Vermont,VT,none,4,2.77266855
+Vermont,VT,none,5,3.720182857
+Vermont,VT,none,6,4.351179323
+Vermont,VT,none,7,4.562514459
+Vermont,VT,none,8,5.514180379
+Vermont,VT,none,9,2.829212291
+Vermont,VT,none,10,1.748837574
+Vermont,VT,none,11,1.264224178
+Vermont,VT,none,12,0.725153922
+Washington,WA,east,1,0.471390537
+Washington,WA,east,2,1.147040104
+Washington,WA,east,3,2.134523759
+Washington,WA,east,4,3.472895689
+Washington,WA,east,5,4.697489145
+Washington,WA,east,6,6.038092074
+Washington,WA,east,7,8.923355551
+Washington,WA,east,8,6.873496125
+Washington,WA,east,9,4.722342179
+Washington,WA,east,10,2.515513137
+Washington,WA,east,11,0.938652343
+Washington,WA,east,12,0.51278104
+Washington,WA,west,1,0.542881411
+Washington,WA,west,2,1.032748132
+Washington,WA,west,3,1.667262481
+Washington,WA,west,4,2.847326705
+Washington,WA,west,5,3.305468066
+Washington,WA,west,6,4.132059234
+Washington,WA,west,7,5.160829356
+Washington,WA,west,8,4.28649389
+Washington,WA,west,9,2.969431469
+Washington,WA,west,10,1.694660589
+Washington,WA,west,11,0.820254294
+Washington,WA,west,12,0.530176694
+Wisconsin,WI,none,1,0.490878856
+Wisconsin,WI,none,2,0.748178182
+Wisconsin,WI,none,3,1.465299957
+Wisconsin,WI,none,4,2.832576321
+Wisconsin,WI,none,5,3.985884656
+Wisconsin,WI,none,6,4.602287536
+Wisconsin,WI,none,7,4.838480114
+Wisconsin,WI,none,8,6.895370259
+Wisconsin,WI,none,9,3.207547884
+Wisconsin,WI,none,10,2.052354768
+Wisconsin,WI,none,11,1.15208625
+Wisconsin,WI,none,12,0.62089427
+West Virginia,WV,none,1,1.029026169
+West Virginia,WV,none,2,1.485621406
+West Virginia,WV,none,3,2.409642204
+West Virginia,WV,none,4,3.421648684
+West Virginia,WV,none,5,3.819630297
+West Virginia,WV,none,6,1.796678039
+West Virginia,WV,none,7,4.398426294
+West Virginia,WV,none,8,4.027585094
+West Virginia,WV,none,9,3.28549119
+West Virginia,WV,none,10,2.454453255
+West Virginia,WV,none,11,1.813363689
+West Virginia,WV,none,12,1.170976025

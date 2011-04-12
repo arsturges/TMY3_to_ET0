@@ -63,18 +63,17 @@ def look_up_crop_kc(crop, month, state, subregion) #returns @crop_kc (unitless)
 	end
 end
 
-def look_up_region_et0(state, subregion, elevation_band, month) #returns @et0 (floating point) mm/day
+def look_up_region_et0(state, subregion, month) #returns @et0 (floating point) mm/day
 	@regions.each do |region_row|
 		@state_abbreviation = region_row[1] if region_row[0] == state #two-letter code now
 	end
 	@et0_data.each do |region_row|
-		@et0 = region_row[5].to_f if 
+		@et0 = region_row[4].to_f if 
 			region_row[1] == @state_abbreviation && 
 			region_row[2]==subregion && 
-			region_row[3].to_i==month.to_i && 
-			region_row[4].to_i == elevation_band
+			region_row[3].to_i==month.to_i 
 	end
-		days_in_month = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month] #assumes no leap year
+		days_in_month = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month] #assumes no leap year, which is true for TMY3 data
 end
 
 def get_precipitation(state, subregion, month) #returns @precipitation mm/day
@@ -104,7 +103,7 @@ def perform_water_calculation
 		(1..12).each do |month| 
 			precipitation_deficit = nil #unset the variable from the last time through
 			look_up_crop_kc(crop, month, state, subregion) #this returns @crop_kc (Soybeans, Ark, none, 4; 0.4) (mm/day)
-			look_up_region_et0(state, subregion, 1, month) #this returns @et0 (4.2mm/day)
+			look_up_region_et0(state, subregion, month) #this returns @et0 (4.2mm/day)
 			etc = @crop_kc*@et0 # e.g. (0.4)*(4.2 mm/day) = 1.68mm/day
 #			irr_square_meters = irr_acres*4046.85642 # eg 7.1 billion square meters
 			get_precipitation(state, subregion, month) #this returns @precipitation e.g. 0.67mm/day.
@@ -172,6 +171,6 @@ end
 
 load_files
 usda_to_fao
-#look_up_region_et0("New Mexico", "none", 1, 4)
+#look_up_region_et0("New Mexico", "none", 4)
 perform_water_calculation
 write_to_csv_file
