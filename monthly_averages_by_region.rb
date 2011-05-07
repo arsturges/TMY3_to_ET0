@@ -1,7 +1,12 @@
 require 'rubygems'
 require 'numru/netcdf'
 require 'csv'
-file = NumRu::NetCDF.open("../NOAA_CM2.1_NetCDF_files/1%_tas_A1.020101-022012.nc")
+
+#files:
+doubling = "../NOAA_CM2.1_NetCDF_files/1%_tas_A1.020101-022012.nc"
+sresa2 = "../NOAA_CM2.1_NetCDF_files/SRESA2_tas_A1.200101-210012.nc"
+
+file = NumRu::NetCDF.open(sresa2)
 # Goal: return tas data for just North America. 
 # This means I should limit all data to lon/lat box of:
 # NW corner: Latitude 50, longitude -125 (longitude +235)
@@ -31,7 +36,7 @@ end
 
 puts tas_data
 
-CSV.open("tas_doubling.csv", "w") do |write_new_row|
+CSV.open("tas_SRESA2.csv", "w") do |write_new_row|
   tas_data.each do |row|
     write_new_row << [row]
   end
