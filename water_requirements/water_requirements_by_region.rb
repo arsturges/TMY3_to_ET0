@@ -80,7 +80,7 @@ def get_precipitation(state, subregion, month) #returns @precipitation mm/day
 	 @regions.each do |region_row|
 		if region_row[0] == state && region_row[2] == subregion then
 			@precipitation = region_row[3+month.to_i].to_f # mm/month 
-			#the next two lines are here to conver the monthly precip to daily precip.
+			#the next two lines are here to convert the monthly precip to daily precip.
 			days_in_month = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month] #assumes no leap year
 			@precipitation = @precipitation/days_in_month # mm/day
 		end
@@ -102,7 +102,7 @@ def perform_water_calculation
 #		irr_acres = (crop_row[6].to_f + crop_row[9].to_f)/2 # average of 2002 and 2007 data.
 		(1..12).each do |month| 
 			precipitation_deficit = nil #unset the variable from the last time through
-			look_up_crop_kc(crop, month, state, subregion) #this returns @crop_kc (Soybeans, Ark, none, 4; 0.4) (mm/day)
+			look_up_crop_kc(crop, month, state, subregion) #this returns @crop_kc (Soybeans, 3, Arkansas, none); 0.4 (mm/day)
 			look_up_region_et0(state, subregion, month) #this returns @et0 (4.2mm/day)
 			etc = @crop_kc*@et0 # e.g. (0.4)*(4.2 mm/day) = 1.68mm/day
 #			irr_square_meters = irr_acres*4046.85642 # eg 7.1 billion square meters
@@ -116,8 +116,9 @@ def perform_water_calculation
 					precipitation_deficit = 0
 				end
 			end
-
-			@water_requirement[crop] = {} 				unless @water_requirement[crop]
+# here convert FAO crop names back to USDA crop names?
+			
+      @water_requirement[crop] = {} 				unless @water_requirement[crop]
 			@water_requirement[crop][state] = {} 			unless @water_requirement[crop][state]
 			@water_requirement[crop][state][subregion] = {} 	unless @water_requirement[crop][state][subregion]
 			@water_requirement[crop][state][subregion][month] = {} 	unless @water_requirement[crop][state][subregion][month]
