@@ -57,6 +57,7 @@
       <li><strong>tmy3.rb</strong> -- This is a Ruby program that reads TMY3 data files and outputs a .csv file with monthly average weather data by state. The columns it produces are inputs to step 2.</li>
       <li><strong>eto_calculation.xlsx</strong> -- This Excel file takes the .csv file output from step 1 as its input, and performs the ET<sub>0</sub> calculation. The final result is a list of ET<sub>0</sub> values by month and by state.</li>
       <li><strong>water_requirements/water_requirements_by_region.rb</strong> -- This is a Ruby program that takes as inputs ET<sub>0</sub> values from step 2, as well as crop data gathered from USDA and FAO sources, and outputs a table showing specific  crop irrigation requirements by state and month.</l1>
+    </ol>
     <h2>Definitions</h2>
     <dl>
       <dt>ET<sub>0</sub></dt>
@@ -75,16 +76,6 @@
     
     <p>TMY3 Weather data: <a href="www.http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/">http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/</a>
 USDA crop information: link</p>
-<h2>Install</h2>
-<p>Download all the files. Run the program. </p>
-<h2>License</h2>
-<p>This project code is free and open source.</p>
-<h2>Authors</h2>
-<p>Andy Sturges (arsturges@lbl.gov)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Andy Sturges (arsturges@lbl.gov)<br/>      </p>
-
-
     <h2>Download</h2>
     <p>
       You can download this project in either
@@ -95,6 +86,19 @@ USDA crop information: link</p>
       by running:
       <pre>$ git clone git://github.com/arsturges/TMY3_to_ET0</pre>
     </p>
+
+
+<h2>Install</h2>
+<p>There is no installation required. Simply download the project directory and run the file <code>tmy3.rb</code>.
+<pre>$ git clone git://github.com/arsturges/TMY3_to_ET0
+cd TMY3_to_ET0
+ruby tmy3.rb
+</pre>
+</p>
+<h2>License</h2>
+<p>This project code is free and open source.</p>
+<h2>Authors/contact</h2>
+<p>Andy Sturges (arsturges@lbl.gov)</p>
 
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/arsturges/TMY3_to_ET0">arsturges/TMY3_to_ET0</a>
