@@ -73,9 +73,9 @@
     </dl>
 
     <h2>Dependencies</h2>
-    
-    <p>TMY3 Weather data: <a href="www.http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/">http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/</a>
-USDA crop information: link</p>
+    <p>Ruby (tested on version 1.9.2)</p>    
+    <p><a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/data/tmy3/tmy3.tar.gz">TMY2 Weather data</a> should be placed in a folder called "tmy3_data_files" outside (i.e. next to) the TMY3_to_ET0 project folder.
+USDA crop information is already included.</p>
     <h2>Download</h2>
     <p>
       You can download this project in either
@@ -87,12 +87,12 @@ USDA crop information: link</p>
       <pre>$ git clone git://github.com/arsturges/TMY3_to_ET0</pre>
     </p>
 
-
 <h2>Install</h2>
 <p>There is no installation required. Simply download the project directory and run the file <code>tmy3.rb</code>.
-<pre>$ git clone git://github.com/arsturges/TMY3_to_ET0
-cd TMY3_to_ET0
-ruby tmy3.rb
+<pre>
+$ git clone git://github.com/arsturges/TMY3_to_ET0
+$ cd TMY3_to_ET0
+$ ruby tmy3.rb
 </pre>
 </p>
 <h2>License</h2>
