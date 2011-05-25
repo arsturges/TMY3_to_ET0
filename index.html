@@ -46,17 +46,25 @@
       <span class="small">by <a href="http://github.com/arsturges">arsturges</a></span></h1>
 
     <div class="description">
-      A Ruby program to read weather (TMY3) and crop data (USDA) and produce evapotranspiration data (ET<sub>0</sub>).
+      A Ruby program to read weather (<a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/">TMY3</a>) and crop data (USDA) and produce evapotranspiration data (ET<sub>0</sub>).
     </div>
 
     <p>This project comes from the Environmental Energy Technologies division of Lawrence Berkeley National Laboratory in Berkeley, CA.</p>
     
     <h2>Background Information</h2>
+    Currently the project is divided into three steps.
+    <ol>
+      <li><strong>tmy3.rb</strong> -- This is a Ruby program that reads TMY3 data files and outputs a .csv file with monthly average weather data by state. The columns it produces are inputs to step 2.</li>
+      <li><strong>eto_calculation.xlsx</strong> -- This Excel file takes the .csv file output from step 1 as its input, and performs the ET<sub>0</sub> calculation. The final result is a list of ET<sub>0</sub> values by month and by state.</li>
+      <li><strong>water_requirements/water_requirements_by_region.rb</strong> -- This is a Ruby program that takes as inputs ET<sub>0</sub> values from step 2, as well as crop data gathered from USDA and FAO sources, and outputs a table showing specific  crop irrigation requirements by state and month.</l1>
+    <h2>Definitions</h2>
     <dl>
       <dt>ET<sub>0</sub></dt>
-      <dd>The reference evapotranspiration--how much crops need to be irrigated in a particular location at a particular time. This is usually measured in millimeters per day.</dd>
+      <dd>The reference evapotranspiration--a coefficient representing how much crops need to be irrigated in a particular location at a particular time.</dd>
+      <dt>ET<sub>C</sub></dt>
+      <dd>The crop evapotranspiration -- this is specific to a particular crop, and when multplied by the reference ET<sub>0</sub>, yields that particular crop's irrigation needs in that particular location, usually measured in millimeters per day.</dd>
       <dt>TMY3</dt>
-      <dd>Typical Meteorological Year 3 -- A program run by the National Renewable Energy Lab to produce a weather data set that represents "typical" meteorological conditions.</dd>
+      <dd>Typical Meteorological Year 3 -- A dataset produced by the National Renewable Energy Lab (NREL) that represents "typical" meteorological conditions.</dd>
       <dt>USDA</dt>
       <dd>The United States Agricultural Assocation. This project uses USDA crop data.</dd>
       <dt>FAO</dt>
