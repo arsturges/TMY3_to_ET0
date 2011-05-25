@@ -61,7 +61,7 @@
     <h2>Definitions</h2>
     <dl>
       <dt>ET<sub>0</sub></dt>
-      <dd>The reference evapotranspiration--a coefficient representing how much crops need to be irrigated in a particular location at a particular time.</dd>
+      <dd>The reference evapotranspiration--a coefficient based on geography and weather--but not crop characteristics--representing how much crops need to be irrigated in a particular location at a particular time (i.e. under certain weather characteristics).</dd>
       <dt>ET<sub>C</sub></dt>
       <dd>The crop evapotranspiration -- this is specific to a particular crop, and when multplied by the reference ET<sub>0</sub>, yields that particular crop's irrigation needs in that particular location, usually measured in millimeters per day.</dd>
       <dt>TMY3</dt>
@@ -73,9 +73,10 @@
     </dl>
 
     <h2>Dependencies</h2>
-    <p>Ruby (tested on version 1.9.2)</p>    
-    <p><a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/data/tmy3/tmy3.tar.gz">TMY2 Weather data</a> should be placed in a folder called "tmy3_data_files" outside (i.e. next to) the TMY3_to_ET0 project folder.
-USDA crop information is already included.</p>
+    <ol>
+    <li>Ruby (tested on version 1.9.2)</li>    
+    <li><a href="http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/data/tmy3/tmy3.tar.gz">TMY2 Weather data</a> should be placed in a folder called "tmy3_data_files" outside (i.e. next to) the TMY3_to_ET0 project folder.
+USDA crop information is already included.</li>
     <h2>Download</h2>
     <p>
       You can download this project in either
@@ -103,9 +104,8 @@ $ ruby tmy3.rb
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/arsturges/TMY3_to_ET0">arsturges/TMY3_to_ET0</a>
     </div>
-
   </div>
-
+  <!-- google analytics stats scrip follows -->
   <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
