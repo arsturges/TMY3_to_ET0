@@ -1,3 +1,4 @@
+# This file is for computing monthly time steps.
 require 'date'
 
 def sum(values)
@@ -130,7 +131,7 @@ def collect_station_weather_data
     # we want (hours of sunshine)/day, which is defined as 
     # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
 
-    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M') - 1/(24.0*60) 
+    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M') - 1/(24.0*60) #format date to remove Ruby 1.8/1.9 inconsistencies
     # subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
     set_daily_values if last_hour_of_day?
     set_monthly_averages if (last_hour_of_day? and last_day_of_month?)
@@ -138,41 +139,37 @@ def collect_station_weather_data
 end
 
 def set_state_values
-  if @state #why an if statement here?
-    @states[@state] = {} unless @states[@state] #isn't this redundant to the line above?
-    if @subregion
-      @states[@state][@subregion] ||= { 
-                                         :avg_monthly_highs => {}, 
-                                         :avg_monthly_lows => {}, 
-                                         :dews => {},
-                                         :winds => {},
-                                         :elevations => [],
-                                         :latitudes => [],
-                                         :longitudes => [],
-                                         :sunshines => {},
-                                         :monthly_accumulated_precipitations => {} }
-      (1..12).to_a.each do |month|
-        #Set up the arrays if they don't exist...
-        @states[@state][@subregion][:avg_monthly_highs][month] ||= []
-        @states[@state][@subregion][:avg_monthly_lows][month] ||= []
-        @states[@state][@subregion][:dews][month] ||= []
-        @states[@state][@subregion][:winds][month] ||= []
-        @states[@state][@subregion][:sunshines][month] ||= []
-        @states[@state][@subregion][:monthly_accumulated_precipitations][month] ||= [] #algorith wants total accumulated rainfall in a given month
+  @states[@state] ||= {}
+    @states[@state][@subregion] ||= { 
+                                      :avg_monthly_highs => {}, 
+                                      :avg_monthly_lows => {}, 
+                                      :dews => {},
+                                      :winds => {},
+                                      :elevations => [],
+                                      :latitudes => [],
+                                      :longitudes => [],
+                                      :sunshines => {},
+                                      :monthly_accumulated_precipitations => {} }
+    (1..12).to_a.each do |month|
+      #Set up the arrays if they don't exist...
+      @states[@state][@subregion][:avg_monthly_highs][month] ||= []
+      @states[@state][@subregion][:avg_monthly_lows][month] ||= []
+      @states[@state][@subregion][:dews][month] ||= []
+      @states[@state][@subregion][:winds][month] ||= []
+      @states[@state][@subregion][:sunshines][month] ||= []
+      @states[@state][@subregion][:monthly_accumulated_precipitations][month] ||= [] #algorith wants total accumulated rainfall in a given month
 
-        #...and add the weather averages into each array. Each new file from the tmy3 folder appends one element to its state's array.
-        @states[@state][@subregion][:avg_monthly_highs][month] << @weather_averages_by_month[month][:avg_monthly_high]
-        @states[@state][@subregion][:avg_monthly_lows][month] << @weather_averages_by_month[month][:avg_monthly_low]
-        @states[@state][@subregion][:dews][month] << @weather_averages_by_month[month][:dew]
-        @states[@state][@subregion][:winds][month] << @weather_averages_by_month[month][:wind]
-        @states[@state][@subregion][:sunshines][month] << @weather_averages_by_month[month][:sunshine]
-        @states[@state][@subregion][:monthly_accumulated_precipitations][month] << @weather_averages_by_month[month][:monthly_precipitation_accumulation]
-      end
-      @states[@state][@subregion][:latitudes] << @latitude
-      @states[@state][@subregion][:longitudes] << @longitude
-      @states[@state][@subregion][:elevations] << @elevation.to_i
-    end #subregion
-  end #state
+      #...and add the weather averages into each array. Each new file from the tmy3 folder appends one element to its state's array.
+      @states[@state][@subregion][:avg_monthly_highs][month] << @weather_averages_by_month[month][:avg_monthly_high]
+      @states[@state][@subregion][:avg_monthly_lows][month] << @weather_averages_by_month[month][:avg_monthly_low]
+      @states[@state][@subregion][:dews][month] << @weather_averages_by_month[month][:dew]
+      @states[@state][@subregion][:winds][month] << @weather_averages_by_month[month][:wind]
+      @states[@state][@subregion][:sunshines][month] << @weather_averages_by_month[month][:sunshine]
+      @states[@state][@subregion][:monthly_accumulated_precipitations][month] << @weather_averages_by_month[month][:monthly_precipitation_accumulation]
+    end
+  @states[@state][@subregion][:latitudes] << @latitude
+  @states[@state][@subregion][:longitudes] << @longitude
+  @states[@state][@subregion][:elevations] << @elevation.to_i
 end
 
 def flatten_array_into_national_averages
@@ -190,7 +187,6 @@ def flatten_array_into_national_averages
       @national_data[state][subregion][:longitude] = sum(@states[state][subregion][:longitudes]) / number_of_stations
       @national_data[state][subregion][:elevation] = sum(@states[state][subregion][:elevations]) / number_of_stations
 
-      puts @national_data
       (1..12).to_a.each do |month|
         @national_data[state][subregion][:t_max] ||= {}
         @national_data[state][subregion][:t_min] ||= {}
@@ -237,5 +233,3 @@ def add_previous_temp_to_states_array
     end
   end
 end
-
-puts "The file 'read_TMY3_files_and_populate_arrar.rb' has been read."
