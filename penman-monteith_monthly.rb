@@ -126,7 +126,18 @@ end
 #t_max_previous = 13.6566820276498
 #t_min_previous = 2.30092165898618
 
-def compute_monthly_et0(state, subregion, elevation, latitude, month, t_max, t_min, t_dew, wind_speed, hours_of_daylight, t_max_previous, t_min_previous)
+def compute_monthly_et0(state, 
+                        subregion, 
+                        elevation, 
+                        latitude, 
+                        month, 
+                        t_max, 
+                        t_min, 
+                        t_dew, 
+                        wind_speed, 
+                        hours_of_daylight, 
+                        t_max_previous, 
+                        t_min_previous)
   middle_day_of_the_month = 30.4 * month - 15
   solar_declination = compute_solar_declination(middle_day_of_the_month)
   sunset_hour_angle = compute_sunset_hour_angle(latitude, solar_declination)
