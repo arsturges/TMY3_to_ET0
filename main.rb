@@ -27,7 +27,7 @@ end
 flatten_array_into_national_averages
 add_previous_temp_to_states_array
 write_to_the_csv_file("test.csv")
-
+write_et0_values_to_csv_file("et0_values.csv")
 end_time = Time.now
 execution_time = end_time - start_time
 puts "Program completed in #{execution_time} seconds."

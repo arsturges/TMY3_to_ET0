@@ -58,3 +58,37 @@ def write_to_the_csv_file(filename)
     end 
   end
 end
+
+def write_et0_values_to_csv_file(filename)
+  CSV.open(filename, "w") do |writer|
+    writer.add_row(%w(state
+                      subregion
+                      month
+                      et0))
+    @national_data.keys.sort.each do |state|
+      @national_data[state].keys.sort.each do |subregion|
+        (1..12).each do |month|
+          writer << [
+            state,
+            subregion,
+            month,
+            compute_monthly_et0(
+              state,
+              subregion,
+              @national_data[state][subregion][:elevation],
+              @national_data[state][subregion][:latitude],
+              month,
+              @national_data[state][subregion][:t_max][month],
+              @national_data[state][subregion][:t_min][month],
+              @national_data[state][subregion][:t_dew][month],
+              @national_data[state][subregion][:wind_speed][month],
+              @national_data[state][subregion][:hours_of_sunshine][month],
+              @national_data[state][subregion][:t_max_previous][month],
+              @national_data[state][subregion][:t_min_previous][month]
+            )
+          ]
+        end
+      end
+    end
+  end
+end

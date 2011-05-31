@@ -113,19 +113,6 @@ def compute_G(t_max, t_min, t_max_previous, t_min_previous)
   _G = 0.14 * (t_mean - t_mean_previous)
 end
 
-#state = "AL"
-#subregion = "none"
-#elevation = 120.571428571429
-#latitude = 32.6225714285714
-#month = 1
-#t_max = 12.4140552995392
-#t_min = 1.67557603686636
-#t_dew = 1.82115015360983
-#wind_speed = 3.06410330261137
-#hours_of_daylight = 5.38940092165899
-#t_max_previous = 13.6566820276498
-#t_min_previous = 2.30092165898618
-
 def compute_monthly_et0(state, 
                         subregion, 
                         elevation, 
@@ -162,18 +149,4 @@ def compute_monthly_et0(state,
   et0_numerator = 0.408 * (_Delta) * (_Rn - _G) + _gamma*(900/(_T+273)) * _u2 * (_es - _ea)
   et0_denominator = _Delta + _gamma * (1 + 0.34 * _u2)
   et0 = et0_numerator / et0_denominator
-  puts et0 
 end
-
-puts compute_monthly_et0("AL", 
-                         "none",
-                         120.571428571429, 
-                         32.6225714285714, 
-                         1, 
-                         12.4140552995392, 
-                         1.67557603686636, 
-                         1.82115015360983, 
-                         3.06410330261137, 
-                         5.38940092165899,
-                         13.6566820276498, 
-                         2.30092165898618) 
