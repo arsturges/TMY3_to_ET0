@@ -155,5 +155,3 @@ def compute_monthly_et0(state, subregion, month, t_max, t_min, t_dew, t_max_prev
 end
 
 #puts compute_monthly_et0("AL", "none",1, 12.4140552995392, 1.67557603686636, 1.82115015360983, 13.6566820276498, 2.30092165898618, 120.571428571429, 3.06410330261137, 32.6225714285714, 5.38940092165899)
-
-puts "the file 'penman-monteith_monthly.rb' has been read."

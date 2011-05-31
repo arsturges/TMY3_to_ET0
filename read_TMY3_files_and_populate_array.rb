@@ -63,9 +63,9 @@ def set_monthly_averages
   total_monthly_precipitation = sum(@daily_precips.values)
 
   days_in_month = days_in_month(@current_row_datetime.year, @current_row_datetime.month)
-  @weather_averages_by_month[@current_row_datetime.month] = {               #@weather_averages_by_month[1] ...
-    :avg_monthly_high => daily_highs_sum.to_f / days_in_month,              #this is that month's average overnight low
-    :avg_monthly_low => overnight_lows_sum.to_f / days_in_month,            #this is that month's average daily high
+  @weather_averages_by_month[@current_row_datetime.month] = {       #@weather_averages_by_month[1] ...
+    :avg_monthly_high => daily_highs_sum.to_f / days_in_month,      #this is that month's average overnight low
+    :avg_monthly_low => overnight_lows_sum.to_f / days_in_month,    #this is that month's average daily high
     :dew => dew_sum.to_f / days_in_month,
     :wind => wind_sum.to_f / days_in_month,
     :sunshine => sunshine_sum.to_f / days_in_month,
@@ -138,8 +138,8 @@ def collect_station_weather_data
 end
 
 def set_state_values
-  if @state
-    @states[@state] = {} unless @states[@state]
+  if @state #why an if statement here?
+    @states[@state] = {} unless @states[@state] #isn't this redundant to the line above?
     if @subregion
       @states[@state][@subregion] ||= { 
                                          :avg_monthly_highs => {}, 
@@ -152,7 +152,7 @@ def set_state_values
                                          :sunshines => {},
                                          :monthly_accumulated_precipitations => {} }
       (1..12).to_a.each do |month|
-        #Set up the arrays...
+        #Set up the arrays if they don't exist...
         @states[@state][@subregion][:avg_monthly_highs][month] ||= []
         @states[@state][@subregion][:avg_monthly_lows][month] ||= []
         @states[@state][@subregion][:dews][month] ||= []
@@ -173,6 +173,69 @@ def set_state_values
       @states[@state][@subregion][:elevations] << @elevation.to_i
     end #subregion
   end #state
+end
+
+def flatten_array_into_national_averages
+  @national_data = Hash.new
+  state_keys = @states.keys.sort
+  state_keys.each do |state|
+    subregion_keys = @states[state].keys.sort
+    subregion_keys.each do |subregion|
+      number_of_stations = @states[state][subregion][:avg_monthly_highs][1].size #arbitrarily use size of January high_temp array to find # of stations 
+
+      @national_data[state] ||= {}
+      @national_data[state][subregion] ||= {}
+      @national_data[state][subregion][:number_of_stations] = number_of_stations 
+      @national_data[state][subregion][:latitude] = sum(@states[state][subregion][:latitudes]) / number_of_stations
+      @national_data[state][subregion][:longitude] = sum(@states[state][subregion][:longitudes]) / number_of_stations
+      @national_data[state][subregion][:elevation] = sum(@states[state][subregion][:elevations]) / number_of_stations
+
+      puts @national_data
+      (1..12).to_a.each do |month|
+        @national_data[state][subregion][:t_max] ||= {}
+        @national_data[state][subregion][:t_min] ||= {}
+        @national_data[state][subregion][:t_dew] ||= {}
+        @national_data[state][subregion][:wind_speed] ||= {}
+        @national_data[state][subregion][:hours_of_sunshine] ||= {}
+        @national_data[state][subregion][:accumulated_precipitation] ||= {}
+        @national_data[state][subregion][:t_max][month] = sum(@states[state][subregion][:avg_monthly_highs][month]).to_f/ number_of_stations
+        @national_data[state][subregion][:t_min][month] = sum(@states[state][subregion][:avg_monthly_lows][month]).to_f/ number_of_stations
+        @national_data[state][subregion][:t_dew][month] = sum(@states[state][subregion][:dews][month]).to_f/ number_of_stations
+        @national_data[state][subregion][:wind_speed][month] = sum(@states[state][subregion][:winds][month]).to_f/ number_of_stations
+        @national_data[state][subregion][:hours_of_sunshine][month] = sum(@states[state][subregion][:sunshines][month]).to_f/ number_of_stations
+        @national_data[state][subregion][:accumulated_precipitation][month] = sum(@states[state][subregion][:monthly_accumulated_precipitations][month]).to_f/ number_of_stations
+      end
+    end
+  end
+end
+
+def previous_month(current_month)
+  if current_month == 1
+    previous_month = 12
+  else
+    previous_month = current_month - 1
+  end
+end
+
+def add_previous_temp_to_states_array
+  #get the array
+  #drill down to t_max_previous = @states["CA"]["none"][:avg_monthly_highs][1]
+  #drill down to @states["CA"]["none"][:previous_avg_monthly_highs][2] = t_max_previous
+  #that will work for month's 2 through 11; for month 12, need to record the date as t_max_previous, then go back to month 1 and place it in
+  #@states["CA"]["none"][:previous_avg_monthly_highs[1]. I guess do that with an if statement. 
+
+  state_keys = @national_data.keys.sort
+  state_keys.each do |state|
+    subregion_keys = @national_data[state].keys.sort
+    subregion_keys.each do |subregion|
+      @national_data[state][subregion][:t_max_previous] ||= {}
+      @national_data[state][subregion][:t_min_previous] ||= {}
+      (1..12).each do |month|
+        @national_data[state][subregion][:t_max_previous][month] = @national_data[state][subregion][:t_max][previous_month(month)]
+        @national_data[state][subregion][:t_min_previous][month] = @national_data[state][subregion][:t_min][previous_month(month)]
+      end
+    end
+  end
 end
 
 puts "The file 'read_TMY3_files_and_populate_arrar.rb' has been read."

@@ -24,12 +24,10 @@ filenames.sort.each do |filename|
   set_state_values unless invalid?
 end
 
+flatten_array_into_national_averages
+add_previous_temp_to_states_array
 write_to_the_csv_file("test.csv")
-
-@main_variable = "main.rb"
-
-
 
 end_time = Time.now
 execution_time = end_time - start_time
-puts execution_time
+puts "Program completed in #{execution_time} seconds."
