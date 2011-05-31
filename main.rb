@@ -25,7 +25,7 @@ filenames.sort.each do |filename|
 end
 
 flatten_array_into_national_averages
-add_previous_temp_to_states_array
+add_previous_month_temp_to_array
 write_to_the_csv_file("test.csv")
 write_et0_values_to_csv_file("et0_values.csv")
 end_time = Time.now

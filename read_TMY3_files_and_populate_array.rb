@@ -141,16 +141,20 @@ end
 def set_state_values
   @states[@state] ||= {}
     @states[@state][@subregion] ||= { 
+                                      :elevations => [],
+                                      :latitudes => [],
+                                      :longitudes => [],
                                       :avg_monthly_highs => {}, 
                                       :avg_monthly_lows => {}, 
                                       :dews => {},
                                       :winds => {},
-                                      :elevations => [],
-                                      :latitudes => [],
-                                      :longitudes => [],
                                       :sunshines => {},
                                       :monthly_accumulated_precipitations => {} }
-    (1..12).to_a.each do |month|
+
+    @states[@state][@subregion][:elevations] << @elevation
+    @states[@state][@subregion][:latitudes] << @latitude
+    @states[@state][@subregion][:longitudes] << @longitude
+    (1..12).each do |month|
       #Set up the arrays if they don't exist...
       @states[@state][@subregion][:avg_monthly_highs][month] ||= []
       @states[@state][@subregion][:avg_monthly_lows][month] ||= []
@@ -167,17 +171,12 @@ def set_state_values
       @states[@state][@subregion][:sunshines][month] << @weather_averages_by_month[month][:sunshine]
       @states[@state][@subregion][:monthly_accumulated_precipitations][month] << @weather_averages_by_month[month][:monthly_precipitation_accumulation]
     end
-  @states[@state][@subregion][:latitudes] << @latitude
-  @states[@state][@subregion][:longitudes] << @longitude
-  @states[@state][@subregion][:elevations] << @elevation.to_i
 end
 
 def flatten_array_into_national_averages
   @national_data = Hash.new
-  state_keys = @states.keys.sort
-  state_keys.each do |state|
-    subregion_keys = @states[state].keys.sort
-    subregion_keys.each do |subregion|
+  @states.keys.sort.each do |state|
+    @states[state].keys.sort.each do |subregion|
       number_of_stations = @states[state][subregion][:avg_monthly_highs][1].size #arbitrarily use size of January high_temp array to find # of stations 
 
       @national_data[state] ||= {}
@@ -188,12 +187,14 @@ def flatten_array_into_national_averages
       @national_data[state][subregion][:elevation] = sum(@states[state][subregion][:elevations]) / number_of_stations
 
       (1..12).to_a.each do |month|
+        # set up the hashes...
         @national_data[state][subregion][:t_max] ||= {}
         @national_data[state][subregion][:t_min] ||= {}
         @national_data[state][subregion][:t_dew] ||= {}
         @national_data[state][subregion][:wind_speed] ||= {}
         @national_data[state][subregion][:hours_of_sunshine] ||= {}
         @national_data[state][subregion][:accumulated_precipitation] ||= {}
+        # ...and populate them.
         @national_data[state][subregion][:t_max][month] = sum(@states[state][subregion][:avg_monthly_highs][month]).to_f/ number_of_stations
         @national_data[state][subregion][:t_min][month] = sum(@states[state][subregion][:avg_monthly_lows][month]).to_f/ number_of_stations
         @national_data[state][subregion][:t_dew][month] = sum(@states[state][subregion][:dews][month]).to_f/ number_of_stations
@@ -213,17 +214,9 @@ def previous_month(current_month)
   end
 end
 
-def add_previous_temp_to_states_array
-  #get the array
-  #drill down to t_max_previous = @states["CA"]["none"][:avg_monthly_highs][1]
-  #drill down to @states["CA"]["none"][:previous_avg_monthly_highs][2] = t_max_previous
-  #that will work for month's 2 through 11; for month 12, need to record the date as t_max_previous, then go back to month 1 and place it in
-  #@states["CA"]["none"][:previous_avg_monthly_highs[1]. I guess do that with an if statement. 
-
-  state_keys = @national_data.keys.sort
-  state_keys.each do |state|
-    subregion_keys = @national_data[state].keys.sort
-    subregion_keys.each do |subregion|
+def add_previous_month_temp_to_array
+  @national_data.keys.sort.each do |state|
+    @national_data[state].keys.sort.each do |subregion|
       @national_data[state][subregion][:t_max_previous] ||= {}
       @national_data[state][subregion][:t_min_previous] ||= {}
       (1..12).each do |month|
