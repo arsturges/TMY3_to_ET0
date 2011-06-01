@@ -1,5 +1,5 @@
 start_time = Time.now
-require './read_TMY3_files_and_populate_array.rb'
+require './monthly.rb'
 require './write_to_csv_file.rb'
 require './penman-monteith_monthly.rb'
 
