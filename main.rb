@@ -1,7 +1,7 @@
 start_time = Time.now
-require 'read_TMY3_files_and_populate_array.rb'
-require 'write_to_csv_file.rb'
-require 'penman-monteith_monthly.rb'
+require './read_TMY3_files_and_populate_array.rb'
+require './write_to_csv_file.rb'
+require './penman-monteith_monthly.rb'
 
 #1: Read TMY3 Files
 #2: Populate array @states (this is done simultaneously with step 1)
