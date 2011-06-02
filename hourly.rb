@@ -130,6 +130,12 @@ def flatten_hourly_data_into_national_hourly_data
       elevation = sum(@hourly_data[state][subregion][:elevations]) / number_of_stations
       latitude = sum(@hourly_data[state][subregion][:latitudes]) / number_of_stations
       longitude = sum(@hourly_data[state][subregion][:longitudes]) / number_of_stations
+
+      @hourly_data[state][subregion][:time_zone] = time_zone 
+      @hourly_data[state][subregion][:elevation] = elevation
+      @hourly_data[state][subregion][:latitude] = latitude 
+      @hourly_data[state][subregion][:longitude] = longitude 
+
       (1..12).each do |month|
         (1..days_in_month(month)).each do |day|
           (0..23).each do |hour|
