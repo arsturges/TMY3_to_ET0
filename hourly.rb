@@ -3,14 +3,14 @@
 #temperature
 #dew_point_temp
 #wind_speed
-#solar_radiation (MJ m-2 hour-1)
+#direct_normal_irradiance (MJ m-2 hour-1)
 
 
 
 def read_hourly_data(row0, row1, row7, row31, row34, row46, row64)
   @row_date = row0
   @row_hour = row1
-  @hourly_irradiance = row7.to_f # need to convert this to MJ/m2 hour
+  @hourly_direct_normal_irradiance = row7.to_f # need to convert this to MJ/m2 hour
   @hourly_temp = row31.to_f
   @hourly_dewpoint_temp = row34.to_f
   @hourly_wind_speed = row46.to_f
@@ -40,7 +40,7 @@ def loop_through_TMY3_rows
       :dew_point => @hourly_dewpoint_temp,
       :wind_speed => @hourly_wind_speed,
       :precipitation => @hourly_precipitation,
-      :solar_radiation => @hourly_irradiance
+      :direct_normal_irradiance => @hourly_direct_normal_irradiance
     }
    end
   inject_station_values_into_main_hash
@@ -50,24 +50,27 @@ def inject_station_values_into_main_hash
   #Set up the arrays if they don't exist...
   @hourly_data[@state] ||= {}
   @hourly_data[@state][@subregion] ||= { 
+                                      :time_zones => [],
                                       :elevations => [],
                                       :latitudes => [],
                                       :longitudes => [],
                                       :temperatures => {}, 
                                       :dew_points => {},
                                       :wind_speeds => {},
-                                      :solar_radiations=> {},
+                                      :direct_normal_irradiances=> {},
                                       :precipitations => {},
                                       #below, set up hashes for averaged national values later
+                                      :time_zone => [],
                                       :elevation => [],
                                       :latitude => [],
                                       :longitude => [],
                                       :temperature => {}, 
                                       :dew_point => {},
                                       :wind_speed => {},
-                                      :solar_radiation=> {},
+                                      :direct_normal_irradiance=> {},
                                       :precipitation => {} }
 
+  @hourly_data[@state][@subregion][:time_zones] << @time_zone
   @hourly_data[@state][@subregion][:elevations] << @elevation
   @hourly_data[@state][@subregion][:latitudes] << @latitude
   @hourly_data[@state][@subregion][:longitudes] << @longitude
@@ -75,44 +78,44 @@ def inject_station_values_into_main_hash
     @hourly_data[@state][@subregion][:temperatures][month] ||= []
     @hourly_data[@state][@subregion][:dew_points][month] ||= []
     @hourly_data[@state][@subregion][:wind_speeds][month] ||= []
-    @hourly_data[@state][@subregion][:solar_radiations][month] ||= []
+    @hourly_data[@state][@subregion][:direct_normal_irradiances][month] ||= []
     @hourly_data[@state][@subregion][:precipitations][month] ||= []
     #averages below
     @hourly_data[@state][@subregion][:temperature][month] ||= []
     @hourly_data[@state][@subregion][:dew_point][month] ||= []
     @hourly_data[@state][@subregion][:wind_speed][month] ||= []
-    @hourly_data[@state][@subregion][:solar_radiation][month] ||= []
+    @hourly_data[@state][@subregion][:direct_normal_irradiance][month] ||= []
     @hourly_data[@state][@subregion][:precipitation][month] ||= []
    (1..days_in_month(month)).each do |day|
       @hourly_data[@state][@subregion][:temperatures][month][day] ||= []
       @hourly_data[@state][@subregion][:dew_points][month][day] ||= []
       @hourly_data[@state][@subregion][:wind_speeds][month][day] ||= []
-      @hourly_data[@state][@subregion][:solar_radiations][month][day] ||= []
+      @hourly_data[@state][@subregion][:direct_normal_irradiances][month][day] ||= []
       @hourly_data[@state][@subregion][:precipitations][month][day] ||= []
       #averages below
       @hourly_data[@state][@subregion][:temperature][month][day] ||= []
       @hourly_data[@state][@subregion][:dew_point][month][day] ||= []
       @hourly_data[@state][@subregion][:wind_speed][month][day] ||= []
-      @hourly_data[@state][@subregion][:solar_radiation][month][day] ||= []
+      @hourly_data[@state][@subregion][:direct_normal_irradiance][month][day] ||= []
       @hourly_data[@state][@subregion][:precipitation][month][day] ||= []
       (0..23).each do |hour|
          @hourly_data[@state][@subregion][:temperatures][month][day][hour] ||= []
          @hourly_data[@state][@subregion][:dew_points][month][day][hour] ||= []
          @hourly_data[@state][@subregion][:wind_speeds][month][day][hour] ||= []
-         @hourly_data[@state][@subregion][:solar_radiations][month][day][hour] ||= []
+         @hourly_data[@state][@subregion][:direct_normal_irradiances][month][day][hour] ||= []
          @hourly_data[@state][@subregion][:precipitations][month][day][hour] ||= []
          #averages below. may not be necessary
          @hourly_data[@state][@subregion][:temperature][month][day][hour] ||= []
          @hourly_data[@state][@subregion][:dew_point][month][day][hour] ||= []
          @hourly_data[@state][@subregion][:wind_speed][month][day][hour] ||= []
-         @hourly_data[@state][@subregion][:solar_radiation][month][day][hour] ||= []
+         @hourly_data[@state][@subregion][:direct_normal_irradiance][month][day][hour] ||= []
          @hourly_data[@state][@subregion][:precipitation][month][day][hour] ||= []
 
          #...and add the hourly datay. Each new file from the tmy3 folder appends one element to this array.
          @hourly_data[@state][@subregion][:temperatures][month][day][hour] << @station_array[month][day][hour][:temperature]
          @hourly_data[@state][@subregion][:dew_points][month][day][hour] << @station_array[month][day][hour][:dew_point]
          @hourly_data[@state][@subregion][:wind_speeds][month][day][hour] << @station_array[month][day][hour][:wind_speed]
-         @hourly_data[@state][@subregion][:solar_radiations][month][day][hour] << @station_array[month][day][hour][:solar_radiation]
+         @hourly_data[@state][@subregion][:direct_normal_irradiances][month][day][hour] << @station_array[month][day][hour][:direct_normal_irradiance]
          @hourly_data[@state][@subregion][:precipitations][month][day][hour] << @station_array[month][day][hour][:precipitation]
        end
     end
@@ -123,6 +126,7 @@ def flatten_hourly_data_into_national_hourly_data
   @hourly_data.keys.sort.each do |state|
     @hourly_data[state].keys.sort.each do |subregion|
       number_of_stations = @hourly_data[state][subregion][:elevations].size
+      time_zone = sum(@hourly_data[state][subregion][:time_zones]) / number_of_stations
       elevation = sum(@hourly_data[state][subregion][:elevations]) / number_of_stations
       latitude = sum(@hourly_data[state][subregion][:latitudes]) / number_of_stations
       longitude = sum(@hourly_data[state][subregion][:longitudes]) / number_of_stations
@@ -132,13 +136,13 @@ def flatten_hourly_data_into_national_hourly_data
             temperature     = sum(@hourly_data[state][subregion][:temperatures][month][day][hour]) / number_of_stations
             dew_point       = sum(@hourly_data[state][subregion][:dew_points][month][day][hour]) / number_of_stations
             wind_speed      = sum(@hourly_data[state][subregion][:wind_speeds][month][day][hour]) / number_of_stations
-            solar_radiation = sum(@hourly_data[state][subregion][:solar_radiations][month][day][hour]) / number_of_stations
+            direct_normal_irradiance = sum(@hourly_data[state][subregion][:direct_normal_irradiances][month][day][hour]) / number_of_stations
             precipitation   = sum(@hourly_data[state][subregion][:precipitation][month][day][hour]) / number_of_stations
             
             @hourly_data[state][subregion][:temperature][month][day][hour] = temperature
             @hourly_data[state][subregion][:dew_point][month][day][hour] = dew_point 
             @hourly_data[state][subregion][:wind_speed][month][day][hour] = wind_speed 
-            @hourly_data[state][subregion][:solar_radiation][month][day][hour] = solar_radiation 
+            @hourly_data[state][subregion][:direct_normal_irradiance][month][day][hour] = direct_normal_irradiance 
             @hourly_data[state][subregion][:precipitation][month][day][hour] = precipitation 
           end
         end
