@@ -1,39 +1,14 @@
 # This file is for computing monthly time steps.
 require 'date'
-
-def sum(values)
-  total = 0
-  values.each {|val| total += val.to_f}
-  total
-end
+require './TMY3_common.rb'
 
 def reset_daily_weather_variables
-  @dew = 0
+  @accumulated_dew_temp = 0
   @max_temp = -999
   @min_temp = 999
-  @wind = 0
-  @sunshine = 0
-  @precipitation = 0
-end
-
-def invalid?
-  elevation = ( @elevation >= 1000 )
-  disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
-  state = disallowed_states.include?(@state)
-  if state or elevation 
-    return true
-  else
-    return false
-  end
-end
-
-def days_in_month(year, month)
-  days = (Date.new(year, 12, 31) << (12-month)).day
-  if days == 29
-    return 28 #this is because TMY data does not include February 29
-  else 
-    return days
-  end
+  @accumulated_wind_speed = 0
+  @hours_of_sunshine = 0
+  @accumulated_precipitation = 0
 end
 
 def last_hour_of_day?
@@ -41,17 +16,17 @@ def last_hour_of_day?
 end
 
 def last_day_of_month?
-  days_left_in_month = days_in_month(@current_row_datetime.year, @current_row_datetime.month) - @current_row_datetime.day
+  days_left_in_month = days_in_month(@current_row_datetime.month) - @current_row_datetime.day
   days_left_in_month == 0
 end
 
 def set_daily_values
   @daily_highs[@current_row_datetime.day] = @max_temp
   @overnight_lows[@current_row_datetime.day] = @min_temp
-  @days_dew[@current_row_datetime.day] = @dew / 24
-  @days_wind[@current_row_datetime.day] = @wind / 24
-  @days_sunshine[@current_row_datetime.day] = @sunshine #total accumulated hours of sunshine
-  @daily_precips[@current_row_datetime.day] = @precipitation #total accumulated mm of precip
+  @days_dew[@current_row_datetime.day] = @accumlated_dew_temp / 24
+  @days_wind[@current_row_datetime.day] = @accumulated_wind_speed / 24
+  @days_sunshine[@current_row_datetime.day] = @hours_of_sunshine #total accumulated hours of sunshine
+  @daily_precips[@current_row_datetime.day] = @accumulated_precipitation #total accumulated mm of precip
   reset_daily_weather_variables
 end
 
@@ -65,11 +40,11 @@ def set_monthly_averages
 
   days_in_month = days_in_month(@current_row_datetime.year, @current_row_datetime.month)
   @weather_averages_by_month[@current_row_datetime.month] = {       #@weather_averages_by_month[1] ...
-    :avg_monthly_high => daily_highs_sum.to_f / days_in_month,      #this is that month's average overnight low
-    :avg_monthly_low => overnight_lows_sum.to_f / days_in_month,    #this is that month's average daily high
-    :dew => dew_sum.to_f / days_in_month,
-    :wind => wind_sum.to_f / days_in_month,
-    :sunshine => sunshine_sum.to_f / days_in_month,
+    :avg_monthly_high                   => daily_highs_sum.to_f / days_in_month,      #this is that month's average overnight low
+    :avg_monthly_low                    => overnight_lows_sum.to_f / days_in_month,    #this is that month's average daily high
+    :dew                                => dew_sum.to_f / days_in_month,
+    :wind                               => wind_sum.to_f / days_in_month,
+    :sunshine                           => sunshine_sum.to_f / days_in_month,
     :monthly_precipitation_accumulation => total_monthly_precipitation.to_f #this is that month's total accumulated rainful.
   }
 
@@ -83,30 +58,6 @@ def set_monthly_averages
   reset_daily_weather_variables
 end
 
-def collect_station_characteristics
-  header1 = @current_tmy3_file.shift
-  header2 = @current_tmy3_file.shift #get rid of the column headers
-  
-  #read basic info about the weather station  
-  @state = header1[2]
-  @subregion = nil
-  @latitude =  header1[4].to_f.abs
-  @longitude = header1[5].to_f.abs
-  @elevation = header1[6].to_i
-
-  case @state
-    when "OR" then @subregion = (@longitude > 120 ? "west"  : "east")
-    when "WA" then @subregion = (@longitude > 120 ? "west"  : "east")
-    when "ND" then @subregion = (@longitude > 100 ? "west"  : "east")
-    when "SD" then @subregion = (@longitude > 100 ? "west"  : "east")
-    when "NE" then @subregion = (@longitude > 100 ? "west"  : "east")
-    when "KS" then @subregion = (@longitude > 98 ? "west"  : "east")
-    when "OK" then @subregion = (@longitude > 98 ? "west"  : "east")
-    when "FL" then @subregion = (@latitude > 27 ? "north"  : "south")
-    when "TX" then @subregion = (@longitude > 98 ? "west"  : "east")
-    else @subregion = "none"
-  end
-end
 
 def initialize_arrays_and_variables
   @weather_averages_by_month = {}
@@ -119,24 +70,20 @@ def initialize_arrays_and_variables
   reset_daily_weather_variables
 end
 
-def collect_station_weather_data
-  @current_tmy3_file.each do |row| #Loop through each row. Each row is one hour; 24 rows per day.
-      
-    @max_temp = row[31].to_f if row[31].to_f > @max_temp #which was initialized to -999 in "reset_values" method
-    @min_temp = row[31].to_f if row[31].to_f < @min_temp #which was initizlized to 999
-    @dew += row[34].to_f
-    @wind += row[46].to_f
-    @precipitation += row[64].to_f unless row[64].to_i == -9900
-    @sunshine = @sunshine + 1 if row[7].to_i > 120
+def calculate_daily_monthly_weather_data
+    @max_temp       = @hourly_temp if @hourly_temp > @max_temp #which was initialized to -999 in "reset_values" method
+    @min_temp       = @hourly_temp if @hourly_temp < @min_temp #which was initizlized to 999
+    @accumulated_dew_temp       = @accumulated_dew_temp + @hourly_dewpoint_temp
+    @accumulated_wind_speed    += @hourly_wind_speed 
+    @accumulated_precipitation += @hourly_precipiation unless @hourly_precipiation.to_i == -9900 #it may under-report precip, but ET0 calc doesn't use precip.
+    @hours_of_sunshine = @hours_of_sunshine + 1 if @hourly_irradiance.to_i > 120
     # we want (hours of sunshine)/day, which is defined as 
     # direct normal irradiance normal to sun > 120 W/m^2. http://www.satel-light.com/guide/glosstoz.htm
 
-    @current_row_datetime = DateTime.strptime(row[0]+" "+row[1], '%m/%d/%Y %H:%M') - 1/(24.0*60) #format date to remove Ruby 1.8/1.9 inconsistencies
-    # subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
     set_daily_values if last_hour_of_day?
     set_monthly_averages if (last_hour_of_day? and last_day_of_month?)
-  end
 end
+
 
 def set_state_values
   @states[@state] ||= {}

@@ -31,7 +31,6 @@ def compute_Ra_monthly(dr, sunset_hour_angle, latitude, solar_declination)
      Math.sin(sunset_hour_angle))
 end
 
-
 def compute_G_monthly(_T, t_max_previous, t_min_previous)
   #equation 44
   t_mean_previous = (t_max_previous + t_min_previous) / 2
@@ -89,16 +88,15 @@ def compute_monthly_et0(state,
   et0 = et0_numerator / et0_denominator
 end
 
-puts compute_monthly_et0("AL",
-                         "none",
-                         120.571428571429,
-                         32.6225714285714,
-                         1,
-                         12.4140552995392,
-                         1.67557603686636,
-                         1.82115015360983,
-                         3.06410330261137,
-                         5.38940092165899,
-                         13.6566820276498,
-                         2.30092165898618) 
-
+#puts compute_monthly_et0("AL",
+                         #"none",
+                         #120.571428571429,
+                         #32.6225714285714,
+                         #1,
+                         #12.4140552995392,
+                         #1.67557603686636,
+                         #1.82115015360983,
+                         #3.06410330261137,
+                         #5.38940092165899,
+                         #13.6566820276498,
+                         #2.30092165898618) 
