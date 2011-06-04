@@ -33,7 +33,7 @@ end
 
 def compute_Lz(hours_from_Greenwich)
   #returns the longitude of the center of the time zone. See equation 31.
-  case hours_from_Greenwich
+  case hours_from_Greenwich.to_i
     when -5 then _Lz = 75
     when -6 then _Lz = 90
     when -7 then _Lz = 105
@@ -93,9 +93,7 @@ def compute_hourly_et0(state,
                         dew_point,
                         wind_speed,
                         global_horizontal_irradiance,
-                        direct_normal_irradiance,
-                        t_max_previous,
-                        t_min_previous)
+                        direct_normal_irradiance)
   middle_day_of_the_month = 30.4 * month - 15
   solar_declination = compute_solar_declination(middle_day_of_the_month)
   sunset_hour_angle = compute_sunset_hour_angle(latitude, solar_declination)
@@ -129,21 +127,19 @@ def compute_hourly_et0(state,
   et0 = et0_numerator / et0_denominator
 end
 
-puts compute_hourly_et0("AL",
-                         "none",
-                         -6,
-                         120.571428571429,
-                         90.1111111111111,
-                         32.6225714285714,
-                         1,
-                         15,
-                         18,
-                         12.4140552995392,
-                         1.82115015360983,
-                         3.06410330261137,
-                         280, #W/m2
-                         680, #W/m2
-                         13.6566820276498,
-                         2.30092165898618) 
-
-
+#puts compute_hourly_et0("AL",
+                         #"none",
+                         #-6,
+                         #120.571428571429,
+                         #90.1111111111111,
+                         #32.6225714285714,
+                         #1,
+                         #15,
+                         #18,
+                         #12.4140552995392,
+                         #1.82115015360983,
+                         #3.06410330261137,
+                         #280, #W/m2
+                         #680, #W/m2
+                         #13.6566820276498,
+                         #2.30092165898618) 

@@ -28,6 +28,7 @@ def collect_station_characteristics
   
   #read basic info about the weather station  
   @state = header1[2]
+  @time_zone = header1[3]
   @subregion = nil
   @latitude =  header1[4].to_f.abs
   @longitude = header1[5].to_f.abs
