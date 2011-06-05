@@ -18,7 +18,7 @@ filenames.sort.each do |filename|
   @current_tmy3_file = CSV.read(filename)
   collect_station_characteristics 
   puts filename #progress indicator
-  loop_through_TMY3_rows unless invalid?
+  loop_through_TMY3_rows unless invalid?(@state, @elevation)
 end
 flatten_hourly_data_into_national_hourly_data
 write_hourly_TMY3_data_to_the_csv_file("hourly_inputs.csv")

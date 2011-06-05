@@ -18,11 +18,11 @@ def days_in_month(month)
   days_in_month[month-1]
 end
 
-def invalid?
-  elevation = ( @elevation >= 1000 )
+def invalid?(state, elevation)
+  condition_1 = ( elevation >= 1000 )
   disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
-  state = disallowed_states.include?(@state)
-  if state or elevation 
+  condition_2 = disallowed_states.include?(state)
+  if condition_1 or condition_2 
     return true
   else
     return false
