@@ -1,6 +1,6 @@
 require 'csv'
 
-def write_hourly_TMY3_data_to_the_csv_file(filename)
+def write_subregional_data_to_csv_file(filename)
   CSV.open(filename, "w") do |writer|
     writer.add_row(%w(state
                       subregion
@@ -31,14 +31,14 @@ def write_hourly_TMY3_data_to_the_csv_file(filename)
         (1..12).each do |month|
           (1..days_in_month(month)).each do |day|
             (0..23).each do |hour|
-              temperature =          @hourly_data[state][subregion][:temperature][month][day][hour]
-              dew_point =            @hourly_data[state][subregion][:dew_point][month][day][hour]
-              wind_speed =           @hourly_data[state][subregion][:wind_speed][month][day][hour]
-              global_horizontal_irradiance =       @hourly_data[state][subregion][:global_horizontal_irradiance][month][day][hour]
-              direct_normal_irradiance =       @hourly_data[state][subregion][:direct_normal_irradiance][month][day][hour]
-              precipitation =  @hourly_data[state][subregion][:precipitation][month][day][hour]
-              et0_from_et0s =  @hourly_data[state][subregion][:et0_from_et0s][month][day][hour]
-              et0_from_weather_data = @hourly_data[state][subregion][:et0_from_weather_data][month][day][hour]
+              temperature =                   @hourly_data[state][subregion][:temperature][month][day][hour]
+              dew_point =                     @hourly_data[state][subregion][:dew_point][month][day][hour]
+              wind_speed =                    @hourly_data[state][subregion][:wind_speed][month][day][hour]
+              global_horizontal_irradiance =  @hourly_data[state][subregion][:global_horizontal_irradiance][month][day][hour]
+              direct_normal_irradiance =      @hourly_data[state][subregion][:direct_normal_irradiance][month][day][hour]
+              precipitation =                 @hourly_data[state][subregion][:precipitation][month][day][hour]
+              et0_from_et0s =                 @hourly_data[state][subregion][:et0_from_et0s][month][day][hour]
+              et0_from_weather_data =         @hourly_data[state][subregion][:et0_from_weather_data][month][day][hour]
 
               writer << [
                     state,
@@ -65,5 +65,34 @@ def write_hourly_TMY3_data_to_the_csv_file(filename)
         end
       end
     end 
+  end
+end
+
+def write_monthly_summary_data_to_csv(filename)
+  CSV.open(filename, "w") do |writer|
+    writer.add_row(%w(state
+                      subregion
+                      elevation_(m) 
+                      month 
+                      avg_24-hour_temperature
+                      avg_day_temp
+                      avg_night_temp
+                      et0))
+    @monthly_data.keys.sort.each do |state|
+      @monthly_data[state].keys.sort.each do |subregion|
+        (1..12).each do |month|
+          writer << [
+            state,
+            subregion,
+            @monthly_data[state][subregion][:elevation],
+            month,
+            @monthly_data[state][subregion][:temperature][month],
+            @monthly_data[state][subregion][:avg_day_temp][month],
+            @monthly_data[state][subregion][:avg_night_temp][month],
+            @monthly_data[state][subregion][:et0][month]
+          ]
+        end
+      end
+    end
   end
 end

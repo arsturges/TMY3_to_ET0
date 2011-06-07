@@ -4,11 +4,10 @@ require './penman-monteith.rb'
 require 'pp'
 
 #1: Read TMY3 Files
-#2: Populate hash (this is done simultaneously with step 1)
-#3: Go through hash and add in t_max_previous and t_min_previous?
-#4: Print out CSV file for posterity and debugging purposes
-#5: Feed hash to penman-monteith_monthly.rb
-#6: Populate new hash of ET0 values
+#2: Populate individual station hash (this is done simultaneously with step 1)
+#3: Calculate individual station et0
+#4: Add individual station data to hash for aggregation
+#5: Aggregate individual station data into national data
 
 start_time = Time.now
 @hourly_data = Hash.new
@@ -18,11 +17,15 @@ filenames.sort.each do |filename|
   @current_tmy3_file = CSV.read(filename)
   collect_station_characteristics 
   puts filename #progress indicator
-  loop_through_TMY3_rows unless invalid?(@state, @elevation)
+  loop_through_TMY3_rows_and_populate_station_array unless invalid?(@state, @elevation)
 end
-flatten_hourly_data_into_national_hourly_data
-write_hourly_TMY3_data_to_the_csv_file("hourly_inputs.csv")
+flatten_station_data_into_subregional_data
+write_subregional_data_to_csv_file("hourly.csv")
+generate_monthly_et0
+write_monthly_summary_data_to_csv("monthly.csv")
 
 end_time = Time.now
 execution_time = end_time - start_time
 puts "Program completed in #{execution_time} seconds."
+puts "Program completed in #{execution_time/60} minutes."
+puts "Program completed in #{execution_time/60/60} hours."

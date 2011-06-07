@@ -55,8 +55,6 @@ def collect_station_characteristics
   end
 end
 
-# methods below are specific to hourly time steps.
-
 def read_hourly_data(row0, row1, row4, row7, row31, row34, row46, row64)
   @row_date = row0
   @row_hour = row1
@@ -77,7 +75,7 @@ def generate_time_variables(date, time)
   @hour = @current_row_datetime.hour #spans 0..23
 end
 
-def loop_through_TMY3_rows 
+def loop_through_TMY3_rows_and_populate_station_array
   @station_array = Array.new
   @current_tmy3_file.each do |row| #Loop through each row. Each row is one hour; 24 rows per day.
     read_hourly_data(row[0], row[1], row[4], row[7], row[31], row[34], row[46], row[64])
@@ -110,10 +108,10 @@ def loop_through_TMY3_rows
         @hourly_direct_normal_irradiance)
     }
     end
-  inject_station_values_into_main_hash
+  inject_station_array_values_into_main_hash
 end
 
-def inject_station_values_into_main_hash
+def inject_station_array_values_into_main_hash
   #Set up the arrays if they don't exist...
   @hourly_data[@state] ||= {}
   @hourly_data[@state][@subregion] ||= { 
@@ -199,7 +197,7 @@ def inject_station_values_into_main_hash
          @hourly_data[@state][@subregion][:et0_from_et0s][month][day][hour] ||= []
          @hourly_data[@state][@subregion][:et0_from_weather_data][month][day][hour] ||= []
 
-         #...and add the hourly datay. Each new file from the tmy3 folder appends one element to this array.
+         #...and add the hourly data. Each new file from the tmy3 folder appends one element to this array.
          @hourly_data[@state][@subregion][:temperatures][month][day][hour] << @station_array[month][day][hour][:temperature]
          @hourly_data[@state][@subregion][:dew_points][month][day][hour] << @station_array[month][day][hour][:dew_point]
          @hourly_data[@state][@subregion][:wind_speeds][month][day][hour] << @station_array[month][day][hour][:wind_speed]
@@ -212,7 +210,7 @@ def inject_station_values_into_main_hash
   end
 end
 
-def flatten_hourly_data_into_national_hourly_data
+def flatten_station_data_into_subregional_data
   @hourly_data.keys.sort.each do |state|
     @hourly_data[state].keys.sort.each do |subregion|
       number_of_stations = @hourly_data[state][subregion][:elevations].size
@@ -266,4 +264,48 @@ def flatten_hourly_data_into_national_hourly_data
       end
     end
   end
+end
+
+def generate_monthly_et0
+  @monthly_data = Hash.new
+  @hourly_data.keys.sort.each do |state|
+    @monthly_data[state] = {}
+    @hourly_data[state].keys.sort.each do |subregion|
+      @monthly_data[state][subregion] = {}
+      @monthly_data[state][subregion][:number_of_stations] = @hourly_data[state][subregion][:number_of_stations]
+      @monthly_data[state][subregion][:time_zone] = @hourly_data[state][subregion][:time_zone]
+      @monthly_data[state][subregion][:elevation] = @hourly_data[state][subregion][:elevation]
+      @monthly_data[state][subregion][:latitude] = @hourly_data[state][subregion][:latitude]
+      @monthly_data[state][subregion][:longitude] = @hourly_data[state][subregion][:longitude]
+      @monthly_data[state][subregion][:et0] = Array.new
+      @monthly_data[state][subregion][:temperature] = Array.new
+      @monthly_data[state][subregion][:avg_day_temp] = Array.new
+      @monthly_data[state][subregion][:avg_night_temp] = Array.new
+      (1..12).each do |month|
+        @monthly_data[state][subregion][:et0][month] = 0
+        @monthly_data[state][subregion][:temperature][month] = 0 
+        daytime_temps = Array.new
+        nighttime_temps = Array.new
+        (1..days_in_month(month)).each do |day|
+          (0..23).each do |hour|
+            et0 = @hourly_data[state][subregion][:et0_from_et0s][month][day][hour]
+            @monthly_data[state][subregion][:et0][month] += et0
+            temp = @hourly_data[state][subregion][:temperature][month][day][hour]
+            @monthly_data[state][subregion][:temperature][month] += temp
+
+            if @hourly_data[state][subregion][:direct_normal_irradiance][month][day][hour] > 0
+              daytime_temps << @hourly_data[state][subregion][:temperature][month][day][hour] 
+            else
+              nighttime_temps << @hourly_data[state][subregion][:temperature][month][day][hour] 
+            end
+          end #hour
+        end #day
+        @monthly_data[state][subregion][:temperature][month] = @monthly_data[state][subregion][:temperature][month] / (days_in_month(month) * 24) #hours in month
+        @monthly_data[state][subregion][:avg_day_temp][month] = sum(daytime_temps)/daytime_temps.size
+        @monthly_data[state][subregion][:avg_night_temp][month] = sum(nighttime_temps)/nighttime_temps.size
+      end #month
+    end
+  end
+  pp @monthly_data["WA"]["east"][:et0] if @monthly_data["WA"]["east"]
+  pp @monthly_data["WA"]["west"][:et0] if @monthly_data["WA"]["west"]
 end
