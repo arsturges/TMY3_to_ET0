@@ -24,19 +24,13 @@ This program produces reference evapotranspiration for the 48 contintental U.S. 
 [TMY3.rb] This file holds methods related to opening the CSV files, looping through all the rows, and populating preliminary arrays.
 [penman-monteith.rb] This file holds all the methods relating to computing ET0 (reference evapotranspiration) using the Penman-Monteith equation.
 [write_to_csv_file.rb] This file holds methods relating to writing data hashes to CSV files for human-readable output.
+[monthly.csv] The program's output, listing monthly ET0 values by state and subregion.
 
 ==How it works
 The program's structure can be read from the file main.rb, which lists the methods in order.
-Generally, the model performs the following actions:
-1. Create a hash (@hourly_data) to hold weather data
-2. Begin looping through the 1020 TMY3 files
-3. Collect characteristcs of the weather station (elevation, lat/long, time zone, etc)
-4. Loop through the 8760 rows of a TMY3 file (representing each hour of year), and collect the relevant data (temperature, wind speed, etc). Calculate reference evapotranspiration for row (hour), and store the in an array called @station_array.
-5. After looping through a particular TMY3 file, store its ET0 results in a bigger hash called @hourly_data.
-6. When the last TMY3 file has been parsed and the last result stored in @hourly_data, flatten the array into national averages, by state and subregion (i.e. take the averages of the ET0 values for each hour)
-7. Print the result to hourly.csv
-8. Sum ET0 values for each month to get monthly ET0 values.
-9. Print the result to monthly.csv.
+Generally, the program calculates reference evapotranspiration (ET0) for every hour of the year for each of the 1,020 TMY3 weather stations.
+Then it combines ET0 values from the same state (or subregion) and takes the mean.
+To get monthly ET0 values, it adds all the hourly values in a given month.
 
 ==What is TMY3?
 TMY3[http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/] data come from 1020 weather stations around the U.S. which record climate parameters once every hour. 
@@ -62,5 +56,7 @@ To contribute to this project, simply clone the project, make your changes, push
  $ git commit -m "I fixed your terrible code."
  $ git push
 Then send me a pull request from your fork on GitHub.
+
 ==License
+This program is released under {the MIT license}[http://www.opensource.org/licenses/mit-license.php].
 
