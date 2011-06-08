@@ -4,7 +4,7 @@ A Ruby program that computes reference evapotranspiration for the lower 48 U.S. 
 ==What is reference evapotranspiration?
 Evapotranspiration is the quantity of water lost by a crop due to evaporation and transpiration.
 Hence, it represents the total water that needs of a crop (precipitation plus irrigation).
-<em>Crop evapotranspiration</em> (ET<sub>C</sub>) is the product of a particular crop's <em>crop coefficient</em> (k<sub>c</sub>) and the <em>reference evapotranspiration</em> (ET<sub>0</sub>)
+<em>Crop evapotranspiration</em> (ETc) is the product of a particular crop's <em>crop coefficient</em> (Kc) and the <em>reference evapotranspiration</em> (ET0)
 Reference evapotranspiration depends only on climatic and geographic parameters, while crop coefficients depend on the characteristics of a partical crop.
 Thus, armed with a crop coefficient and reference evapotranspiration for a particular region, one can determine the total water needs of that crop.
 
@@ -23,27 +23,44 @@ This program produces reference evapotranspiration for the 48 contintental U.S. 
 [main.rb] This is where the program starts and ends. It <tt>require</tt>s all the other files, and calls methods from other files, and puts everything in order. 
 [TMY3.rb] This file holds methods related to opening the CSV files, looping through all the rows, and populating preliminary arrays.
 [penman-monteith.rb] This file holds all the methods relating to computing ET0 (reference evapotranspiration) using the Penman-Monteith equation.
-[write_to_csv_file.rb] This file holds methods relating to writing hashes full of data to CSV files for human-readable output.
+[write_to_csv_file.rb] This file holds methods relating to writing data hashes to CSV files for human-readable output.
 
 ==How it works
-The model touches the files in this order:
-1. main.rb -- parses TMY3 data files and produces et0_output.csv.
-2. et0_output.csv -- contains monthly weather data for 48 U.S. states. This file then becomes the input for the Excel file et0_calculations.xlsx.
-3. et0_calculations.xlsx -- takes monthly weather data for each state and calculates a monthly ET0 value for each state. Those ET0 values then become the file /water_requirements/et0.csv.
-4. et0.csv -- the output of the calculation dones by et0_calculations.xlsx.
-5. /water_requirements/water_requirements_by_region.rb -- takes data from all of the files in /water_requirements (most of which hold data about crops) and outputs the file water_requirements_by_region.csv.
-6. /water_requirement/water_requirements_by_region.csv -- constitutes the major output of the model; it contains monthly irrigation requirements for various crops by month in 48 states.
+The program's structure can be read from the file main.rb, which lists the methods in order.
+Generally, the model performs the following actions:
+1. Create a hash (@hourly_data) to hold weather data
+2. Begin looping through the 1020 TMY3 files
+3. Collect characteristcs of the weather station (elevation, lat/long, time zone, etc)
+4. Loop through the 8760 rows of a TMY3 file (representing each hour of year), and collect the relevant data (temperature, wind speed, etc). Calculate reference evapotranspiration for row (hour), and store the in an array called @station_array.
+5. After looping through a particular TMY3 file, store its ET0 results in a bigger hash called @hourly_data.
+6. When the last TMY3 file has been parsed and the last result stored in @hourly_data, flatten the array into national averages, by state and subregion (i.e. take the averages of the ET0 values for each hour)
+7. Print the result to hourly.csv
+8. Sum ET0 values for each month to get monthly ET0 values.
+9. Print the result to monthly.csv.
 
 ==What is TMY3?
 TMY3[http://rredc.nrel.gov/solar/old_data/nsrdb/1991-2005/tmy3/] data come from 1020 weather stations around the U.S. which record climate parameters once every hour. 
-To account for variability across years (e.g., a particular year's unseasonably high occurrence of hurricanes in the south), NREL developed a statistical method of choosing a reference year to represent each month of data in the TMY3 dataset for each individual weather station [wilcox2008users]. 
+To account for variability across years (e.g., a particular year's unseasonably high occurrence of hurricanes in the south), NREL developed a statistical method of choosing a reference year to represent each month of data in the TMY3 dataset for each individual weather station. 
 For example, January weather data from Gainesville, Florida, (station ID 722146) comes from 1994 records, while February data comes from 1991 records. 
 In this way, the TMY3 dataset aims to represent a typical meteorological year (TMY).
 
 ==Sample Output
-<table>
 state	subregion	elevation_(m)	month	avg_24-hour_temperature	avg_day_temp	avg_night_temp	et0
+
 AZ	none	65	1	15.823655914	18.968989547	13.8483588621	229.0189226903
+
 AZ	none	65	2	14.6982142857	17.2464163823	12.72823219	254.6199016229
+
 AZ	none	65	3	19.9587365591	22.5393861893	17.1002832861	179.439342353
-</table>
+
+==How to contribute
+To contribute to this project, simply clone the project, make your changes, push to your local copy, and then send a pull request.
+ $ git clone git://github.com/arsturges/TMY3_to_ET0.git 
+ $ cd TMY3_to_ET0
+ <make your changes to the code>
+ $ git add .
+ $ git commit -m "I fixed your terrible code."
+ $ git push
+Then send me a pull request from your fork on GitHub.
+==License
+
