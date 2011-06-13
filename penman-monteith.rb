@@ -145,40 +145,19 @@ def compute_Rnl(_T, ea, cloud_cover)
   # equation 39
   stefan_boltzmann=(4.903/24) * 10**(-9) #MJ/m2-hour
   t_hr_k4 = (_T + 273.16)**4
-  # if it's daytime, use current _Rs/_Rso
-  # if it's pre-sunset or after, use the pre-sunset _Rs/Rso
   _Rnl = stefan_boltzmann * t_hr_k4 * (0.34 - 0.14 * Math.sqrt(ea)) * (1.35 * (cloud_cover) - 0.35)
   # See note about calculating Rnl with hourly vs. daily time steps in chapter 4, below equation 54.
-  
-  # Since the ratio Rs/Rso is used to represent cloud cover, when calculating Rnl for hourly periods during the nighttime, 
-  # the ratio Rs/Rso can be set equal to the Rs/Rso calculated for a time period occurring 2-3 hours before sunset, 
-  # before the sun angle becomes small. 
-  # This will generally serve as a good approximation of cloudiness occurring during the subsequent nighttime. 
-  # The hourly period that is 2 to 3 hours before sunset can be identified during computation of Ra as the period where w, 
-  # calculated from Equation 31, is within the range (w s - 0.79) < w < (w s - 0.52), where w s is calculated using Equation 25. 
-  # As a more approximate alternative, one can assume Rs/Rso = 0.4 to 0.6 during nighttime periods in humid and subhumid climates 
-  # and Rs/Rso = 0.7 to 0.8 in arid and semiarid climates. 
-  # A value of Rs/Rso = 0.3 presumes total cloud cover.
 end
 
-def compute_cloud_cover(_Rs, _Rso, day, hour, it_is_a_few_hours_before_sunset, global_horizontal_irradiance, pre_sunset_cloud_cover)
-  if day == 1 and global_horizontal_irradiance == 0 and hour < 15 # because months aren't actually chronological 
-    cloud_cover = 0.65 # average suggested nighttime value (starting at midnight)
-  elsif it_is_a_few_hours_before_sunset or global_horizontal_irradiance == 0
-    cloud_cover = (_Rs / _Rso) # pre_sunset_cloud_cover
-  else # daytime
-    cloud_cover = (_Rs / _Rso)
-  end
-end
-
-def it_is_a_few_hours_before_sunset(solar_time_angle_midpoint, sunset_hour_angle)
-  condition_1 = (sunset_hour_angle - 0.79) <= solar_time_angle_midpoint
-  condition_2 = solar_time_angle_midpoint <= (sunset_hour_angle - 0.52)
-  if condition_1 and condition_2
-    return true
-  else
-    return false
-  end
+def compute_cloud_cover(total_sky_cover)
+  # The relative shortwave radiation is a way to express the cloudiness of the atmosphere; 
+  # the cloudier the sky the smaller the ratio. 
+  # The ratio varies between about 0.33 (dense cloud cover) and 1 (clear sky). 
+  # total_sky_cover is in tenths of sky covered; 1 is total sky coverage, 0 is cloudless.
+  cloud_cover = 1 - (total_sky_cover / 10)
+  #if cloud_cover < 0.3
+    #cloud_cover = 0.3
+  #end
 end
 
 def compute_Rn(_Rns, _Rnl)
@@ -222,7 +201,8 @@ def compute_hourly_et0(state,
                         dew_point,
                         wind_speed,
                         global_horizontal_irradiance,
-                        direct_normal_irradiance)
+                        direct_normal_irradiance,
+                        total_sky_cover)
   # equation 53
 
   solar_declination = compute_solar_declination(compute_day_in_year(month, day))
@@ -239,9 +219,7 @@ def compute_hourly_et0(state,
   _Rns = compute_Rns(_Rs)
   _T = temp_hr
   _ea = compute_ea(dew_point)
-  it_is_a_few_hours_before_sunset = it_is_a_few_hours_before_sunset(solar_time_angle_midpoint, sunset_hour_angle)
-  pre_sunset_cloud_cover = 0.5
-  cloud_cover = compute_cloud_cover(_Rs, _Rso, day, hour, it_is_a_few_hours_before_sunset, global_horizontal_irradiance, pre_sunset_cloud_cover)
+  cloud_cover = compute_cloud_cover(total_sky_cover)
   _Rnl = compute_Rnl(_T, _ea, cloud_cover)
   atmospheric_pressure = compute_atmospheric_pressure(elevation)
 

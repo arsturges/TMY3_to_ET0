@@ -17,6 +17,7 @@ def write_subregional_data_to_csv_file(filename)
                       wind_speed_(m/s) 
                       global_horizontal_irradiance_(W/m2)
                       direct_normal_irradiance_(W/m2)
+                      total_sky_cover_(tenths)
                       precipitation_(mm) 
                       et0_from_et0s
                       et0_from_weather_data))
@@ -36,6 +37,7 @@ def write_subregional_data_to_csv_file(filename)
               wind_speed =                    @hourly_data[state][subregion][:wind_speed][month][day][hour]
               global_horizontal_irradiance =  @hourly_data[state][subregion][:global_horizontal_irradiance][month][day][hour]
               direct_normal_irradiance =      @hourly_data[state][subregion][:direct_normal_irradiance][month][day][hour]
+              total_sky_cover =               @hourly_data[state][subregion][:total_sky_cover][month][day][hour]
               precipitation =                 @hourly_data[state][subregion][:precipitation][month][day][hour]
               et0_from_et0s =                 @hourly_data[state][subregion][:et0_from_et0s][month][day][hour]
               et0_from_weather_data =         @hourly_data[state][subregion][:et0_from_weather_data][month][day][hour]
@@ -56,6 +58,7 @@ def write_subregional_data_to_csv_file(filename)
                     wind_speed,
                     global_horizontal_irradiance,
                     direct_normal_irradiance,
+                    total_sky_cover,
                     precipitation,
                     et0_from_et0s,
                     et0_from_weather_data
