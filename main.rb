@@ -1,13 +1,6 @@
 require './TMY3.rb'
 require './write_to_csv_file.rb'
 require './penman-monteith.rb'
-require 'pp'
-
-#1: Read TMY3 Files
-#2: Populate individual station hash (this is done simultaneously with step 1)
-#3: Calculate individual station et0
-#4: Add individual station data to hash for aggregation
-#5: Aggregate individual station data into national data
 
 start_time = Time.now
 @hourly_data = Hash.new
@@ -19,6 +12,7 @@ filenames.sort.each do |filename|
   puts filename #progress indicator
   loop_through_TMY3_rows_and_populate_station_array unless invalid?(@state, @elevation)
 end
+
 flatten_station_data_into_subregional_data
 write_subregional_data_to_csv_file("hourly.csv")
 generate_monthly_et0
