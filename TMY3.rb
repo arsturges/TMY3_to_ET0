@@ -1,11 +1,3 @@
-#this file is for methods related to reading TMY3 data and outputing hourly ET0 inputs.
-#this files needs to output for each hour of the year:
-#temperature
-#dew_point_temp
-#wind_speed
-#global_horizontal_irradiance
-#direct_normal_irradiance (MJ m-2 hour-1)
-
 def sum(values)
   total = 0
   values.each {|val| total += val.to_f}
@@ -19,10 +11,10 @@ def days_in_month(month)
 end
 
 def invalid?(state, elevation)
-  condition_1 = ( elevation >= 1000 )
+  elevation_is_too_great = ( elevation >= 1000 )
   disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
-  condition_2 = disallowed_states.include?(state)
-  if condition_1 or condition_2 
+  this_state_is_not_allowed = disallowed_states.include?(state)
+  if elevation_is_too_great or this_state_is_not_allowed 
     return true
   else
     return false
@@ -41,6 +33,7 @@ def collect_station_characteristics
   @longitude = header1[5].to_f.abs
   @elevation = header1[6].to_i
 
+  #identify subregions
   case @state
     when "OR" then @subregion = (@longitude > 120 ? "west"  : "east")
     when "WA" then @subregion = (@longitude > 120 ? "west"  : "east")
@@ -306,6 +299,4 @@ def generate_monthly_et0
       end #month
     end
   end
-  pp @monthly_data["WA"]["east"][:et0] if @monthly_data["WA"]["east"]
-  pp @monthly_data["WA"]["west"][:et0] if @monthly_data["WA"]["west"]
 end
