@@ -1,4 +1,6 @@
-#This file computes the reference evapotranspiration with the Penman-Montheith equation as outlined in FAO 56: http://www.fao.org/docrep/X0490E/x0490e00.htm
+# This file computes the reference evapotranspiration with the Penman-Montheith equation 
+# as outlined in FAO 56: 
+# http://www.fao.org/docrep/X0490E/x0490e00.htm
 
 require 'date'
 
@@ -95,7 +97,7 @@ def compute_solar_time_angle_end(solar_time_angle_midpoint, t1 = 1)
 end
 
 def compute_solar_time_angle_midpoint(time, _Lz, longitude, _Sc)
-  #equation 31
+  # equation 31
   solar_time_angle_midpoint = (Math::PI / 12) * ((time + 0.06667 * (_Lz - longitude)) - 12)
   #time is standard clock time at the midpoint of the period (hour), e.g. 2pm--3pm would be 14.5
   #_Lz is longitude of the center of the local time zone (degrees west of Greenwich)
@@ -115,10 +117,10 @@ def compute_Lz(hours_from_Greenwich)
 end
 
 def compute_Sc(day_in_year)
-  #equation 33
+  # equation 33
   b = 2 * Math::PI * (day_in_year - 81) / 364
 
-  #equation 32
+  # equation 32
   _Sc = 0.1645 * Math.sin(2 * b) - 0.1255 * Math.cos(b) - 0.025 * Math.sin(b)
 end
 
@@ -127,7 +129,8 @@ end
 # equation 36: not used (alternative to equation 37)
 
 def compute_Rso(_Ra, elevation)
-  #equation 37
+  # equation 37
+  # solar radiation that would reach surface under cloudless conditions
   #TODO: calibrate a and b for each station?
   _Rso = (0.75 + 2 * (10**(-5) * elevation )) * _Ra
 end
@@ -138,12 +141,44 @@ def compute_Rns(_Rs, albedo=0.23)
   _Rns = (1 - albedo) * _Rs
 end
 
-def compute_Rnl(_T, ea, _Rs, _Rso)
+def compute_Rnl(_T, ea, cloud_cover)
   # equation 39
   stefan_boltzmann=(4.903/24) * 10**(-9) #MJ/m2-hour
   t_hr_k4 = (_T + 273.16)**4
-  _Rnl = stefan_boltzmann * t_hr_k4 * (0.34 - 0.14 * Math.sqrt(ea)) * (1.35 * (_Rs / _Rso) - 0.35)
-  # See note about calculating Rnl with hourly vs. daily time steps in chapter 4.
+  # if it's daytime, use current _Rs/_Rso
+  # if it's pre-sunset or after, use the pre-sunset _Rs/Rso
+  _Rnl = stefan_boltzmann * t_hr_k4 * (0.34 - 0.14 * Math.sqrt(ea)) * (1.35 * (cloud_cover) - 0.35)
+  # See note about calculating Rnl with hourly vs. daily time steps in chapter 4, below equation 54.
+  
+  # Since the ratio Rs/Rso is used to represent cloud cover, when calculating Rnl for hourly periods during the nighttime, 
+  # the ratio Rs/Rso can be set equal to the Rs/Rso calculated for a time period occurring 2-3 hours before sunset, 
+  # before the sun angle becomes small. 
+  # This will generally serve as a good approximation of cloudiness occurring during the subsequent nighttime. 
+  # The hourly period that is 2 to 3 hours before sunset can be identified during computation of Ra as the period where w, 
+  # calculated from Equation 31, is within the range (w s - 0.79) < w < (w s - 0.52), where w s is calculated using Equation 25. 
+  # As a more approximate alternative, one can assume Rs/Rso = 0.4 to 0.6 during nighttime periods in humid and subhumid climates 
+  # and Rs/Rso = 0.7 to 0.8 in arid and semiarid climates. 
+  # A value of Rs/Rso = 0.3 presumes total cloud cover.
+end
+
+def compute_cloud_cover(_Rs, _Rso, day, hour, it_is_a_few_hours_before_sunset, global_horizontal_irradiance, pre_sunset_cloud_cover)
+  if day == 1 and global_horizontal_irradiance == 0 and hour < 15 # because months aren't actually chronological 
+    cloud_cover = 0.65 # average suggested nighttime value (starting at midnight)
+  elsif it_is_a_few_hours_before_sunset or global_horizontal_irradiance == 0
+    cloud_cover = (_Rs / _Rso) # pre_sunset_cloud_cover
+  else # daytime
+    cloud_cover = (_Rs / _Rso)
+  end
+end
+
+def it_is_a_few_hours_before_sunset(solar_time_angle_midpoint, sunset_hour_angle)
+  condition_1 = (sunset_hour_angle - 0.79) <= solar_time_angle_midpoint
+  condition_2 = solar_time_angle_midpoint <= (sunset_hour_angle - 0.52)
+  if condition_1 and condition_2
+    return true
+  else
+    return false
+  end
 end
 
 def compute_Rn(_Rns, _Rnl)
@@ -188,6 +223,8 @@ def compute_hourly_et0(state,
                         wind_speed,
                         global_horizontal_irradiance,
                         direct_normal_irradiance)
+  # equation 53
+
   solar_declination = compute_solar_declination(compute_day_in_year(month, day))
   sunset_hour_angle = compute_sunset_hour_angle(latitude, solar_declination)
   dr = compute_dr(compute_day_in_year(month, day))
@@ -201,7 +238,11 @@ def compute_hourly_et0(state,
   _Rs = global_horizontal_irradiance * (60 * 60) / (10**6) #convert W/m2 to MJ/hour/m2
   _Rns = compute_Rns(_Rs)
   _T = temp_hr
-  _Rnl = compute_Rnl(_T, compute_ea(dew_point), _Rs, _Rso)
+  _ea = compute_ea(dew_point)
+  it_is_a_few_hours_before_sunset = it_is_a_few_hours_before_sunset(solar_time_angle_midpoint, sunset_hour_angle)
+  pre_sunset_cloud_cover = 0.5
+  cloud_cover = compute_cloud_cover(_Rs, _Rso, day, hour, it_is_a_few_hours_before_sunset, global_horizontal_irradiance, pre_sunset_cloud_cover)
+  _Rnl = compute_Rnl(_T, _ea, cloud_cover)
   atmospheric_pressure = compute_atmospheric_pressure(elevation)
 
   _Rn = compute_Rn(_Rns, _Rnl)
@@ -210,7 +251,6 @@ def compute_hourly_et0(state,
   _Delta = compute_Delta(_T)
   _u2 = wind_speed
   _es = compute_es(_T)
-  _ea = compute_ea(dew_point)
 
   et0_numerator = 0.408 * (_Delta) * (_Rn - _G) + _gamma*(37/(_T+273)) * _u2 * (_es - _ea)
   et0_denominator = _Delta + _gamma * (1 + 0.34 * _u2)
