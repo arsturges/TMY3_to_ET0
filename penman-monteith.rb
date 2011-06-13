@@ -150,14 +150,11 @@ def compute_Rnl(_T, ea, cloud_cover)
 end
 
 def compute_cloud_cover(total_sky_cover)
-  # The relative shortwave radiation is a way to express the cloudiness of the atmosphere; 
+  # "The relative shortwave radiation is a way to express the cloudiness of the atmosphere; 
   # the cloudier the sky the smaller the ratio. 
-  # The ratio varies between about 0.33 (dense cloud cover) and 1 (clear sky). 
+  # The ratio varies between about 0.33 (dense cloud cover) and 1 (clear sky)." FAO 56.
   # total_sky_cover is in tenths of sky covered; 1 is total sky coverage, 0 is cloudless.
-  cloud_cover = 1 - (total_sky_cover / 10)
-  #if cloud_cover < 0.3
-    #cloud_cover = 0.3
-  #end
+  cloud_cover = 1 - (total_sky_cover.to_f / 10)
 end
 
 def compute_Rn(_Rns, _Rnl)
