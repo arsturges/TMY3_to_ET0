@@ -5,20 +5,20 @@ def write_subregional_data_to_csv_file(filename)
     writer.add_row(%w(state
                       subregion
                       number_of_stations
-                      time_zone_(hours)
-                      elevation_(m) 
+                      time_zone_
+                      elevation 
                       latitude 
                       longitude 
                       month 
                       day
                       hour
-                      temperature_(C)
-                      dew_point_(C)
-                      wind_speed_(m/s) 
-                      global_horizontal_irradiance_(W/m2)
-                      direct_normal_irradiance_(W/m2)
-                      total_sky_cover_(tenths)
-                      precipitation_(mm) 
+                      temperature
+                      dew_point
+                      wind_speed 
+                      global_horizontal_irradiance
+                      direct_normal_irradiance
+                      total_sky_cover
+                      precipitation 
                       et0_from_et0s
                       et0_from_weather_data))
 
