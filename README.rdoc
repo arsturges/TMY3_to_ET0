@@ -9,15 +9,15 @@ Reference evapotranspiration depends only on climatic and geographic parameters,
 Thus, armed with a crop coefficient and reference evapotranspiration for a particular region, one can determine the total water needs of that crop.
 
 This program produces reference evapotranspiration for the 48 contintental U.S. states, including east/west subregions for the following states:
-*Florida (north and south)
-*Kansas
-*Nebraska
-*North Dakota
-*Oklahoma
-*Oregon
-*South Dakota
-*Texas
-*Washington
+* Florida (north and south)
+* Kansas
+* Nebraska
+* North Dakota
+* Oklahoma
+* Oregon
+* South Dakota
+* Texas
+* Washington
 
 ==Description of the files
 [main.rb] This is where the program starts and ends. It <tt>require</tt>s all the other files, and calls methods from other files, and puts everything in order. 
