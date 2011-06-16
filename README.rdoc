@@ -48,15 +48,17 @@ AZ	none	65	2	14.6982142857	17.2464163823	12.72823219	254.6199016229
 AZ	none	65	3	19.9587365591	22.5393861893	17.1002832861	179.439342353
 
 ==How to contribute
-To contribute to this project, simply clone the project, make your changes, push to your local copy, and then send a pull request.
- $ git clone git://github.com/arsturges/TMY3_to_ET0.git 
+To contribute to this project, simply fork the repository, clone it to your local machine, make your changes, push to your local copy, and then send a pull request.
+1. Fork the repository
+2.
+ $ git clone git://github.com/your_github_username/TMY3_to_ET0.git # replace your_github_username with your actual username 
  $ cd TMY3_to_ET0
  <make your changes to the code>
  $ git add .
  $ git commit -m "I fixed your terrible code."
  $ git push
-Then send me a pull request from your fork on GitHub.
+3. Send me a pull request from your fork on GitHub.
 
 ==License
-This program is released under {the MIT license}[http://www.opensource.org/licenses/mit-license.php].
+This Ruby program is released under {the MIT license}[http://www.opensource.org/licenses/mit-license.php].
 
