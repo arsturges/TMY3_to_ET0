@@ -50,10 +50,11 @@ AZ	none	65	3	19.9587365591	22.5393861893	17.1002832861	179.439342353
 ==How to contribute
 To contribute to this project, simply fork the repository, clone it to your local machine, make your changes, push to your local copy, and then send a pull request.
 1. Fork the repository
-2.
+2. Run this code:
  $ git clone git://github.com/your_github_username/TMY3_to_ET0.git # replace your_github_username with your actual username 
  $ cd TMY3_to_ET0
- <make your changes to the code>
+3. Make your changes to the code
+4. Push those changes to your copy of the repository:
  $ git add .
  $ git commit -m "I fixed your terrible code."
  $ git push
