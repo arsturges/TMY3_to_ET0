@@ -19,6 +19,10 @@
 
 \usepackage{babel}
 
+\makeatother
+
+\usepackage{babel}
+
 \begin{document}
 
 \title{Computing Evapotranspiration Using TMY3 Weather Data}
@@ -96,20 +100,20 @@ $\gamma$  & Psychrometric constant  & $\frac{kPa}{\textdegree C}$\tabularnewline
 
 
 Most of these variables are composites of more fundamental data. These
-data come from TMY3. 
+data come from TMY3.
 
 
 \subsection{TMY3 Data }
 
 TMY3 data come from 1020 weather stations around the U.S. which record
 climate parameters once every hour. To account for variability across
-years (e.g., a particular year's unseasonably high occurrence of
-hurricanes in the south), NREL developed a statistical method of choosing
-a reference year to represent each month of data in the TMY3 dataset
-for each individual weather station \cite{wilcox2008users}. For example,
-January weather data from Gainesville, Florida, (station ID 722146)
-comes from 1994 records, while February data comes from 1991 records.
-In this way, the TMY3 dataset aims to represent a typical meteorological
+years (e.g., a particular year's unseasonably high occurrence of hurricanes
+in the south), NREL developed a statistical method of choosing a reference
+year to represent each month of data in the TMY3 dataset for each
+individual weather station \cite{wilcox2008users}. For example, January
+weather data from Gainesville, Florida, (station ID 722146) comes
+from 1994 records, while February data comes from 1991 records. In
+this way, the TMY3 dataset aims to represent a typical meteorological
 year (TMY). To arrive at the list of variables in table \ref{Flo:Penman Equation Variables}
 requires calculations on more fundamental input data. These, which
 come from TMY3, appear in table \ref{Flo:TMY3 data inputs}.
@@ -171,8 +175,6 @@ oppropriate. Table \ref{Flo:state_subregions} lists these subregions.
 
 %
 \begin{table}
-
-
 \caption{State Subregions}
 
 
@@ -180,26 +182,26 @@ oppropriate. Table \ref{Flo:state_subregions} lists these subregions.
 
 \begin{tabular}{|c|c|c|}
 \hline 
-State & Subregion & Border\tabularnewline
+State  & Subregion  & Border\tabularnewline
 \hline
 \hline 
-Florida  & North/South & $27\textdegree$ North\tabularnewline
+Florida  & North/South  & $27\textdegree$ North\tabularnewline
 \hline 
-Kansas & East/West & $98\textdegree$\tabularnewline
+Kansas  & East/West  & $98\textdegree$\tabularnewline
 \hline 
-North Dakota & East/West & $ $$100\textdegree$\tabularnewline
+North Dakota  & East/West  & $ $$100\textdegree$\tabularnewline
 \hline 
-South Dakota & East/West & $100\textdegree$\tabularnewline
+South Dakota  & East/West  & $100\textdegree$\tabularnewline
 \hline 
-Nebraska & East/West & $100\textdegree$\tabularnewline
+Nebraska  & East/West  & $100\textdegree$\tabularnewline
 \hline 
-Oklahoma & East/West & $98\textdegree$\tabularnewline
+Oklahoma  & East/West  & $98\textdegree$\tabularnewline
 \hline 
-Oregon & East/West & $120\textdegree$\tabularnewline
+Oregon  & East/West  & $120\textdegree$\tabularnewline
 \hline 
-Texas & East/West & $98\textdegree$\tabularnewline
+Texas  & East/West  & $98\textdegree$\tabularnewline
 \hline 
-Washington & East/West & $120\textdegree$\tabularnewline
+Washington  & East/West  & $120\textdegree$\tabularnewline
 \hline
 \end{tabular}
 \end{table}
@@ -334,11 +336,145 @@ equation, which finally calculates $ET_{0}$.
 
 \section{Penman-Monteith Equation Terms}
 
+
+\section{Adjusting Weather Variables and Measuring Penman-Monteith Output}
+
+Given a small rise in temperature or humiditiy, we would like to know
+by how much reference evapoatranspiration rises. We could take the
+partial derivative of the Penman-Monteith equation with respect to
+temperature (or humidity), but that's a difficult calculation. Instead
+we adjust the inputs to the equation by the desired amount, holding
+all other variables constant, and run the program.
+
+
+\subsection{Adjusting Humidity}
+
+Humidity is an important factor in determing crop evapotranspiriation.
+In Crop Evapotranspiration, the authors explain:
+\begin{quote}
+While the energy supply from the sun and surrounding air is the main
+driving force for the vaporization of water, the difference between
+the water vapour pressure at the evapotranspiring surface and the
+surrounding air is the determining factor for the vapour removal.
+Well-watered fields in hot dry arid regions consume large amounts
+of water due to the abundance of energy and the desiccating power
+of the atmosphere. In humid tropical regions, notwithstanding the
+high energy input, the high humidity of the air will reduce the evapotranspiration
+demand. In such an environment, the air is already close to saturation,
+so that less additional water can be stored and hence the evapotranspiration
+rate is lower than in arid regions \cite{FAO-56}.
+\end{quote}
+The evaporative capacity of the air around a crop affects the water
+requirements of that crop. A high evaporative capacity occurs where
+the saturation vapor pressure ($e_{s}$) is high, and the actual vapor
+pressure ($e_{a}$) is low. The difference between these two values
+($e_{s}-e_{a}$) is called the vapor pressure defiict, and serves
+as an accurate indicator of the actual evaporative capacity of the
+air \cite{FAO-56}.
+
+To account for this, the Penman-Monteith equation includes the vapor
+pressure deficit term ($e_{s}-e_{a}$) in the numerator. A higher
+difference leads to a higher ET0. 
+
+Note that saturation vapor pressure ($e_{s}$) depends only on temperature;
+more water can evaporiate into a given volume at higher temperature
+than at lower temperature. Actual vapor pressure ($e_{a}$), on the
+other hand, depends on both temperature \emph{and} water vapor content.
+
+Since we want to model a change in the water content of the air, we
+are concerned only with actual vapor pressure ($e_{a}$). Crop Evapotranspiration
+lists several methods to compute $e_{a}$:
+\begin{itemize}
+\item $e_{a}=e\textdegree(T_{Dew})=0.6108e^{\frac{17.27T_{Dew}}{T_{Dew}+237.3}}$
+(FAO equation 14)
+\item $e_{a}=e\textdegree(T_{Wet})-\gamma(T_{Dry}-T_{Wet})$ (FAO equation
+15)
+\item $e_{a}=e\textdegree(T)\frac{RelativeHumidity}{100}$ (FAO equation
+17)
+\end{itemize}
+where $T_{Dew}$ represents dew point temperature, $T_{Wet}$ represents
+wet bulb temperature, $T_{Dry}$ represents dry bulb temperature,
+and the difference $T_{Dry}-T_{Wet}$ represents the wet bulb depression. 
+
+To explore this change due to humidity in evapotranspiration, we perform
+a brute-force sensitivity analysis of humidity. We do this by adjusting
+humidity up or down by a discreet amount, then observing the corresponding
+change in reference evapotranspiration. But humidity can be measured
+several different ways, and not all can be easily incorporated into
+the Penman-Monteith equation. We need a method that allows us to unambiguously
+increase or decrease humidity. But what is humidity?
+
+
+\subsubsection{Absolute Humidity}
+
+The most obvious choice is to use absolute humidity, which we define
+as the mass of water in a given volume:
+
+\[
+AH=\frac{m_{w}}{V_{net}}\]
+
+
+where $m_{w}$ represents the total mass of water, and $V_{net}$
+represents the total volume containing that mass of water. Absolute
+humidity typically has units of $\frac{grams}{m^{3}}$, and usually
+ranges from 0 to about 30. One could easily use absolute humidity
+to describe a discreet change in humidity; a 5\% increase in absolute
+humidty represents a 5\% increase in the mass of water contained in
+the same volume of air. It depends on no other variables, such as
+temperature or pressure. Unfortuatnely, the TMY3 data set does not
+include absolute humidity. However, it does include relative humidity.
+
+
+\subsubsection{Relative Humidity}
+
+Relative humidity is a unitless ratio of the partial pressure of a
+given volume of water vapor to the saturated vapor pressure of water
+at a given temperature:
+
+\[
+\phi=\frac{e_{w}}{e_{w}^{*}}\]
+
+
+where $e_{w}$ is the partial pressure of water vapor (the component
+of a gaseous mixture's pressure attributable to water vapor), $e_{w}^{*}$
+is the saturated vapor pressure of water (the pressure at which water
+evaporation and condensation would equilibrate), and $\phi$ is the
+relative humidity (a percentage). 
+
+The terms $e_{w}$ and $e_{w}^{*}$ both depend on temperature and
+water content, so a chance in relative humidity may be caused by a
+change in either water content or temperature. Specifically, an increase
+in relative humidity could be due to an increase in water content
+or a decrease in temperature. For the purposes of crop and agriculture
+modeling, we intend an increase in relative humidity to mean an increase
+in water content, not a decrease in temperature. This leads to question
+of how one defines a percentage increase in relative humidity. If
+relative humidity is 50\%, what is a 5\% increase? Is it $0.50+0.05=0.55$?
+Is it $0.5*1.05=0.525$? What's a 5\% increase of a relative humidity
+of 99\% (which exceed 100\% by the first two methods)? Is it a 5\%
+reduction in the {}``dry'' portion of the volume?
+
+
+\subsubsection{Dew Point Temperature}
+
+In addition to relative humidity, the TMY3 data set includes a measure
+of dew point temperature. One typically associates dew point temperature
+with relative humidity, as one definition is that a volume of air
+at its dew point temperature is at 100\% relative humidity. In other
+words, no more water can vaporize into the air. 
+
+In the Penman-Monteith equation, dew point temperature is used in
+the calculation of 
+
+
+\subsection{Adjusting Temperature}
+
 \[
 \]
 
 
 \bibliographystyle{plain} \nocite{*} \bibliographystyle{plain}
-\bibliography{C:/Users/arsturges/Documents/LDRD/sturges_reference_database}
+\bibliographystyle{plain}
+\bibliography{sturges_reference_database}
 
 \end{document}
