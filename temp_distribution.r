@@ -6,17 +6,17 @@
 
 # load the hourly data sets:
 print("loading hourly_base.csv...")
-#base <- read.csv("~/TMY3_to_ET0/hourly_base.csv")
+base <- read.csv("~/TMY3_to_ET0/hourly_base.csv")
 print("loading hourly_temp_+2%.csv...")
-#plus_2_temp <- read.csv("~/TMY3_to_ET0/hourly_temp_+2%.csv")
+plus_2_temp <- read.csv("~/TMY3_to_ET0/hourly_temp_+2%.csv")
 print("loading hourly_temp_+5%.csv...")
-#plus_5_temp <- read.csv("~/TMY3_to_ET0/hourly_temp_+5%.csv")
+plus_5_temp <- read.csv("~/TMY3_to_ET0/hourly_temp_+5%.csv")
 print("loading hourly_temp_-5%.csv...")
-#minus_5_temp <- read.csv("~/TMY3_to_ET0/hourly_temp_-5%.csv")
+minus_5_temp <- read.csv("~/TMY3_to_ET0/hourly_temp_-5%.csv")
 print("loading hourly_humidity_+2%.csv...")
-#plus_2_humid <- read.csv("~/TMY3_to_ET0/hourly_humidity_+2%.csv")
+plus_2_humid <- read.csv("~/TMY3_to_ET0/hourly_humidity_+2%.csv")
 print("loading hourly_humidity_+5%.csv...")
-#plus_5_humid <- read.csv("~/TMY3_to_ET0/hourly_humidity_+5%.csv")
+plus_5_humid <- read.csv("~/TMY3_to_ET0/hourly_humidity_+5%.csv")
 
 # plot a histogram of all temperatures:
 hist(base$temperature)
