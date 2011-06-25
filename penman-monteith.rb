@@ -138,6 +138,7 @@ end
 def compute_Rns(_Rs, albedo=0.23)
   # equation 38
   # albedo is 0.23 for hypothetical grass reference crop (dimensionless)
+  # TODO: include albedo from field 62 of TMY3 data set
   _Rns = (1 - albedo) * _Rs
 end
 
