@@ -23,7 +23,7 @@ end
 
 def collect_station_characteristics
   header1 = @current_tmy3_file.shift
-  header2 = @current_tmy3_file.shift #get rid of the column headers
+  header2 = @current_tmy3_file.shift #remove column headers
   
   #read basic info about the weather station  
   @state = header1[2]
@@ -55,14 +55,13 @@ def read_hourly_data(row0, row1, row4, row7, row25, row31, row34, row46, row64)
   @hourly_direct_normal_irradiance = row7.to_f # need to convert this to MJ/m2 hour
   @hourly_sky_coverage = row25.to_i
   @hourly_temp = row31.to_f
-  @hourly_dew_point_temp = row34.to_f
+  @hourly_dew_point_temp = row34.to_f + (row34.to_f*0.05).abs #will always increase to the right on the number line
   @hourly_wind_speed = row46.to_f
   @hourly_precipiation = row64.to_f
 end
 
 def generate_time_variables(date, time)
-  #subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
-  @current_row_datetime = DateTime.strptime(@row_date +" "+@row_hour, '%m/%d/%Y %H:%M') - 1/(24.0*60) 
+  @current_row_datetime = DateTime.strptime(@row_date +" "+@row_hour, '%m/%d/%Y %H:%M') - 1/(24.0*60) #subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
   @year = @current_row_datetime.year
   @month = @current_row_datetime.month
   @day = @current_row_datetime.day
