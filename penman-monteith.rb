@@ -37,7 +37,7 @@ def compute_Delta(_T)
 end
 
 def compute_ea(dew_point)
-  #equation 14
+  #equation 14, which is equation 11 calculated at the dew point temperature
   ea = 0.6108 * Math.exp((17.27 * dew_point) / (dew_point + 237.3))
 end
 
