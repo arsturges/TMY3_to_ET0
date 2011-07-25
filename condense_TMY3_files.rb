@@ -282,8 +282,11 @@ end
 
 filenames = Dir.glob('../tmy3_test_files/*')
 filenames.sort.each do |filename|
+  start_time = Time.now
   current_tmy3_file = CSV.read(filename)
-  puts filename
   collect_station_characteristics(current_tmy3_file)
   create_new_csv_file_populate_and_close(current_tmy3_file)
+  end_time = Time.now
+  elapsed_time = end_time - start_time
+  puts "Elapsed time: #{elapsed_time} seconds."
 end
