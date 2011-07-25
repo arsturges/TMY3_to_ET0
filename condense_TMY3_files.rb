@@ -1,6 +1,17 @@
 require 'csv'
 require './penman-monteith.rb'
 
+def invalid?(state, elevation)
+  elevation_is_too_great = ( elevation >= 1000 )
+  disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
+  this_state_is_not_allowed = disallowed_states.include?(state)
+  if elevation_is_too_great or this_state_is_not_allowed 
+    return true
+  else
+    return false
+  end
+end
+
 def collect_station_characteristics(tmy3_array)
   @header1 = tmy3_array.shift
   @header2 = tmy3_array.shift #remove column headers
@@ -280,12 +291,12 @@ def compute_et0_perturbations
           @hourly_sky_coverage)
 end
 
-filenames = Dir.glob('../tmy3_test_files/*')
+filenames = Dir.glob('../tmy3/*')
 filenames.sort.each do |filename|
   start_time = Time.now
   current_tmy3_file = CSV.read(filename)
   collect_station_characteristics(current_tmy3_file)
-  create_new_csv_file_populate_and_close(current_tmy3_file)
+  create_new_csv_file_populate_and_close(current_tmy3_file) unless invalid?(@state, @elevation)
   end_time = Time.now
   elapsed_time = end_time - start_time
   puts "Elapsed time: #{elapsed_time} seconds."
