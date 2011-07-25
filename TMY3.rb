@@ -12,7 +12,7 @@ end
 
 def invalid?(state, elevation)
   elevation_is_too_great = ( elevation >= 1000 )
-  disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
+  disallowed_states = ["GU", "PR", "VI"]
   this_state_is_not_allowed = disallowed_states.include?(state)
   if elevation_is_too_great or this_state_is_not_allowed 
     return true
