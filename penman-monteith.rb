@@ -186,9 +186,7 @@ def compute_day_in_year(month, day)
   day_in_year = Date.new(2011, month, day).yday #because 2011 is not a leap year, and February 29 does not ever appear in TMY3
 end
 
-def compute_hourly_et0(state, 
-                        subregion, 
-                        hours_from_Greenwich,
+def compute_hourly_et0( hours_from_Greenwich,
                         elevation,
                         longitude,
                         latitude,
