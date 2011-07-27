@@ -21,19 +21,7 @@ def invalid?(state, elevation)
   end
 end
 
-def collect_station_characteristics
-  header1 = @current_tmy3_file.shift
-  header2 = @current_tmy3_file.shift #remove column headers
-  
-  #read basic info about the weather station  
-  @state = header1[2]
-  @time_zone = header1[3]
-  @subregion = nil
-  @latitude =  header1[4].to_f.abs
-  @longitude = header1[5].to_f.abs
-  @elevation = header1[6].to_i
-
-  #identify subregions
+def identify_subregions(state)
   case @state
     when "OR" then @subregion = (@longitude > 120 ? "west"  : "east")
     when "WA" then @subregion = (@longitude > 120 ? "west"  : "east")
@@ -46,6 +34,19 @@ def collect_station_characteristics
     when "TX" then @subregion = (@longitude > 98 ? "west"  : "east")
     else @subregion = "none"
   end
+end
+
+def collect_station_characteristics
+  header1 = @current_tmy3_file.shift
+  header2 = @current_tmy3_file.shift #remove column headers
+  
+  @state = header1[2]
+  @time_zone = header1[3]
+  @subregion = nil
+  @latitude =  header1[4].to_f.abs
+  @longitude = header1[5].to_f.abs
+  @elevation = header1[6].to_i
+  @subregion = identify_subregions(header1[2])
 end
 
 def read_hourly_data(row0, row1, row4, row7, row25, row31, row34, row46, row64)
@@ -85,7 +86,199 @@ def loop_through_TMY3_rows_and_populate_station_array
       :global_horizontal_irradiance => @hourly_global_horizontal_irradiance,
       :direct_normal_irradiance => @hourly_direct_normal_irradiance,
       :total_sky_cover => @hourly_sky_coverage,
-      :station_et0 => compute_hourly_et0(
+      :station_et0_base => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_up_5 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_down_5 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_up_10 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_down_10 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_Td_up_5 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_Td_down_5 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_Td_up_10 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_Td_down_10 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_and_Td_up_5 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_and_Td_down_5 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_and_Td_up_10 => compute_hourly_et0(
+        @state,
+        @subregion,
+        @time_zone,
+        @elevation,
+        @longitude,
+        @latitude,
+        @month,
+        @day,
+        @hour,
+        @hourly_temp,
+        @hourly_dew_point_temp,
+        @hourly_wind_speed,
+        @hourly_global_horizontal_irradiance,
+        @hourly_direct_normal_irradiance,
+        @hourly_sky_coverage),
+      :station_et0_T_and_Td_down_10 => compute_hourly_et0(
         @state,
         @subregion,
         @time_zone,
@@ -240,22 +433,6 @@ def flatten_station_data_into_subregional_data
             total_sky_cover = sum(@hourly_data[state][subregion][:total_sky_covers][month][day][hour]) / number_of_stations
             precipitation   = sum(@hourly_data[state][subregion][:precipitations][month][day][hour]) / number_of_stations
             et0_from_et0s = sum(@hourly_data[state][subregion][:station_et0s][month][day][hour]) / number_of_stations
-            et0_from_weather_data = compute_hourly_et0(
-              state,
-              subregion,
-              time_zone,
-              elevation,
-              longitude,
-              latitude,
-              month,
-              day,
-              hour,
-              temperature,
-              dew_point,
-              wind_speed,
-              global_horizontal_irradiance,
-              direct_normal_irradiance,
-              total_sky_cover)
 
             @hourly_data[state][subregion][:temperature][month][day][hour] = temperature
             @hourly_data[state][subregion][:dew_point][month][day][hour] = dew_point 
@@ -265,7 +442,6 @@ def flatten_station_data_into_subregional_data
             @hourly_data[state][subregion][:total_sky_cover][month][day][hour] = total_sky_cover
             @hourly_data[state][subregion][:precipitation][month][day][hour] = precipitation 
             @hourly_data[state][subregion][:et0_from_et0s][month][day][hour] = et0_from_et0s 
-            @hourly_data[state][subregion][:et0_from_weather_data][month][day][hour] = et0_from_weather_data
           end
         end
       end
