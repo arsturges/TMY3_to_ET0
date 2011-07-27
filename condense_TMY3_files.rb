@@ -2,30 +2,6 @@ require 'csv'
 require './penman-monteith.rb'
 require './TMY3.rb'
 
-def invalid?(state, elevation)
-  elevation_is_too_great = ( elevation >= 1000 )
-  disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
-  this_state_is_not_allowed = disallowed_states.include?(state)
-  if elevation_is_too_great or this_state_is_not_allowed 
-    return true
-  else
-    return false
-  end
-end
-
-def collect_station_characteristics(tmy3_array)
-  @header1 = tmy3_array.shift
-  @header2 = tmy3_array.shift #remove column headers
-  
-  #read basic info about the weather station  
-  @state = @header1[2]
-  @time_zone = @header1[3]
-  @subregion = nil
-  @latitude =  @header1[4].to_f.abs
-  @longitude = @header1[5].to_f.abs
-  @elevation = @header1[6].to_i
-end
-
 def create_new_csv_file_populate_and_close(array)
   new_file_name = @header1[0]
   puts new_file_name
@@ -101,26 +77,6 @@ def create_new_csv_file_populate_and_close(array)
       ]
     end
   end
-end
-
-def read_hourly_data(row0, row1, row4, row7, row25, row31, row34, row46, row64)
-  @row_date = row0
-  @row_hour = row1
-  @hourly_global_horizontal_irradiance = row4.to_f # need to convert this to MJ/m2 hour
-  @hourly_direct_normal_irradiance = row7.to_f # need to convert this to MJ/m2 hour
-  @hourly_sky_coverage = row25.to_i
-  @hourly_temp = row31.to_f
-  @hourly_dew_point_temp = row34.to_f
-  @hourly_wind_speed = row46.to_f
-  @hourly_precipitation = row64.to_f unless row64.to_f == -9900
-end
-
-def generate_time_variables(date, time)
-  @current_row_datetime = DateTime.strptime(@row_date +" "+@row_hour, '%m/%d/%Y %H:%M') - 1/(24.0*60) #subtract 1 hr because DateTime puts "24:00" in the next day as "00:00"
-  @year = @current_row_datetime.year
-  @month = @current_row_datetime.month
-  @day = @current_row_datetime.day
-  @hour = @current_row_datetime.hour #spans 0..23
 end
 
 def compute_et0_perturbations

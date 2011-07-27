@@ -1,3 +1,6 @@
+#this file only holds methods
+
+
 def sum(values)
   total = 0
   values.each {|val| total += val.to_f}
@@ -12,7 +15,7 @@ end
 
 def invalid?(state, elevation)
   elevation_is_too_great = ( elevation >= 1000 )
-  disallowed_states = ["GU", "PR", "VI"]
+  disallowed_states = ["AK", "HI", "GU", "PR", "VI"]
   this_state_is_not_allowed = disallowed_states.include?(state)
   if elevation_is_too_great or this_state_is_not_allowed 
     return true
@@ -36,17 +39,17 @@ def identify_subregions(state)
   end
 end
 
-def collect_station_characteristics
-  header1 = @current_tmy3_file.shift
-  header2 = @current_tmy3_file.shift #remove column headers
+def collect_station_characteristics(current_tmy3_file)
+  @header1 = current_tmy3_file.shift
+  @header2 = current_tmy3_file.shift #remove column headers
   
-  @state = header1[2]
-  @time_zone = header1[3]
+  @state = @header1[2]
+  @time_zone = @header1[3]
   @subregion = nil
-  @latitude =  header1[4].to_f.abs
-  @longitude = header1[5].to_f.abs
-  @elevation = header1[6].to_i
-  @subregion = identify_subregions(header1[2])
+  @latitude =  @header1[4].to_f.abs
+  @longitude = @header1[5].to_f.abs
+  @elevation = @header1[6].to_i
+  @subregion = identify_subregions(@header1[2])
 end
 
 def read_hourly_data(row0, row1, row4, row7, row25, row31, row34, row46, row64)
