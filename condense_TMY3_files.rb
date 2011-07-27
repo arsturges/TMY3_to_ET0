@@ -1,5 +1,6 @@
 require 'csv'
 require './penman-monteith.rb'
+require './TMY3.rb'
 
 def invalid?(state, elevation)
   elevation_is_too_great = ( elevation >= 1000 )
