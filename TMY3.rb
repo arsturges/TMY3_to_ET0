@@ -59,7 +59,7 @@ def read_hourly_data(row0, row1, row4, row7, row25, row31, row34, row46, row64)
   @hourly_direct_normal_irradiance = row7.to_f # need to convert this to MJ/m2 hour
   @hourly_sky_coverage = row25.to_i
   @hourly_temp = row31.to_f
-  @hourly_dew_point_temp = row34.to_f + (row34.to_f*0.05).abs #will always increase to the right on the number line
+  @hourly_dew_point_temp = row34.to_f
   @hourly_wind_speed = row46.to_f
   @hourly_precipiation = row64.to_f
 end
