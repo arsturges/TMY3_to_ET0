@@ -155,6 +155,7 @@ def compute_cloud_cover(total_sky_cover)
   # the cloudier the sky the smaller the ratio. 
   # The ratio varies between about 0.33 (dense cloud cover) and 1 (clear sky)." FAO 56.
   # total_sky_cover is in tenths of sky covered; 1 is total sky coverage, 0 is cloudless.
+  # Cloud cover is reported in TMY3 as an integer from 1 to 10.
   cloud_cover = 1 - (total_sky_cover.to_f / 10)
 end
 
