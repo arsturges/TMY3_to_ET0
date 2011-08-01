@@ -1,0 +1,2494 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\makeatother
+
+\makeatother
+
+\usepackage{babel}
+\end_preamble
+\use_default_options false
+\language english
+\inputencoding latin9
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Computing Evapotranspiration Using TMY3 Weather Data
+\end_layout
+
+\begin_layout Author
+Katie Coughlin, Andrew Sturges, David Fridley
+\end_layout
+
+\begin_layout Section
+Reference Evapotranspiration (
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Evapotranspiration, expressed in units of water depth per unit time (e.g.
+ 
+\begin_inset Formula $\frac{mm}{day}$
+\end_inset
+
+), is a combination of two separate processes whereby water is lost on the
+ one hand from the soil surface by evaporation and on the other hand from
+ the crop by transpiration 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FAO-56"
+
+\end_inset
+
+.
+ For a given geographic location, a reference evapotranspiration, 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+, provides a relative indication of evapotranspiration losses, and thus,
+ irrigation needs.
+ When multiplied by a crop coefficient 
+\begin_inset Formula $K_{c}$
+\end_inset
+
+, 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ yields the crop evapotranspiration 
+\begin_inset Formula $ET_{c}$
+\end_inset
+
+, the actual theoretical irrigation requirement of a given crop at a given
+ location.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{equation}
+ET_{c}=ET_{0}\ast K_{c}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The Penman-Monteith Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ data for this report was calculated with the FAO Penman-Monteith equation
+ according to methods developed by the UN's Food and Agriculture Organization
+ (FAO) in Crop Evapotranspiration 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FAO-56"
+
+\end_inset
+
+.
+ 
+\begin_inset Formula \begin{equation}
+ET_{0}=\frac{0.408\Delta(R_{n}-G)+\gamma\frac{900}{T+273}u_{2}(e_{s}-e_{a})}{\Delta+\gamma(1+0.34u_{2})}\label{eq:Penman-Monteith}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This equation depends on solar radiation, air temperature, air humidity
+ and wind speed data.
+ See table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:Penman Equation Variables"
+
+\end_inset
+
+ for an explanation of the variables.
+ All input data for the FAO Penman-Monteith Equation came from the National
+ Renewable Energy Laboratory's (NREL) National Solar Radiation Database,
+ commonly known as TMY3.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Penman-Monteith Equation Variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:Penman Equation Variables"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Variable 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Units
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reference evapotranspiration 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{mm}{day}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Net radiation at the crop surface 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{MJ}{m^{2}day}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $G$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Soil heat flux density 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{MJ}{m^{2}day}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mean daily air temperature at 2 meters height 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\textdegree C$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wind speed at 2 meters height 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{m}{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{s}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Saturation vapor pressure 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $kPa$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{a}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Actual vapor pressure 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $kPa$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{s}-e_{a}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Saturation vapor pressure deficit 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $kPa$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Slope of the vapor pressure curve 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{kPa}{\textdegree C}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gamma$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Psychrometric constant 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{kPa}{\textdegree C}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Most of these variables are composites of more fundamental data.
+ These data come from TMY3.
+\end_layout
+
+\begin_layout Subsection
+TMY3 Data 
+\end_layout
+
+\begin_layout Standard
+TMY3 data come from 1020 weather stations around the U.S.
+ which record climate parameters once every hour.
+ To account for variability across years (e.g., a particular year's unseasonably
+ high occurrence of hurricanes in the south), NREL developed a statistical
+ method of choosing a reference year to represent each month of data in
+ the TMY3 dataset for each individual weather station 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wilcox2008users"
+
+\end_inset
+
+.
+ For example, January weather data from Gainesville, Florida, (station ID
+ 722146) comes from 1994 records, while February data comes from 1991 records.
+ In this way, the TMY3 dataset aims to represent a typical meteorological
+ year (TMY).
+ To arrive at the list of variables in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:Penman Equation Variables"
+
+\end_inset
+
+ requires calculations on more fundamental input data.
+ These, which come from TMY3, appear in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:TMY3 data inputs"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Inputs from TMY3 Data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:TMY3 data inputs"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Variable 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Units 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dependent 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ Variable 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TMY3 Field
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{max}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average daily high temperature 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\textdegree C$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{s}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{min}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average daily low temperature 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\textdegree C$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{s}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{dew}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average dew point temperature 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\textdegree C$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{a}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $z$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Elevation 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $m$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\gamma$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7 (header 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average wind speed 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{m}{s}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $u_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Latitude 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Latitude 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $degrees$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5 (header 1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average sunshine duration 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $hours$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $R_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using these seven TMY3 variables, it is possible to compute all nine terms
+ which appear in the Penman-Monteith equation.
+\end_layout
+
+\begin_layout Subsection
+Scope 
+\end_layout
+
+\begin_layout Standard
+To estimate national crop yields, this study limits its scope to state-level
+ data.
+ For TMY3 data, this means that primary data from all weather stations in
+ a given state are compiled and averaged by month to come up with the terms
+ for each 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ calculation.
+ This averaging effectively creates one hypothetical master weather station
+ for each state, with a representative latitude and elevation.
+\end_layout
+
+\begin_layout Standard
+Because this study is primarily concerned with large-scale agriculture,
+ most of which is found at elevations below 1000 meters (reference? Use
+ a USDA database?), the calculation only includes weather stations at or
+ below an elevation of 1000 meters.
+ Note that this excludes Wyoming and Colorado from the data set becase all
+ weather stations in those two states are at elevations above 1000 meters.
+ (I should confirm this.)
+\end_layout
+
+\begin_layout Standard
+Furthermore, because of the internal weather differences inside some large
+ states, we split these states by longitude or latitude as is oppropriate.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:state_subregions"
+
+\end_inset
+
+ lists these subregions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+State Subregions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:state_subregions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="3">
+<features>
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+State 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Subregion 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Border
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Florida 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+North/South 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $27\textdegree$
+\end_inset
+
+ North
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kansas 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $98\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+North Dakota 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $100\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+South Dakota 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $100\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nebraska 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $100\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Oklahoma 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $98\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Oregon 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $120\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Texas 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $98\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Washington 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+East/West 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $120\textdegree$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+TMY3 Variables 
+\end_layout
+
+\begin_layout Standard
+Treatment of the FAO Penman-Monteith equation and derivation of its constituent
+ terms was done according to the methods laid out in Crop evapotranspiration
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FAO-56"
+
+\end_inset
+
+.
+ However, the following variables deserve discussion beyond what is provided
+ in Crop Evapotranspiration.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Formula $T_{max}$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{min}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Temperature data in TMY3 is recorded every hour, and used in the FAO Penman-Mont
+eith equation to calculate saturation vapor pressure 
+\begin_inset Formula $e_{s}$
+\end_inset
+
+.
+ To calculate 
+\begin_inset Formula $T_{max}$
+\end_inset
+
+, we record the daily high for each day in a given month, and then compute
+ the average of those daily highs.
+\begin_inset Formula \[
+\frac{\sum_{1}^{d}\mbox{(daily high temperature)}_{d}}{d}=T_{max}\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $d$
+\end_inset
+
+ is the number of days in the month.
+ Substituting the daily low temperature for the daily high temperature leads
+ to the equation for the average daily low.
+\end_layout
+
+\begin_layout Subsubsection
+Soil Heat Flux Density (
+\begin_inset Formula $G$
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Standard
+Some portion of solar radiation is utilized in heating the soil.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ is positive when the soil is warming and negative when the soil is cooling.
+ The soil heat flux density for a given month depends on whether the average
+ temperature during that month is greater or less than the average temperature
+ of the previous month.
+ For example, the average temperature in June is typically greater than
+ the average temperature in May, so the net soil heat flux is positive.
+ The temperature in November is typically cooler than the temperature in
+ October, so the soil heat flux is negative.
+ We compute average temperature for each month by state.
+ Because we have a single calendar month, for February through December,
+ G is computed using average temperature as described above.
+ For January, we use average temperature data from the following (prior?)
+ December.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset Formula $T_{dew}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dew point temperature is used in the calculation of actual vapor pressure.
+ To calculate the average dew point temperature for a given month, we take
+ the average of all the dew point readings, which are taken every hour:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\frac{\sum_{1}^{h}(\mbox{hourly dew point temperature)}_{h}}{h}=T_{dew}\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $h$
+\end_inset
+
+ is the number of hours in the month, and 
+\begin_inset Formula $\mbox{(hourly dew point temperature)}_{h}$
+\end_inset
+
+ is the dew point temperature at hour 
+\begin_inset Formula $h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Elevation (
+\begin_inset Formula $z$
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Standard
+Elevation is used in the calculation of the psychrometric constant (
+\begin_inset Formula $\gamma$
+\end_inset
+
+), which relies intermediately on atmospheric pressure.
+ Because all weather stations in a given state are averaged together, the
+ resulting 
+\begin_inset Quotes eld
+\end_inset
+
+master weather station
+\begin_inset Quotes erd
+\end_inset
+
+ is given an elevation calculated from the unweighted averages of all of
+ that state's weather stations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+z=\frac{\sum_{1}^{s}\mbox{elevation}_{s}}{s}\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $s$
+\end_inset
+
+ is the number of weather stations in the state, and 
+\begin_inset Formula $\mbox{elevation}_{s}$
+\end_inset
+
+ is the elevation of station 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Wind speed (
+\begin_inset Formula $u_{2}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+The FAO Penman-Monteith Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Penman-Monteith"
+
+\end_inset
+
+ relies directly on wind speed in both the numerator and the denominator.
+ Hourly wind speed for a given weather station is averaged over each day,
+ and wind speed for a given month is the average of its constituent days.
+ Therefore a month's wind speed is effectively the average of all of its
+ hourly wind speed recordings.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+u_{2}=\frac{\sum_{1}^{h}(\mbox{hourly wind speed})_{h}}{h}\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $h$
+\end_inset
+
+ is the number of hours in the month and 
+\begin_inset Formula $(\mbox{hourly wind speed})_{h}$
+\end_inset
+
+ is the wind speed during hour 
+\begin_inset Formula $h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Latitude 
+\end_layout
+
+\begin_layout Standard
+Latitude is used in the calculation of net radiation 
+\begin_inset Formula $R_{n}$
+\end_inset
+
+.
+ Like elevation, latitude is averaged together over all weather stations
+ to come up with a latitude for the state's hypothetical master weather
+ station.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\mbox{latitude}=\frac{\sum_{1}^{s}\mbox{latitude}_{s}}{s}\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $s$
+\end_inset
+
+ is the number of weather stations in the state, and 
+\begin_inset Formula $\mbox{latitude}_{s}$
+\end_inset
+
+ is the latitude of weather station 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Sunshine duration (
+\begin_inset Formula $n$
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Standard
+Net radiation (
+\begin_inset Formula $R_{n}$
+\end_inset
+
+) relies on a ratio of actual sunshine duration (
+\begin_inset Formula $n$
+\end_inset
+
+ hours) to possible sunshine duration (
+\begin_inset Formula $N$
+\end_inset
+
+ hours).
+ A day with no cloud cover would have an 
+\begin_inset Formula $n:N$
+\end_inset
+
+ ratio of 1, with an increase in cloud cover reducing this ratio.
+ The World Meteorological Organization (WMO) defines sunshine duration during
+ a given period as the sum of that sub-period for which the direct solar
+ irradiance exceeds 
+\begin_inset Formula $120\frac{W}{m^{2}}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wmo2008"
+
+\end_inset
+
+.
+ In a given day, there may be 14 or more hours (depending on latitude) during
+ which direct solar irradiance exceeds this number, or as few as zero.
+ For a particular day, 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of hours for which direct solar irradiance is greater than
+ 
+\begin_inset Formula $120\frac{W}{m^{2}}$
+\end_inset
+
+.
+ Because TMY3 provides direct solar irradiation data, monthly sunshine duration
+ (
+\begin_inset Formula $n$
+\end_inset
+
+) is calculated as the average of a given month's daily sunshine durations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\sum_{1}^{d}(\mbox{sunshine duration})_{d}=n\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $d$
+\end_inset
+
+ is the number of days in the month, and 
+\begin_inset Formula $(\mbox{sunshine duration})_{d}$
+\end_inset
+
+ is the number of hours during day 
+\begin_inset Formula $d$
+\end_inset
+
+ during which direct solar irradiance was greater than 
+\begin_inset Formula $120\frac{W}{m^{2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Calculations
+\end_layout
+
+\begin_layout Standard
+The primary input variables listed above are calculated by state/subregion
+ (
+\begin_inset Formula $n=55$
+\end_inset
+
+ subregions
+\begin_inset Formula $ $
+\end_inset
+
+) and by month (
+\begin_inset Formula $n=12$
+\end_inset
+
+) for a total of 660 rows.
+ These are fed to an Excel spreadsheet which performs the intermediary calculati
+ons outlined in Crop evapotranspiration.
+ Those intermediary calculations on the TMY3 variables produce the terms
+ in the Penman-Monteith equation, which finally calculates 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Penman-Monteith Equation Terms
+\end_layout
+
+\begin_layout Section
+Adjusting Weather Variables and Measuring Penman-Monteith Output
+\end_layout
+
+\begin_layout Standard
+Given a small rise in temperature or humiditiy, we would like to know by
+ how much reference evapoatranspiration rises.
+ We could take the partial derivative of the Penman-Monteith equation with
+ respect to temperature (or humidity), but that's a difficult calculation.
+ Instead we adjust the inputs to the equation by the desired amount, holding
+ all other variables constant, and run the program.
+\end_layout
+
+\begin_layout Standard
+NB: We simplify the following discussion by refering to air as a medium
+ into which water vapor evaporates, even though vapor pressure and saturation
+ vapor pressure do not in fact depend on air as such.
+\end_layout
+
+\begin_layout Subsection
+Coefficient of Variation
+\end_layout
+
+\begin_layout Standard
+Given a small change in one variable, we'd like to see the corresponding
+ change in reference evapotranspiration.
+ We call this the coefficient of variation of evapotranspiration with respect
+ to a given variable, or COV(x):
+\begin_inset Formula \[
+\mbox{COV(x)}=\frac{\Delta ET_{0}}{\Delta x}\]
+
+\end_inset
+
+When changes in 
+\begin_inset Formula $x$
+\end_inset
+
+ are very small, however, 
+\begin_inset Formula $COV(x)$
+\end_inset
+
+ will return a very large number because it has a very small denominator.
+ This is the case with January temperatures in Kentucky, where the Penman-Montei
+th equation indicated a base 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ of 33.7 at a temperature of 0.111 degrees Celsius.
+ Adjusting the temperature by +2% (to 0.113) and recomputing the Penman-Monteith
+ equation results in a new 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ of 34.2.
+ We can then plug these numbers into the model for coefficient of variation:
+\begin_inset Formula \[
+COV(temperature)=\frac{34.1-33.7}{0.113-0.111}=\frac{0.4}{0.002}=200\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A quick sanity check reveals that a 0.001 rise in temperature in Kentucky
+ in January should not cause an increase of 200 millimeters of evapotranspiratio
+n.
+ Clearly the small denomonator is swamping the change in the 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Since we're mostly interested in the coefficient of variation of temperature
+ changes, we can modify the model to suit temperature.
+ One idea is to first convert the temperature scale from Celsius to Kelvin.
+ Then a 5% increase in a temperature of 0.111 Celsius would be 
+\begin_inset Formula $0.111\textdegree C+273.15)\times1.05-273.15=13.774\textdegree C$
+\end_inset
+
+.
+ We could generalize this change as follows:
+\begin_inset Formula \[
+\mbox{Adjusted Temperature}=(x+273.15)\times1.05-273.15=1.05x+286.808-273.15=1.05x+13.676\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\mbox{New Temperature}(\mbox{old temperature, adjustment})=(\mbox{old temperature}+273.15)\times\mbox{adjustment}-273.15\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another idea is change 
+\begin_inset Formula $COV$
+\end_inset
+
+ formula to use percent changes instead of absolute changes.
+ For example, instead of an absolute rise in temperature from 
+\begin_inset Formula $0.111\textdegree C$
+\end_inset
+
+ to 
+\begin_inset Formula $0.113\textdegree C$
+\end_inset
+
+ causing a rise in 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ from 
+\begin_inset Formula $33.7mm$
+\end_inset
+
+ to 
+\begin_inset Formula $34.1mm$
+\end_inset
+
+, call it a 2% rise in temperature causing a 1.2% rise in 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+.
+ Then the formula for coefficient of variation of 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ with respect to temperature looks like this:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+COV(temperature)=\frac{\mbox{\% \ensuremath{ET_{0}}change}}{\mbox{\% temperature change}}=\frac{1.2\%}{2.0\%}=0.6\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Adjustment Formula
+\end_layout
+
+\begin_layout Standard
+We would typically like to adjust a variable--say temperature or dew point--by
+ a small percentage.
+ For our purposes, we'd like to increase the variable across its whole spectrum.
+ For example, temperature should always move to the right on the number
+ line.
+ We use the following adjustment formula:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\mbox{Adjusted Variable}=\mbox{Original Variable}+\left|\mbox{Original Variable}*\mbox{Adjustment Percentage}\right|\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where adjusted variable is the variable that ultimately gets reported, original
+ variable is the value as input from TMY3, and adjustment percentage is
+ a number representing the desired percantage change.
+ This ensures that both positive and negative values are increased.
+\end_layout
+
+\begin_layout Subsection
+Adjusting Humidity
+\end_layout
+
+\begin_layout Standard
+Humidity is an important factor in determing crop evapotranspiriation.
+ In Crop Evapotranspiration, the authors explain:
+\end_layout
+
+\begin_layout Quote
+While the energy supply from the sun and surrounding air is the main driving
+ force for the vaporization of water, the difference between the water vapour
+ pressure at the evapotranspiring surface and the surrounding air is the
+ determining factor for the vapour removal.
+ Well-watered fields in hot dry arid regions consume large amounts of water
+ due to the abundance of energy and the desiccating power of the atmosphere.
+ In humid tropical regions, notwithstanding the high energy input, the high
+ humidity of the air will reduce the evapotranspiration demand.
+ In such an environment, the air is already close to saturation, so that
+ less additional water can be stored and hence the evapotranspiration rate
+ is lower than in arid regions 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FAO-56"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The evaporative capacity of the atmosphere around a crop affects the water
+ requirements of that crop.
+ A high evaporative capacity occurs where the saturation vapor pressure
+ (
+\begin_inset Formula $e_{s}$
+\end_inset
+
+) is high, and the actual vapor pressure (
+\begin_inset Formula $e_{a}$
+\end_inset
+
+) is low.
+ The difference between these two values (
+\begin_inset Formula $e_{s}-e_{a}$
+\end_inset
+
+) is called the vapor pressure defiict, and serves as an accurate indicator
+ of the actual evaporative capacity of the atmosphere 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FAO-56"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To account for this, the Penman-Monteith equation includes the vapor pressure
+ deficit term (
+\begin_inset Formula $e_{s}-e_{a}$
+\end_inset
+
+) in the numerator.
+ A higher difference leads to a higher 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Note that saturation vapor pressure (
+\begin_inset Formula $e_{s}$
+\end_inset
+
+) depends only on temperature; more water can evaporiate into a given volume
+ at higher temperature than at lower temperature.
+ Actual vapor pressure (
+\begin_inset Formula $e_{a}$
+\end_inset
+
+), on the other hand, depends on both temperature 
+\emph on
+and
+\emph default
+ water vapor content.
+\end_layout
+
+\begin_layout Standard
+Since we want to model a change in the water content of the air, we are
+ concerned only with actual vapor pressure (
+\begin_inset Formula $e_{a}$
+\end_inset
+
+).
+ Crop Evapotranspiration lists several methods to compute 
+\begin_inset Formula $e_{a}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $e_{a}=e\textdegree(T_{Dew})=0.6108e^{\frac{17.27*T_{Dew}}{T_{Dew}+237.3}}$
+\end_inset
+
+ (FAO equation 14)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $e_{a}=e\textdegree(T_{Wet})-\gamma(T_{Dry}-T_{Wet})$
+\end_inset
+
+ (FAO equation 15)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $e_{a}=e\textdegree(T)\frac{RelativeHumidity}{100}$
+\end_inset
+
+ (FAO equation 17)
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $e\textdegree(T)$
+\end_inset
+
+ is saturation vapor pressure at temperature 
+\begin_inset Formula $T$
+\end_inset
+
+, 
+\begin_inset Formula $T_{Dew}$
+\end_inset
+
+ represents dew point temperature, 
+\begin_inset Formula $T_{Wet}$
+\end_inset
+
+ represents wet bulb temperature, 
+\begin_inset Formula $T_{Dry}$
+\end_inset
+
+ represents dry bulb temperature, and the difference 
+\begin_inset Formula $T_{Dry}-T_{Wet}$
+\end_inset
+
+ represents the wet bulb depression, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ represents ...
+\end_layout
+
+\begin_layout Standard
+To explore this change due to humidity in evapotranspiration, we perform
+ a brute-force sensitivity analysis of humidity.
+ We do this by adjusting humidity up or down by a discreet amount, then
+ observing the corresponding change in reference evapotranspiration.
+ But humidity can be measured several different ways, and not all can be
+ easily incorporated into the Penman-Monteith equation.
+ We need a method that allows us to unambiguously increase or decrease humidity.
+ First, we discuss several definitions of humidity.
+\end_layout
+
+\begin_layout Subsubsection
+Absolute Humidity
+\end_layout
+
+\begin_layout Standard
+The most obvious choice is to use absolute humidity, which we define as
+ the mass of water in a given volume:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+AH=\frac{m_{w}}{V_{net}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $m_{w}$
+\end_inset
+
+ represents the total mass of water, and 
+\begin_inset Formula $V_{net}$
+\end_inset
+
+ represents the total volume containing that mass of water.
+ Absolute humidity typically has units of 
+\begin_inset Formula $\frac{grams}{m^{3}}$
+\end_inset
+
+, and usually ranges from 0 to about 30.
+ One could easily use absolute humidity to describe a discreet change in
+ humidity: a 5% increase in absolute humidty represents a 5% increase in
+ the mass of water contained in the same volume of air.
+ It depends on no other variables, such as temperature or pressure.
+ Unfortuatnely, the TMY3 data set does not include absolute humidity.
+ However, it does include relative humidity.
+\end_layout
+
+\begin_layout Subsubsection
+Relative Humidity
+\end_layout
+
+\begin_layout Standard
+Relative humidity is a unitless ratio of the partial pressure of a given
+ volume of water vapor to the saturated vapor pressure of water at a given
+ temperature:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\phi=\frac{e_{w}}{e_{w}^{*}}\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $e_{w}$
+\end_inset
+
+ is the partial pressure of water vapor (the component of a gaseous mixture's
+ pressure attributable to water vapor), 
+\begin_inset Formula $e_{w}^{*}$
+\end_inset
+
+ is the saturated vapor pressure of water (the pressure at which water evaporati
+on and condensation would equilibrate), and 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is the relative humidity (a percentage).
+ 
+\end_layout
+
+\begin_layout Standard
+The terms 
+\begin_inset Formula $e_{w}$
+\end_inset
+
+ and 
+\begin_inset Formula $e_{w}^{*}$
+\end_inset
+
+ both depend on temperature and water content, so a change in relative humidity
+ may be caused by a change in either water content or temperature.
+ Specifically, an increase in relative humidity could be due to an increase
+ in water content or a decrease in temperature.
+ For the purposes of crop and agriculture modeling, we intend an increase
+ in relative humidity to mean an increase in water content, not a decrease
+ in temperature.
+ 
+\end_layout
+
+\begin_layout Standard
+This leads to question of how one defines a percentage increase in relative
+ humidity.
+ If relative humidity is 50%, what is a 5% increase? Is it 
+\begin_inset Formula $0.50+0.05=0.55$
+\end_inset
+
+? Is it 
+\begin_inset Formula $0.5*1.05=0.525$
+\end_inset
+
+? What's a 5% increase of a relative humidity of 99% (which exceed 100%
+ by the first two methods)? Is it a 5% reduction in the 
+\begin_inset Quotes eld
+\end_inset
+
+dry
+\begin_inset Quotes erd
+\end_inset
+
+ portion of the volume?
+\end_layout
+
+\begin_layout Subsubsection
+Dew Point Temperature
+\end_layout
+
+\begin_layout Standard
+In addition to relative humidity, the TMY3 data set includes a measure of
+ dew point temperature.
+ In this measure we find a metric capable of indicating absolute water content
+ without respect to ambient temperature.
+ 
+\end_layout
+
+\begin_layout Standard
+One typically associates dew point temperature with relative humidity, as
+ one definition is that a volume of air at its dew point temperature is
+ at 100% relative humidity, or, at its saturation vapor pressure.
+ In other words, no more water can vaporize into the air.
+ 
+\end_layout
+
+\begin_layout Standard
+We can think of dew point temperature as the temperature to which air would
+ need to be cooled to reach saturation, the point at which vapor would condense
+ out of the air.
+ In this way, the actual vapor pressure is simply the saturation vapor pressure
+ at the dew point.
+ 
+\end_layout
+
+\begin_layout Standard
+In the Penman-Monteith equation, dew point temperature is used in the calculatio
+n of 
+\end_layout
+
+\begin_layout Subsection
+Adjusting Temperature
+\end_layout
+
+\begin_layout Standard
+In the same way, we'd like to model an increase in temperature, holding
+ all other variables constant, to see the corresponding change in reference
+ evapotranspiration.
+ The linkage between temperature and humidity again becomes apparent: if
+ we increase the temperature, we implicitly decrease the relative humidity,
+ even though we haven't changed the absolute water content of the air.
+\end_layout
+
+\begin_layout Section
+Summarizing Results
+\end_layout
+
+\begin_layout Standard
+With the computation of 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ finished, we turn to the task of summarizing the data in a meaningful way.
+ With a baseline 
+\begin_inset Formula $ET_{0}$
+\end_inset
+
+ as well as a battery of 12 modifications of temperature and dew point calculate
+d for every hour of a year in each of nearly 1000 locations, the program
+ produces more than 93 million data points.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibliographystyle{plain}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+nocite{*}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibliographystyle{plain}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "sturges_reference_database"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
