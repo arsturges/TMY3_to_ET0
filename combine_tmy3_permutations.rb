@@ -2,6 +2,7 @@ require 'csv'
 require './TMY3.rb'
 
 filenames = Dir.glob('../tmy3_files_reduced_for_PM_with_perturbations/*')
+#filenames = Dir.glob('../tmy3_test_files/*')
 states = Hash.new
 filenames.sort.each do |filename|
   puts "reading file #{filename}"
@@ -32,19 +33,19 @@ filenames.sort.each do |filename|
     states[state][month][day][hour]["et0_T_and_Td_+10%"] ||= []
     states[state][month][day][hour]["et0_T_and_Td_-10%"] ||= []
 
-    states[state][month][day][hour]["et0_base"] << station_row[10].to_f 
-    states[state][month][day][hour]["et0_T_+5%"] << station_row[11].to_f
-    states[state][month][day][hour]["et0_T_-5%"] << station_row[12].to_f
-    states[state][month][day][hour]["et0_T_+10%"] << station_row[13].to_f
-    states[state][month][day][hour]["et0_T_-10%"] << station_row[14].to_f
-    states[state][month][day][hour]["et0_Td_+5%"] << station_row[15].to_f
-    states[state][month][day][hour]["et0_Td_-5%"] << station_row[16].to_f
-    states[state][month][day][hour]["et0_Td_+10%"] << station_row[17].to_f
-    states[state][month][day][hour]["et0_Td_-10%"] << station_row[18].to_f
-    states[state][month][day][hour]["et0_T_and_Td_+5%"] << station_row[19].to_f
-    states[state][month][day][hour]["et0_T_and_Td_-5%"] << station_row[20].to_f
-    states[state][month][day][hour]["et0_T_and_Td_+10%"] << station_row[21].to_f
-    states[state][month][day][hour]["et0_T_and_Td_-10%"] << station_row[22].to_f
+    states[state][month][day][hour]["et0_base"] << sprintf("%.3f", station_row[10].to_f)
+    states[state][month][day][hour]["et0_T_+5%"] << sprintf("%.3f", station_row[11].to_f)
+    states[state][month][day][hour]["et0_T_-5%"] << sprintf("%.3f", station_row[12].to_f)
+    states[state][month][day][hour]["et0_T_+10%"] << sprintf("%.3f", station_row[13].to_f)
+    states[state][month][day][hour]["et0_T_-10%"] << sprintf("%.3f", station_row[14].to_f)
+    states[state][month][day][hour]["et0_Td_+5%"] << sprintf("%.3f", station_row[15].to_f)
+    states[state][month][day][hour]["et0_Td_-5%"] << sprintf("%.3f", station_row[16].to_f)
+    states[state][month][day][hour]["et0_Td_+10%"] << sprintf("%.3f", station_row[17].to_f)
+    states[state][month][day][hour]["et0_Td_-10%"] << sprintf("%.3f", station_row[18].to_f)
+    states[state][month][day][hour]["et0_T_and_Td_+5%"] << sprintf("%.3f", station_row[19].to_f)
+    states[state][month][day][hour]["et0_T_and_Td_-5%"] << sprintf("%.3f", station_row[20].to_f)
+    states[state][month][day][hour]["et0_T_and_Td_+10%"] << sprintf("%.3f", station_row[21].to_f)
+    states[state][month][day][hour]["et0_T_and_Td_-10%"] << sprintf("%.3f", station_row[22].to_f)
   end
 end
 
@@ -76,19 +77,19 @@ states.keys.sort.each do |state|
             month,
             day,
             hour,
-            sum(states[state][month][day][hour]["et0_base"])/states[state][month][day][hour]["et0_base"].size,
-            sum(states[state][month][day][hour]["et0_T_+5%"])/states[state][month][day][hour]["et0_T_+5%"].size,
-            sum(states[state][month][day][hour]["et0_T_-5%"])/states[state][month][day][hour]["et0_T_-5%"].size,
-            sum(states[state][month][day][hour]["et0_T_+10%"])/states[state][month][day][hour]["et0_T_+10%"].size,
-            sum(states[state][month][day][hour]["et0_T_-10%"])/states[state][month][day][hour]["et0_T_-10%"].size,
-            sum(states[state][month][day][hour]["et0_Td_+5%"])/states[state][month][day][hour]["et0_Td_+5%"].size,
-            sum(states[state][month][day][hour]["et0_Td_-5%"])/states[state][month][day][hour]["et0_Td_-5%"].size,
-            sum(states[state][month][day][hour]["et0_Td_+10%"])/states[state][month][day][hour]["et0_Td_+10%"].size,
-            sum(states[state][month][day][hour]["et0_Td_-10%"])/states[state][month][day][hour]["et0_Td_-10%"].size,
-            sum(states[state][month][day][hour]["et0_T_and_Td_+5%"])/states[state][month][day][hour]["et0_T_and_Td_+5%"].size,
-            sum(states[state][month][day][hour]["et0_T_and_Td_-5%"])/states[state][month][day][hour]["et0_T_and_Td_-5%"].size,
-            sum(states[state][month][day][hour]["et0_T_and_Td_+10%"])/states[state][month][day][hour]["et0_T_and_Td_+10%"].size,
-            sum(states[state][month][day][hour]["et0_T_and_Td_-10%"])/states[state][month][day][hour]["et0_T_and_Td_-10%"].size
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_base"])/states[state][month][day][hour]["et0_base"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_+5%"])/states[state][month][day][hour]["et0_T_+5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_-5%"])/states[state][month][day][hour]["et0_T_-5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_+10%"])/states[state][month][day][hour]["et0_T_+10%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_-10%"])/states[state][month][day][hour]["et0_T_-10%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_Td_+5%"])/states[state][month][day][hour]["et0_Td_+5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_Td_-5%"])/states[state][month][day][hour]["et0_Td_-5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_Td_+10%"])/states[state][month][day][hour]["et0_Td_+10%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_Td_-10%"])/states[state][month][day][hour]["et0_Td_-10%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_and_Td_+5%"])/states[state][month][day][hour]["et0_T_and_Td_+5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_and_Td_-5%"])/states[state][month][day][hour]["et0_T_and_Td_-5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_and_Td_+10%"])/states[state][month][day][hour]["et0_T_and_Td_+10%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_and_Td_-10%"])/states[state][month][day][hour]["et0_T_and_Td_-10%"].size)
           ]
         end
       end
