@@ -9,7 +9,8 @@ def determine_temp_ranges(station_id, array_of_station_data)
       t_min = row[6].to_f
       t_dew_max = row[7].to_f
       t_dew_min = row[8].to_f
-      @ranges = {:temp_range => t_max - t_min, :dew_point_range => t_dew_max - t_dew_min} #returns a hash
+      @ranges = {:temp_range => t_max - t_min, :dew_point_range => t_dew_max - t_dew_min} 
+      #returns a hash
     end
   end
 end
@@ -59,6 +60,7 @@ def create_new_csv_file_populate_and_close(tmy3_array, station_data_array)
       @hourly_precip = row[9].to_f
 
       compute_et0_perturbations(@ranges)
+
       new_row << [
         @month,
         @day,
@@ -124,8 +126,8 @@ def compute_et0_perturbations(hash_of_ranges)
           @month,
           @day,
           @hour,
-          @hourly_temp - hash_of_ranges[:temp_range] * 0.05,
-          @hourly_dew_point_temp,
+          hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.05,
+          @hourly_dew_point_temp <= hourly_temp ? @hourly_dew_point_temp : hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -152,8 +154,8 @@ def compute_et0_perturbations(hash_of_ranges)
           @month,
           @day,
           @hour,
-          @hourly_temp - hash_of_ranges[:temp_range] * 0.1,
-          @hourly_dew_point_temp,
+          hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.1,
+          @hourly_dew_point_temp <= hourly_temp ? @hourly_dew_point_temp : hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -167,7 +169,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           @hourly_temp,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05,
+          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 <= @hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 : @hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -195,7 +197,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           @hourly_temp,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1,
+          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 <= @hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 : @hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -222,8 +224,8 @@ def compute_et0_perturbations(hash_of_ranges)
           @month,
           @day,
           @hour,
-          @hourly_temp + hash_of_ranges[:temp_range] * 0.05,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05,
+          hourly_temp = @hourly_temp + hash_of_ranges[:temp_range] * 0.05,
+          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 <= hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 : hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -236,8 +238,8 @@ def compute_et0_perturbations(hash_of_ranges)
           @month,
           @day,
           @hour,
-          @hourly_temp - hash_of_ranges[:temp_range] * 0.05,
-          @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.05,
+          hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.05,
+          @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.05 <= hourly_temp ? @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.05 : hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -250,8 +252,8 @@ def compute_et0_perturbations(hash_of_ranges)
           @month,
           @day,
           @hour,
-          @hourly_temp + hash_of_ranges[:temp_range] * 0.1,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1,
+          hourly_temp = @hourly_temp + hash_of_ranges[:temp_range] * 0.1,
+          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 <= hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 : hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -264,8 +266,8 @@ def compute_et0_perturbations(hash_of_ranges)
           @month,
           @day,
           @hour,
-          @hourly_temp - hash_of_ranges[:temp_range] * 0.1,
-          @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.1,
+          hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.1,
+          @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.1 <= hourly_temp ? @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.1 : hourly_temp,
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
