@@ -101,7 +101,11 @@ def create_new_csv_file_populate_and_close(tmy3_array, station_data_array)
         @et0_T_and_Td_up_5,
         @et0_T_and_Td_down_5,
         @et0_T_and_Td_up_10,
-        @et0_T_and_Td_down_10
+        @et0_T_and_Td_down_10,
+        @et0_T_up_5_and_Td_down_5,
+        @et0_T_up_10_and_Td_down_10,
+        @et0_T_down_5_and_Td_up_5,
+        @et0_T_down_10_and_Td_up_10
       ]
     end
   end
@@ -275,7 +279,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
-          @hourly_sky_coverage),
+          @hourly_sky_coverage)
   @et0_T_up_5_and_Td_down_5 = compute_hourly_et0(
           @time_zone,
           @elevation,
@@ -289,7 +293,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
-          @hourly_sky_coverage),
+          @hourly_sky_coverage)
   @et0_T_up_10_and_Td_down_10 = compute_hourly_et0(
           @time_zone,
           @elevation,
@@ -303,7 +307,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
-          @hourly_sky_coverage),
+          @hourly_sky_coverage)
   @et0_T_down_5_and_Td_up_5 = compute_hourly_et0(
           @time_zone,
           @elevation,
@@ -317,7 +321,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
-          @hourly_sky_coverage),
+          @hourly_sky_coverage)
   @et0_T_down_10_and_Td_up_10 = compute_hourly_et0(
           @time_zone,
           @elevation,
