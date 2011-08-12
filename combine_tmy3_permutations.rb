@@ -32,6 +32,10 @@ filenames.sort.each do |filename|
     states[state][month][day][hour]["et0_T_and_Td_-5%"] ||= []
     states[state][month][day][hour]["et0_T_and_Td_+10%"] ||= []
     states[state][month][day][hour]["et0_T_and_Td_-10%"] ||= []
+    states[state][month][day][hour]["et0_T_+5%_and_Td_-5%"] ||= []
+    states[state][month][day][hour]["et0_T_+10%_and_Td_-10%"] ||= []
+    states[state][month][day][hour]["et0_T_-5%_and_Td_+5%"] ||= []
+    states[state][month][day][hour]["et0_T_-10%_and_Td_+10%"] ||= []
 
     states[state][month][day][hour]["et0_base"] << sprintf("%.3f", station_row[10].to_f)
     states[state][month][day][hour]["et0_T_+5%"] << sprintf("%.3f", station_row[11].to_f)
@@ -46,6 +50,10 @@ filenames.sort.each do |filename|
     states[state][month][day][hour]["et0_T_and_Td_-5%"] << sprintf("%.3f", station_row[20].to_f)
     states[state][month][day][hour]["et0_T_and_Td_+10%"] << sprintf("%.3f", station_row[21].to_f)
     states[state][month][day][hour]["et0_T_and_Td_-10%"] << sprintf("%.3f", station_row[22].to_f)
+    states[state][month][day][hour]["et0_T_+5%_and_Td_-5%"] << sprintf("%.3f", station_row[23].to_f)
+    states[state][month][day][hour]["et0_T_+10%_and_Td_-10%"] << sprintf("%.3f", station_row[24].to_f)
+    states[state][month][day][hour]["et0_T_-5%_and_Td_+5%"] << sprintf("%.3f", station_row[25].to_f)
+    states[state][month][day][hour]["et0_T_-10%_and_Td_+10%"] << sprintf("%.3f", station_row[26].to_f)
   end
 end
 
@@ -66,7 +74,11 @@ states.keys.sort.each do |state|
       "et0_T_and_Td_+5%",
       "et0_T_and_Td_-5%",
       "et0_T_and_Td_+10%",
-      "et0_T_and_Td_-10%"
+      "et0_T_and_Td_-10%",
+      "et0_T_+5%_and_Td_-5%",
+      "et0_T_+10%_and_Td_-10%",
+      "et0_T_-5%_and_Td_+5%",
+      "et0_T_-10%_and_Td_+10%"
     ]
 
     (1..12).each do |month|
@@ -90,6 +102,10 @@ states.keys.sort.each do |state|
             sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_and_Td_-5%"])/states[state][month][day][hour]["et0_T_and_Td_-5%"].size),
             sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_and_Td_+10%"])/states[state][month][day][hour]["et0_T_and_Td_+10%"].size),
             sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_and_Td_-10%"])/states[state][month][day][hour]["et0_T_and_Td_-10%"].size)
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_+5%_and_Td_-5%"])/states[state][month][day][hour]["et0_T_+5%_and_Td_-5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_+10%_and_Td_-10%"])/states[state][month][day][hour]["et0_T_+10%_and_Td_-10%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_-5%_and_Td_+5%"])/states[state][month][day][hour]["et0_T_-5%_and_Td_+5%"].size),
+            sprintf("%.3f", sum(states[state][month][day][hour]["et0_T_-10%_and_Td_+10%"])/states[state][month][day][hour]["et0_T_-10%_and_Td_+10%"].size)
           ]
         end
       end
