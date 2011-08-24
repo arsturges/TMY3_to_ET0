@@ -15,12 +15,6 @@ def determine_temp_ranges(station_id, array_of_station_data)
   end
 end
 
-def constrain_adjustment(original_variable, constraining_variable, adjustment)
-  adjusted_variable = original_variable + adjustment
-  output = [adjusted_variable, constraining_variable].max
-end
-
-
 def create_new_csv_file_populate_and_close(tmy3_array, station_data_array)
   new_file_name = @header1[0]
   puts new_file_name
