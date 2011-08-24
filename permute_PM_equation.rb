@@ -15,6 +15,12 @@ def determine_temp_ranges(station_id, array_of_station_data)
   end
 end
 
+def constrain_adjustment(original_variable, constraining_variable, adjustment)
+  adjusted_variable = original_variable + adjustment
+  output = [adjusted_variable, constraining_variable].max
+end
+
+
 def create_new_csv_file_populate_and_close(tmy3_array, station_data_array)
   new_file_name = @header1[0]
   puts new_file_name
@@ -135,7 +141,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.05,
-          @hourly_dew_point_temp <= hourly_temp ? @hourly_dew_point_temp : hourly_temp,
+          [@hourly_dew_point_temp, hourly_temp].min, #dew point may be forced down to match adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -163,7 +169,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.1,
-          @hourly_dew_point_temp <= hourly_temp ? @hourly_dew_point_temp : hourly_temp,
+          [@hourly_dew_point_temp, hourly_temp].min, #dew point may be forced down to match adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -177,7 +183,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           @hourly_temp,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 <= @hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 : @hourly_temp,
+          [@hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05, @hourly_temp].min, #dew point is upwardly constrained by temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -205,7 +211,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           @hourly_temp,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 <= @hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 : @hourly_temp,
+          [@hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1, @hourly_temp].min, #dew point is upwardly constrained by temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -233,7 +239,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp + hash_of_ranges[:temp_range] * 0.05,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 <= hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 : hourly_temp,
+          [@hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05, hourly_temp].min, #upwardly constrained by adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -247,7 +253,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.05,
-          @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.05 <= hourly_temp ? @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.05 : hourly_temp,
+          [@hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.05, hourly_temp].min, #upwardly constrained by adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -261,7 +267,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp + hash_of_ranges[:temp_range] * 0.1,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 <= hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 : hourly_temp,
+          [@hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1, hourly_temp].min, #upwardly constrained by adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -275,7 +281,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.1,
-          @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.1 <= hourly_temp ? @hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.1 : hourly_temp,
+          [@hourly_dew_point_temp - hash_of_ranges[:dew_point_range] * 0.1, hourly_temp].min, #upwardly constrained by adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -317,7 +323,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.05,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 <= hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05 : hourly_temp,
+          [@hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.05, hourly_temp].min, #dew point upwardly constrained by adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
@@ -331,7 +337,7 @@ def compute_et0_perturbations(hash_of_ranges)
           @day,
           @hour,
           hourly_temp = @hourly_temp - hash_of_ranges[:temp_range] * 0.1,
-          @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 <= hourly_temp ? @hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1 : hourly_temp,
+          [@hourly_dew_point_temp + hash_of_ranges[:dew_point_range] * 0.1, hourly_temp].min, #dew point upwardly constrained by adjusted temp
           @hourly_wind_speed,
           @hourly_global_horizontal_irradiance,
           @hourly_direct_normal_irradiance,
